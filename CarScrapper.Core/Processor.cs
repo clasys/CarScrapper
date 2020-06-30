@@ -15,24 +15,24 @@ namespace CarScrapper.Core
     public class Processor
     {
         private ProcessingPreferences _preferences;
-        private ScrapingBrowser _browser = new ScrapingBrowser();
+        //private ScrapingBrowser _browser = new ScrapingBrowser();
 
-        public void Test()
-        {
-            ScrapingBrowser browser = new ScrapingBrowser();
-            WebPage homePage = browser.NavigateToPage(new Uri("https://www.flemingtonbmw.com/searchnew.aspx?Model=X3&pn=100"));
+        //public void Test()
+        //{
+        //    ScrapingBrowser browser = new ScrapingBrowser();
+        //    WebPage homePage = browser.NavigateToPage(new Uri("https://www.flemingtonbmw.com/searchnew.aspx?Model=X3&pn=100"));
 
-            /*PageWebForm form = homePage.FindFormById("sb_form");
-            form["q"] = "scrapysharp";
-            form.Method = HttpVerb.Get;
-            WebPage resultsPage = form.Submit();*/
+        //    /*PageWebForm form = homePage.FindFormById("sb_form");
+        //    form["q"] = "scrapysharp";
+        //    form.Method = HttpVerb.Get;
+        //    WebPage resultsPage = form.Submit();*/
 
-            //HtmlNode[] resultsLinks = homePage.Html.CssSelect("div.srpRow-5UXTY5C00L9B76207").ToArray();
-            var rows = homePage.Html.SelectNodes(".//div[contains(@id, 'srpRow')]");
+        //    //HtmlNode[] resultsLinks = homePage.Html.CssSelect("div.srpRow-5UXTY5C00L9B76207").ToArray();
+        //    var rows = homePage.Html.SelectNodes(".//div[contains(@id, 'srpRow')]");
 
-            //WebPage blogPage = resultsPage.FindLinks(By.Text("romcyber blog | Just another WordPress site")).Single().Click();
-            Debugger.Break();
-        }
+        //    //WebPage blogPage = resultsPage.FindLinks(By.Text("romcyber blog | Just another WordPress site")).Single().Click();
+        //    Debugger.Break();
+        //}
 
         public Processor(ProcessingPreferences preferences)
         {
@@ -45,12 +45,14 @@ namespace CarScrapper.Core
 
             foreach (var dealer in _preferences.ProcessingSelector.GetDealers())
             {
-                var page = _browser.NavigateToPage(new Uri(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails()));
+                //var page = _browser.NavigateToPageAsync(new Uri(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails())).Result;
+                HtmlDocument doc = new HtmlWeb().Load(new Uri(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails()));
 
                 HtmlNodeCollection rows = null;
                 foreach (var rowSelector in _preferences.ProcessingSelector.GetRowSelectors())
                 {
-                    rows = page.Html.SelectNodes(rowSelector);
+                    //rows = page.Html.SelectNodes(rowSelector);
+                    rows = doc.DocumentNode.SelectNodes(rowSelector);
                     if (rows != null)
                         break;
                 }

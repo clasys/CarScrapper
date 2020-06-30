@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarScrapper.Core", "CarScra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarScrapper.Core.Tests", "CarScrapper.Core.Tests\CarScrapper.Core.Tests.csproj", "{74BD4BD0-D087-4697-9527-EA9298585E16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarScrapper.Web", "CarScrapper.Web\CarScrapper.Web.csproj", "{B0A56D0E-1BA0-47F9-9F3C-FC5370F23956}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{74BD4BD0-D087-4697-9527-EA9298585E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74BD4BD0-D087-4697-9527-EA9298585E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74BD4BD0-D087-4697-9527-EA9298585E16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A56D0E-1BA0-47F9-9F3C-FC5370F23956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A56D0E-1BA0-47F9-9F3C-FC5370F23956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A56D0E-1BA0-47F9-9F3C-FC5370F23956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A56D0E-1BA0-47F9-9F3C-FC5370F23956}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

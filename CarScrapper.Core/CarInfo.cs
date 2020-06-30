@@ -1,5 +1,8 @@
-﻿namespace CarScrapper.Core
+﻿using System;
+
+namespace CarScrapper.Core
 {
+    [Serializable]
     public class CarInfo
     {
         public string WebSite { get; set; }

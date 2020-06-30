@@ -10,7 +10,7 @@ namespace CarScrapper.Core
 {
     public abstract class BaseSelector : ISelector
     {
-        private const string CONFIG_PATH = @"Config/Dealers.json";
+        //private const string CONFIG_PATH = @"Config/Dealers.json";
         internal readonly string Make;
         internal readonly string Model;
         internal List<DealerInfo> DealersBase = new List<DealerInfo>();
@@ -28,7 +28,8 @@ namespace CarScrapper.Core
         {
             try
             {
-                var config = JObject.Parse(File.ReadAllText(CONFIG_PATH));
+                var configPath = new FileInfo(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).AbsolutePath).Directory.FullName + "\\Config\\dealers.json";
+                var config = JObject.Parse(File.ReadAllText(configPath));
                 foreach (var dealer in ((JArray)config["dealers"]).Where(a=>((string)a["make"]).ToLower() == Make.ToLower()))
                 {
                     DealersBase.Add(new DealerInfo
