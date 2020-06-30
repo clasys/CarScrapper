@@ -42,6 +42,33 @@ namespace CarScrapper.Web
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
+        /// cbDealerOn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbDealerOn;
+
+        /// <summary>
+        /// cbDealerInspire control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbDealerInspire;
+
+        /// <summary>
+        /// lblCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCount;
+
+        /// <summary>
         /// grid1 control.
         /// </summary>
         /// <remarks>

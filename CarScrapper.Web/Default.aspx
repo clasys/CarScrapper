@@ -85,7 +85,10 @@
     Model:
     <asp:TextBox runat="server" ID="tbModel" AutoPostBack="false"></asp:TextBox>
     <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
+    <asp:CheckBox runat="server" ID="cbDealerOn" Checked="true" />include DealerOn sites
+    <asp:CheckBox runat="server" ID="cbDealerInspire" Checked="false" />include DealerInspire sites
     <br /><br />
+    <asp:Label runat="server" EnableViewState="true" ID="lblCount" Text="0" />
     <asp:GridView 
         ID="grid1" 
         runat="server" 

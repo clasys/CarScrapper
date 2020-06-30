@@ -1,4 +1,5 @@
 ﻿using CarScrapper.Core;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,12 @@ namespace CarScrapper.Web
     {
         private const string SORT_KEY= "__sort_dir";
         private const string RESULTS_KEY = "__results";
+        private DateTime _startTime;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _startTime = DateTime.Now;
+
             if (!IsPostBack)
                 ViewState[SORT_KEY] = "ASC";
         }
@@ -24,6 +28,8 @@ namespace CarScrapper.Web
             var results = (IList<CarInfo>)ViewState[RESULTS_KEY];
             grid1.DataSource = results;
             grid1.DataBind();
+            lblCount.Text = String.Format("{0} ({1} s)", results.Count().ToString(), Math.Round((DateTime.Now - _startTime).TotalSeconds, 2));
+
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -31,9 +37,23 @@ namespace CarScrapper.Web
             if (!string.IsNullOrEmpty(tbMake.Text) &&
                 !string.IsNullOrEmpty(tbModel.Text))
             {
-                var prefs = new ProcessingPreferences(new DealerOnSelector(tbMake.Text, tbModel.Text));
-                var processor = new Processor(prefs);
-                var results = processor.Scrap();
+                var results = new List<CarInfo>();
+
+                if (cbDealerOn.Checked)
+                {
+                    var prefs = new ProcessingPreferences(new DealerOnSelector(tbMake.Text, tbModel.Text));
+                    var processor = new Processor(prefs);
+                    processor.Scrap().ForEach(a=> { results.Add(a); });
+                }
+
+                if (cbDealerInspire.Checked)
+                {
+                    var prefs = new ProcessingPreferences(new DealerInspireSelector(tbMake.Text, tbModel.Text));
+                    var processor = new Processor(prefs);
+                    processor.Scrap().ForEach(a => { results.Add(a); });
+                }
+                
+                
                 ViewState[RESULTS_KEY] = results;
                 BindGrid();
             }
