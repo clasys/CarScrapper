@@ -62,10 +62,21 @@ namespace CarScrapper.Core
                     rows.ToList().ForEach(row => {
                         var carInfo = selector.ParseHtmlIntoCarInfo(row);
                         carInfo.WebSite = site;
+
                         var map = selector.GetCleanupMap();
                         if (map != null)
                         {
                             map.ForEach(e => { carInfo.GetType().GetProperty(e.Item1).SetValue(carInfo, carInfo.GetType().GetProperty(e.Item1).GetValue(carInfo)?.ToString().Replace(e.Item2, "").Trim()); });
+                        }
+
+                        var regexMap = selector.GetRegexMap();
+                        if (regexMap != null)
+                        {
+                            regexMap.ForEach(a => 
+                            { 
+                                if(carInfo.GetType().GetProperty(a.Item1).GetValue(carInfo) != null)
+                                    carInfo.GetType().GetProperty(a.Item1).SetValue(carInfo, a.Item2.Replace(carInfo.GetType().GetProperty(a.Item1).GetValue(carInfo)?.ToString(), " ").Trim()); 
+                            });
                         }
 
                         result.Add(carInfo);

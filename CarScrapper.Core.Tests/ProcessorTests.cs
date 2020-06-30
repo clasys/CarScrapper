@@ -38,7 +38,7 @@ namespace CarScrapper.Core.Tests
                {
                     "https://www.raycatenaedison.com",
                     "https://www.mbprinceton.com",
-                    "https://www.raycatenaunion.com/",
+                    "https://www.raycatenaunion.com"
                },
                new DealerInspireSelector("Mercedes-Benz", "GLC"));
 

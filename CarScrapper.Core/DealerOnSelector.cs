@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CarScrapper.Core
@@ -70,6 +71,11 @@ namespace CarScrapper.Core
                 ModelCode = entries.Where(a => a.Contains(GetModelCodeIdentifier())).FirstOrDefault()?.Replace(GetModelCodeIdentifier(), "").Trim(),
                 Transmission = entries.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), "").Trim()
             };
+        }
+
+        public List<Tuple<string, Regex>> GetRegexMap()
+        {
+            return null;
         }
     }
 }
