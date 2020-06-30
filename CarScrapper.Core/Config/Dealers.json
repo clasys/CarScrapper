@@ -1,0 +1,120 @@
+{
+  "dealers": [
+    //*********************** DEALERINSPIRE **********************************************
+    //BMW
+    {
+      "make": "BMW",
+      "name": "BMW of Springfield",
+      "url": "https://www.bmwofspringfieldnj.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Tenafly",
+      "url": "https://www.bmwoftenafly.com",
+      "dealertype": "DealerInspire"
+    },
+
+    {
+      "make": "BMW",
+      "name": "BMW of Turnersville",
+      "url": "https://www.bmwofturnersville.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Atlantic City",
+      "url": "https://www.bmwatlanticcity.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Greenwich",
+      "url": "https://www.bmwofgreenwich.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "Continental BMW of Darien",
+      "url": "https://www.bmwdarien.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Ridgefield",
+      "url": "https://www.bmwofridgefield.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Bridgeport",
+      "url": "https://www.bmwofbridgeport.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of North Haven",
+      "url": "https://www.bmwofnorthhaven.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "Otto \\'s BMW",
+      "url": "https://www.ottosbmw.com",
+      "dealertype": "DealerInspire"
+    },
+
+    //*********************** DEALERON **********************************************
+    {
+      "make": "BMW",
+      "name": "Flemington BMW",
+      "url": "https://www.flemingtonbmw.com",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Edison",
+      "url": "https://www.bmwedison.com",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Hudson Valley",
+      "url": "https://www.bmwhudsonvalley.com/",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "BMW",
+      "name": "Morristown BMW",
+      "url": "https://www.morristownbmw.com",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Roxbury",
+      "url": "https://www.bmwrox.com",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Newton",
+      "url": "https://www.bmwnewton.com",
+      "dealertype": "DealerOn"
+    },
+
+    //Mercedes Benz
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Caldwell",
+      "url": "https://www.mbofcaldwell.com/",
+      "dealertype": "DealerOn"
+    }
+  ]
+}
+
+//{
+    //  "make": "BMW",
+    //  "name": "Circle BMW",
+    //  "url": "https://www.circlebmw.com",
+    //  "dealertype": "DealerInspire"
+    //},

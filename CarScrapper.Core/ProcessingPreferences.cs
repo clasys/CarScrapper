@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CarScrapper.Core
 {
     public class ProcessingPreferences
     {
-        public ProcessingPreferences(IList<string> uris, ISelector processingSelector)
+        public ProcessingPreferences(ISelector processingSelector)
         {
-            Uris = uris;
             ProcessingSelector = processingSelector;
         }
 
         public ISelector ProcessingSelector { get; }
-
-        public IList<string> Uris { get; }
     }
 }

@@ -17,7 +17,7 @@ namespace CarScrapper.Core
         string GetExtColorIdentifier();
         string GetIntColorIdentifier();
         string GetModelIdentifier();
-        string GetUriDetails();
+        string GetUrlDetails();
         string GetEngineIdentifier();
         string GetDriveTypeIdentifier();
         string GetStockNumberIdentifier();
@@ -29,5 +29,6 @@ namespace CarScrapper.Core
         List<Tuple<string, string>> GetCleanupMap();
         List<Tuple<string, Regex>> GetRegexMap();
         CarInfo ParseHtmlIntoCarInfo(HtmlNode node);
+        List<DealerInfo> GetDealers();
     }
 }

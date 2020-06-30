@@ -43,9 +43,9 @@ namespace CarScrapper.Core
         {
             List<CarInfo> result = new List<CarInfo>();
 
-            foreach (var site in _preferences.Uris)
+            foreach (var dealer in _preferences.ProcessingSelector.GetDealers())
             {
-                var page = _browser.NavigateToPage(new Uri(site + _preferences.ProcessingSelector.GetUriDetails()));
+                var page = _browser.NavigateToPage(new Uri(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails()));
 
                 HtmlNodeCollection rows = null;
                 foreach (var rowSelector in _preferences.ProcessingSelector.GetRowSelectors())
@@ -61,7 +61,8 @@ namespace CarScrapper.Core
 
                     rows.ToList().ForEach(row => {
                         var carInfo = selector.ParseHtmlIntoCarInfo(row);
-                        carInfo.WebSite = site;
+                        carInfo.WebSite = dealer.Url;
+                        carInfo.DealerName = dealer.Name;
 
                         var map = selector.GetCleanupMap();
                         if (map != null)

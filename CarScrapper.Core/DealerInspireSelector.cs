@@ -10,25 +10,23 @@ using System.Xml.Schema;
 
 namespace CarScrapper.Core
 {
-    public class DealerInspireSelector : ISelector
+    public class DealerInspireSelector : BaseSelector
     {
-        private readonly string _make;
-        private readonly string _model;
+        private readonly List<DealerInfo> _dealers;
 
-        public DealerInspireSelector(string make, string model)
+        public DealerInspireSelector(string make, string model) : base(make, model)
         {
-            _make = make;
-            _model = model;
+            _dealers = base.DealersBase.Where(a => a.Type == "DealerInspire").ToList();
         }
 
-        public string GetBodyStyleIdentifier()
+        public override string GetBodyStyleIdentifier()
         {
             throw new NotImplementedException();
         }
 
-        public string GetCarUrlIdentifier(){ return ".//a"; }
+        public override string GetCarUrlIdentifier(){ return ".//a"; }
 
-        public List<Tuple<string, string>> GetCleanupMap()
+        public override List<Tuple<string, string>> GetCleanupMap()
         {
             return new List<Tuple<string, string>>
             {
@@ -49,44 +47,44 @@ namespace CarScrapper.Core
             };
         }
 
-        public string GetDriveTypeIdentifier() { return ".//span[@class='detail-label']"; }
+        public override string GetDriveTypeIdentifier() { return ".//span[@class='detail-label']"; }
 
-        public string GetEngineIdentifier()
+        public override string GetEngineIdentifier()
         {
             throw new NotImplementedException();
         }
 
-        public string GetExtColorIdentifier(){ return ".//span[@class='detail-label']"; }
+        public override string GetExtColorIdentifier(){ return ".//span[@class='detail-label']"; }
 
-        public string[] GetInfoSeparator()
+        public override string[] GetInfoSeparator()
         {
             //return new[] { "\n", "\t" };
             return new[] { "\n" };
         }
 
-        public string GetIntColorIdentifier(){ return ".//span[@class='detail-label']"; }
+        public override string GetIntColorIdentifier(){ return ".//span[@class='detail-label']"; }
 
-        public string GetMakeIdentifier()
+        public override string GetMakeIdentifier()
         {
-            return _make;
+            return Make;
         }
 
-        public string GetModelCodeIdentifier()
+        public override string GetModelCodeIdentifier()
         {
             throw new NotImplementedException();
         }
 
-        public string GetModelIdentifier()
+        public override string GetModelIdentifier()
         {
-            return _model;
+            return Model;
         }
 
-        public string GetMsrpIdentifier()
+        public override string GetMsrpIdentifier()
         {
             return ".//span[@class='price']";
         }
 
-        public string[] GetRowSelectors()
+        public override string[] GetRowSelectors()
         {
             return new[]
             {
@@ -95,18 +93,18 @@ namespace CarScrapper.Core
             };
         }
 
-        public string GetStockNumberIdentifier() { return ".//span[@class='stock-label']"; }
+        public override string GetStockNumberIdentifier() { return ".//span[@class='stock-label']"; }
 
-        public string GetTransmissionIdentifier() { return ".//span[@class='detail-label']"; }
+        public override string GetTransmissionIdentifier() { return ".//span[@class='detail-label']"; }
 
-        public string GetUriDetails()
+        public override string GetUrlDetails()
         {
             return string.Format("/new-vehicles/{0}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", GetModelIdentifier());
         }
 
-        public string GetVinIdentifier() { return "VIN:"; }
+        public override string GetVinIdentifier() { return "VIN:"; }
 
-        public List<Tuple<string, Regex>> GetRegexMap()
+        public override List<Tuple<string, Regex>> GetRegexMap()
         {
             return new List<Tuple<string, Regex>>
             {
@@ -117,7 +115,7 @@ namespace CarScrapper.Core
             };
         }
 
-        public CarInfo ParseHtmlIntoCarInfo(HtmlNode node)
+        public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node)
         {
             var entries = node.InnerText?.Split(GetInfoSeparator(), StringSplitOptions.RemoveEmptyEntries);
             return new CarInfo
@@ -140,6 +138,11 @@ namespace CarScrapper.Core
                 //ModelCode = entries.Where(a => a.Contains(GetModelCodeIdentifier())).FirstOrDefault()?.Replace(GetModelCodeIdentifier(), "").Trim(),
 
             };
+        }
+
+        public override List<DealerInfo> GetDealers()
+        {
+            return _dealers;
         }
 
         private string GetVin(string[] entries, HtmlNode node)

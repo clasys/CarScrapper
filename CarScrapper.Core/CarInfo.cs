@@ -16,5 +16,6 @@
         public string BodyStyle { get; set; }
         public string ModelCode { get; set; }
         public string Transmission { get; set; }
+        public string DealerName { get; set; }
     }
 }

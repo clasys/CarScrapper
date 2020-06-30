@@ -12,16 +12,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerOn()
         {
-            var preferences = new ProcessingPreferences(
-                new List<string>()
-                {
-                    "https://www.flemingtonbmw.com",
-                    "https://www.bmwedison.com",
-                    "https://www.bmwhudsonvalley.com/",
-                    "https://www.mbofcaldwell.com/"
-                },
-                new DealerOnSelector("BMW", "X1"));
-
+            var preferences = new ProcessingPreferences(new DealerOnSelector("BMW", "X2"));
             var processor = new Processor(preferences);
             var start = DateTime.Now;
             var result = processor.Scrap();
@@ -33,15 +24,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerInspire()
         {
-            var preferences = new ProcessingPreferences(
-               new List<string>()
-               {
-                    "https://www.raycatenaedison.com",
-                    "https://www.mbprinceton.com",
-                    "https://www.raycatenaunion.com"
-               },
-               new DealerInspireSelector("Mercedes-Benz", "GLC"));
-
+            var preferences = new ProcessingPreferences(new DealerInspireSelector("BMW", "X1"));
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 

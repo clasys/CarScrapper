@@ -9,40 +9,38 @@ using System.Threading.Tasks;
 
 namespace CarScrapper.Core
 {
-    public class DealerOnSelector : ISelector
+    public class DealerOnSelector : BaseSelector
     {
-        private readonly string _make;
-        private readonly string _model;
+        private readonly List<DealerInfo> _dealers;
 
-        public DealerOnSelector(string make, string model)
+        public DealerOnSelector(string make, string model) : base(make, model)
         {
-            _make = make;
-            _model = model;
+            _dealers = base.DealersBase.Where(a => a.Type == "DealerOn").ToList();
         }
 
-        public string GetExtColorIdentifier() { return "Ext. Color:"; }
-        public string[] GetInfoSeparator() { return new[] { "\r", "VIN" }; }
-        public string GetIntColorIdentifier() { return "Int. Color:"; }
-        public string GetMakeIdentifier() { return _make; }
-        public string GetModelIdentifier() { return _model; }
-        public string GetMsrpIdentifier() { return "MSRP"; }
-        public string[] GetRowSelectors() 
+        public override string GetExtColorIdentifier() { return "Ext. Color:"; }
+        public override string[] GetInfoSeparator() { return new[] { "\r", "VIN" }; }
+        public override string GetIntColorIdentifier() { return "Int. Color:"; }
+        public override string GetMakeIdentifier() { return Make; }
+        public override string GetModelIdentifier() { return Model; }
+        public override string GetMsrpIdentifier() { return "MSRP"; }
+        public override string[] GetRowSelectors() 
         { 
             return new[] 
             { 
                 ".//div[contains(@id, 'srpRow')]" 
             }; 
         }
-        public string GetUriDetails() { return string.Format("/searchnew.aspx?Model={0}&pn=100", GetModelIdentifier()); }
-        public string GetEngineIdentifier() { return "Engine:"; }
-        public string GetDriveTypeIdentifier() { return "Drive Type:"; }
-        public string GetStockNumberIdentifier() { return "Stock #:"; }
-        public string GetVinIdentifier() { return " #:"; }
-        public string GetCarUrlIdentifier() { return ".//a[contains(@class, 'stat-text-link')]"; }
-        public string GetBodyStyleIdentifier() { return "Body Style:"; }
-        public string GetModelCodeIdentifier() { return "Model Code:"; }
-        public string GetTransmissionIdentifier() { return "Transmission:"; }
-        public List<Tuple<string, string>> GetCleanupMap()
+        public override string GetUrlDetails() { return string.Format("/searchnew.aspx?Model={0}&pn=100&st=Price+desc", GetModelIdentifier()); }
+        public override string GetEngineIdentifier() { return "Engine:"; }
+        public override string GetDriveTypeIdentifier() { return "Drive Type:"; }
+        public override string GetStockNumberIdentifier() { return "Stock #:"; }
+        public override string GetVinIdentifier() { return " #:"; }
+        public override string GetCarUrlIdentifier() { return ".//a[contains(@class, 'stat-text-link')]"; }
+        public override string GetBodyStyleIdentifier() { return "Body Style:"; }
+        public override string GetModelCodeIdentifier() { return "Model Code:"; }
+        public override string GetTransmissionIdentifier() { return "Transmission:"; }
+        public override List<Tuple<string, string>> GetCleanupMap()
         {
             return new List<Tuple<string, string>>
             {
@@ -51,7 +49,7 @@ namespace CarScrapper.Core
             };
         }
 
-        public CarInfo ParseHtmlIntoCarInfo(HtmlNode node)
+        public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node)
         {
             var entries = node.InnerText?.Split(GetInfoSeparator(), StringSplitOptions.RemoveEmptyEntries);
             return new CarInfo
@@ -73,9 +71,14 @@ namespace CarScrapper.Core
             };
         }
 
-        public List<Tuple<string, Regex>> GetRegexMap()
+        public override List<Tuple<string, Regex>> GetRegexMap()
         {
             return null;
+        }
+
+        public override List<DealerInfo> GetDealers()
+        {
+            return _dealers;
         }
     }
 }
