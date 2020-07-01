@@ -47,7 +47,24 @@ namespace CarScrapper.Core
             {
                 //var page = _browser.NavigateToPageAsync(new Uri(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails())).Result;
                 HtmlDocument doc = new HtmlWeb().Load(new Uri(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails()));
+                var pagingInfo = _preferences.ProcessingSelector.GetPagingInfo(doc);
 
+                if (pagingInfo.IsEnabled)
+                    result.AddRange(ScrapMultiple(pagingInfo, dealer));
+                
+            }
+
+            //remove dupes created by different page sizes on different websites
+            return result.GroupBy(a=> a.VIN).Select(a=>a.First()).ToList();
+        }
+
+        private List<CarInfo> ScrapMultiple(PagingInfo pagingInfo, DealerInfo dealer)
+        {
+            var result = new List<CarInfo>();
+
+            foreach (var pagedUrl in pagingInfo.PagedUrls)
+            {
+                HtmlDocument doc = new HtmlWeb().Load(new Uri(dealer.Url + pagedUrl));
                 HtmlNodeCollection rows = null;
                 foreach (var rowSelector in _preferences.ProcessingSelector.GetRowSelectors())
                 {
@@ -61,24 +78,23 @@ namespace CarScrapper.Core
                 {
                     var selector = _preferences.ProcessingSelector;
 
-                    rows.ToList().ForEach(row => {
+                    rows.ToList().ForEach(row =>
+                    {
                         var carInfo = selector.ParseHtmlIntoCarInfo(row, dealer);
                         carInfo.WebSite = dealer.Url;
                         carInfo.DealerName = dealer.Name;
 
                         var map = selector.GetCleanupMap();
                         if (map != null)
-                        {
                             map.ForEach(e => { carInfo.GetType().GetProperty(e.Item1).SetValue(carInfo, carInfo.GetType().GetProperty(e.Item1).GetValue(carInfo)?.ToString().Replace(e.Item2, "").Trim()); });
-                        }
 
                         var regexMap = selector.GetRegexMap();
                         if (regexMap != null)
                         {
-                            regexMap.ForEach(a => 
-                            { 
-                                if(carInfo.GetType().GetProperty(a.Item1).GetValue(carInfo) != null)
-                                    carInfo.GetType().GetProperty(a.Item1).SetValue(carInfo, a.Item2.Replace(carInfo.GetType().GetProperty(a.Item1).GetValue(carInfo)?.ToString(), " ").Trim()); 
+                            regexMap.ForEach(a =>
+                            {
+                                if (carInfo.GetType().GetProperty(a.Item1).GetValue(carInfo) != null)
+                                    carInfo.GetType().GetProperty(a.Item1).SetValue(carInfo, a.Item2.Replace(carInfo.GetType().GetProperty(a.Item1).GetValue(carInfo)?.ToString(), " ").Trim());
                             });
                         }
 

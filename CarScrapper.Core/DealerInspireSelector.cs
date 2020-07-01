@@ -115,6 +115,16 @@ namespace CarScrapper.Core
             };
         }
 
+        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument)
+        {
+            //no paging logic yet, return original URL for scrapping
+            return new PagingInfo
+            {
+                IsEnabled = true,
+                PagedUrls = new List<string>() { GetUrlDetails() }
+            };
+        }
+
         public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer)
         {
             var entries = node.InnerText?.Split(GetInfoSeparators(), StringSplitOptions.RemoveEmptyEntries);

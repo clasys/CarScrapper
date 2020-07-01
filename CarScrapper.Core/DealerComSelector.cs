@@ -54,29 +54,56 @@ namespace CarScrapper.Core
         }
         public override string GetVinIdentifier() { return "ff_vin"; }
 
+        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument)
+        {
+            var urls = new List<string>();
+            urls.Add(string.Format("{0}&start=1", GetUrlDetails()));
+
+            var entry = htmlDocument.DocumentNode.SelectSingleNode(".//span[contains(text(), 'Page')]")?.InnerText;
+            if (entry != null)
+            {
+                var matches = Regex.Matches(entry, "\\d+");
+
+                if (matches.Count != 2)
+                    return new PagingInfo { IsEnabled = false };
+
+                int iStart = int.Parse(matches[0].Value);
+                int iEnd = int.Parse(matches[1].Value);
+
+                for (int i = iStart; i <= iEnd; i++)
+                {
+                    urls.Add(string.Format("{0}&start={1}", GetUrlDetails(), int.Parse(i + "0")));
+                }
+            }
+
+            return new PagingInfo
+            {
+                IsEnabled = true,
+                PagedUrls = urls
+            };
+        }
+
         public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer)
         {
             var description = node.Descendants("div").Where(a => a.Attributes.Contains("class") && a.Attributes["class"].Value == "description").FirstOrDefault();
             var entries = description?.InnerText.Split(GetInfoSeparators(), StringSplitOptions.RemoveEmptyEntries);
             //var anotherDiv = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
 
-            var carInfo = new CarInfo
-            {
-                Make = Make,
-                Model = GetModel(node),
-                Engine = entries.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), string.Empty).Trim(),
-                Transmission = entries.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), string.Empty).Trim(),
-                DriveType = entries.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty).Trim(),
-                ExteriorColor = entries.Where(a => a.Contains(GetExtColorIdentifier())).FirstOrDefault()?.Replace(GetExtColorIdentifier(), string.Empty).Trim(),
-                InteriorColor = entries.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), string.Empty).Trim(),
-                StockNumber = entries.Where(a => a.Contains(GetStockNumberIdentifier())).FirstOrDefault()?.Replace(GetStockNumberIdentifier(), string.Empty).Trim(),
-                MSRP = node.SelectNodes(GetMsrpIdentifier())?.FirstOrDefault()?.ChildNodes[1].InnerText,
-                VIN = GetVIN(node),
-                BodyStyle = GetBodyStyle(node),
-                URL = string.Format("{0}/{1}",
-                    dealer.Url,
-                    node.SelectNodes(".//a[contains(@href,'/new/')]").FirstOrDefault()?.Attributes["href"].Value)
-            };
+            var carInfo = new CarInfo();
+            carInfo.Make = Make;
+            carInfo.Model = GetModel(node);
+            carInfo.Engine = entries.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), string.Empty).Trim();
+            carInfo.Transmission = entries.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), string.Empty).Trim();
+            carInfo.DriveType = entries.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty).Trim();
+            carInfo.ExteriorColor = entries.Where(a => a.Contains(GetExtColorIdentifier())).FirstOrDefault()?.Replace(GetExtColorIdentifier(), string.Empty).Trim();
+            carInfo.InteriorColor = entries.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), string.Empty).Trim();
+            carInfo.StockNumber = entries.Where(a => a.Contains(GetStockNumberIdentifier())).FirstOrDefault()?.Replace(GetStockNumberIdentifier(), string.Empty).Trim();
+            carInfo.MSRP = node.SelectNodes(GetMsrpIdentifier())?.FirstOrDefault()?.ChildNodes[1].InnerText;
+            carInfo.VIN = GetVIN(node);
+            carInfo.BodyStyle = GetBodyStyle(node);
+            carInfo.URL = string.Format("{0}/{1}",
+                dealer.Url,
+                node.SelectNodes(".//a[contains(@href,'/new/')]")?.FirstOrDefault()?.Attributes["href"].Value);
 
             return carInfo;
         }

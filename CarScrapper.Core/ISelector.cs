@@ -30,5 +30,6 @@ namespace CarScrapper.Core
         List<Tuple<string, Regex>> GetRegexMap();
         CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer);
         List<DealerInfo> GetDealers();
+        PagingInfo GetPagingInfo(HtmlDocument htmlDocument);
     }
 }
