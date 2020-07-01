@@ -82,8 +82,8 @@
     <br /><br />
 
     <table border="0" cellpadding="8" cellspacing="0">
-        <tr >
-            <td style="text-align:left;width:20%;">
+        <tr>
+            <td style="text-align:left;width:50;text-wrap:none;">
                 Make:
                 <asp:TextBox runat="server" ID="tbMake" AutoPostBack="false"></asp:TextBox>
                 Model:

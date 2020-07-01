@@ -35,7 +35,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerCom()
         {
-            var preferences = new ProcessingPreferences(new DealerComSelector("GMC", "Acadia"));
+            var preferences = new ProcessingPreferences(new DealerComSelector("Volvo", "XC60"));
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 

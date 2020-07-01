@@ -23,7 +23,7 @@ namespace CarScrapper.Web
             {
                 ViewState[SORT_KEY] = "ASC";
                 var dealers = Util.GetDealers();
-                dealers.OrderBy(a => a.Name).Select(a => a.Name).ForEach(a => { tbDealerList.Text += "\n" + a; });
+                dealers.OrderBy(a => a.Name).Select(a => a.Name).Distinct().ForEach(a => { tbDealerList.Text += "\n" + a; });
                 dealers.OrderBy(a => a.Make).Select(a => a.Make).Distinct().ForEach(a => { tbMakesList.Text += "\n" + a; });
             }
         }

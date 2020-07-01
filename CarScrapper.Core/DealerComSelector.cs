@@ -58,14 +58,12 @@ namespace CarScrapper.Core
         {
             var description = node.Descendants("div").Where(a => a.Attributes.Contains("class") && a.Attributes["class"].Value == "description").FirstOrDefault();
             var entries = description?.InnerText.Split(GetInfoSeparators(), StringSplitOptions.RemoveEmptyEntries);
-            var anotherDiv = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
+            //var anotherDiv = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
 
             var carInfo = new CarInfo
             {
                 Make = Make,
-                Model = string.Format("{0} {1}",
-                    anotherDiv?.Attributes.Where(a => a.Name.Equals("ff_model")).FirstOrDefault()?.Value,
-                    anotherDiv?.Attributes.Where(a => a.Name.Equals("ff_trim")).FirstOrDefault()?.Value),
+                Model = GetModel(node),
                 Engine = entries.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), string.Empty).Trim(),
                 Transmission = entries.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), string.Empty).Trim(),
                 DriveType = entries.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty).Trim(),
@@ -73,14 +71,49 @@ namespace CarScrapper.Core
                 InteriorColor = entries.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), string.Empty).Trim(),
                 StockNumber = entries.Where(a => a.Contains(GetStockNumberIdentifier())).FirstOrDefault()?.Replace(GetStockNumberIdentifier(), string.Empty).Trim(),
                 MSRP = node.SelectNodes(GetMsrpIdentifier())?.FirstOrDefault()?.ChildNodes[1].InnerText,
-                VIN = anotherDiv?.Attributes.Where(a => a.Name.Equals(GetVinIdentifier())).FirstOrDefault()?.Value,
-                BodyStyle = anotherDiv?.Attributes.Where(a => a.Name.Equals(GetBodyStyleIdentifier())).FirstOrDefault()?.Value,
+                VIN = GetVIN(node),
+                BodyStyle = GetBodyStyle(node),
                 URL = string.Format("{0}/{1}",
                     dealer.Url,
                     node.SelectNodes(".//a[contains(@href,'/new/')]").FirstOrDefault()?.Attributes["href"].Value)
             };
 
             return carInfo;
+        }
+
+        private string GetBodyStyle(HtmlNode node)
+        {
+            var div = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
+            return div?.Attributes.Where(a => a.Name.Equals(GetBodyStyleIdentifier())).FirstOrDefault()?.Value;
+        }
+
+        private string GetModel(HtmlNode node)
+        {
+            var div = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
+            var result = string.Format("{0} {1}",
+                                div?.Attributes.Where(a => a.Name.Equals("ff_model")).FirstOrDefault()?.Value,
+                                div?.Attributes.Where(a => a.Name.Equals("ff_trim")).FirstOrDefault()?.Value);
+
+            //<a class="url" href="/new/Volvo/2020-Volvo-XC60-falls-church-va-015da5050a0e0a6b1bace8b878690fce.htm"> 2020 Volvo XC60 T5 Momentum SUV</a>
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//a[@class='url']")?.FirstOrDefault()?.InnerText?.Trim();
+
+            return result;
+        }
+
+        private string GetVIN(HtmlNode node)
+        {
+            var div = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
+            var result = div?.Attributes.Where(a => a.Name.Equals(GetVinIdentifier())).FirstOrDefault()?.Value;
+            
+            //< div class="les_video" les_vin="YV4102RK6L1601526"></div>
+	        //<div class="tps-roadster-btn" data-condition="new" data-vin="YV4102RK6L1601526"></div>
+	        //<div class="tps-roadster-buildmydeal-btn" data-condition="new" data-vin="YV4102RK6L1601526"></div>
+            
+            if (string.IsNullOrEmpty(result))
+                result = node.SelectNodes(".//div[@class='les_video']")?.FirstOrDefault().GetAttributeValue("les_vin", string.Empty);
+
+            return result;
         }
     }
 }
