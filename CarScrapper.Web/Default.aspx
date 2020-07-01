@@ -80,33 +80,53 @@
         }
     </style>
     <br /><br />
-    Make:
-    <asp:TextBox runat="server" ID="tbMake" AutoPostBack="false"></asp:TextBox>
-    Model:
-    <asp:TextBox runat="server" ID="tbModel" AutoPostBack="false"></asp:TextBox>
-    <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
-    <asp:CheckBox runat="server" ID="cbDealerOn" Checked="true" />include DealerOn sites
-    <asp:CheckBox runat="server" ID="cbDealerInspire" Checked="false" />include DealerInspire sites
-    <asp:CheckBox runat="server" ID="cbDealerCom" Checked="false" />include DealerCom sites
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox runat="server" ID="tbMakesList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Makes available:" />
-    &nbsp;
-    <asp:TextBox runat="server" ID="tbDealerList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Dealers available:" />
-    <br /><br />
-    <asp:Label runat="server" EnableViewState="true" ID="lblCount" Text="0" />
-    <asp:GridView 
-        ID="grid1" 
-        runat="server" 
-        AutoGenerateColumns="true"
-        CssClass="mydatagrid" 
-        PagerStyle-CssClass="pager"
-        HeaderStyle-CssClass="header" 
-        RowStyle-CssClass="rows" 
-        AllowPaging="False" 
-        AllowSorting="true"
-        OnSorting="grid1_Sorting"
-        OnPreRender="grid1_PreRender"
-        OnPageIndexChanging="grid1_PageIndexChanging"></asp:GridView>
+
+    <table border="0" cellpadding="8" cellspacing="0">
+        <tr >
+            <td style="text-align:left;width:20%;">
+                Make:
+                <asp:TextBox runat="server" ID="tbMake" AutoPostBack="false"></asp:TextBox>
+                Model:
+                <asp:TextBox runat="server" ID="tbModel" AutoPostBack="false"></asp:TextBox>
+                <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
+            </td>
+            <td style="text-align:left;">
+                <asp:CheckBox runat="server" ID="cbDealerOn" Checked="true" />include DealerOn sites<br />
+                <asp:CheckBox runat="server" ID="cbDealerInspire" Checked="false" />include DealerInspire sites<br />
+                <asp:CheckBox runat="server" ID="cbDealerCom" Checked="false" />include DealerCom sites
+            </td>
+            <td style="text-align:left;">
+                <asp:TextBox runat="server" ID="tbMakesList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Makes available:" />
+                &nbsp;
+                <asp:TextBox runat="server" ID="tbDealerList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Dealers available:" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <asp:Label runat="server" EnableViewState="true" ID="lblCount" Text="0" />
+                <asp:GridView 
+                    ID="grid1" 
+                    runat="server" 
+                    AutoGenerateColumns="true"
+                    CssClass="mydatagrid" 
+                    PagerStyle-CssClass="pager"
+                    HeaderStyle-CssClass="header" 
+                    RowStyle-CssClass="rows" 
+                    AllowPaging="False" 
+                    AllowSorting="true"
+                    OnSorting="grid1_Sorting"
+                    OnPreRender="grid1_PreRender"
+                    OnPageIndexChanging="grid1_PageIndexChanging"></asp:GridView>
+            </td>
+        </tr>
+    </table>
+
+    
+
+    
+    
+    
+    
 
 
 
