@@ -11,7 +11,7 @@ namespace CarScrapper.Core
     public interface ISelector
     {
         string[] GetRowSelectors();
-        string[] GetInfoSeparator();
+        string[] GetInfoSeparators();
         string GetMsrpIdentifier();
         string GetMakeIdentifier();
         string GetExtColorIdentifier();
@@ -28,7 +28,7 @@ namespace CarScrapper.Core
         string GetTransmissionIdentifier();
         List<Tuple<string, string>> GetCleanupMap();
         List<Tuple<string, Regex>> GetRegexMap();
-        CarInfo ParseHtmlIntoCarInfo(HtmlNode node);
+        CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer);
         List<DealerInfo> GetDealers();
     }
 }

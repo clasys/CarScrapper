@@ -62,7 +62,7 @@ namespace CarScrapper.Core
                     var selector = _preferences.ProcessingSelector;
 
                     rows.ToList().ForEach(row => {
-                        var carInfo = selector.ParseHtmlIntoCarInfo(row);
+                        var carInfo = selector.ParseHtmlIntoCarInfo(row, dealer);
                         carInfo.WebSite = dealer.Url;
                         carInfo.DealerName = dealer.Name;
 

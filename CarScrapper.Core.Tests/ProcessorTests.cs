@@ -31,5 +31,16 @@ namespace CarScrapper.Core.Tests
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Count > 0);
         }
+
+        [TestMethod]
+        public void TestScrapDealerCom()
+        {
+            var preferences = new ProcessingPreferences(new DealerComSelector("GMC", "Acadia"));
+            var processor = new Processor(preferences);
+            var result = processor.Scrap();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Count > 0);
+        }
     }
 }

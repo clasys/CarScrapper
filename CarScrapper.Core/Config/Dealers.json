@@ -173,7 +173,50 @@
       "name": "Tunkhannock Ford",
       "url": "https://www.tunkhannockfordpa.com",
       "dealertype": "DealerOn"
+    },
+
+    //******************************** DEALER COM *********************************************
+
+    //GMC
+    {
+      "make": "GMC",
+      "name": "Ramey Auto Group",
+      "url": "https://www.rameycars.com",
+      "dealertype": "DealerCom"
+    },
+
+    //Chevy
+    {
+      "make": "Chevrolet",
+      "name": "Ramey Auto Group",
+      "url": "https://www.rameycars.com",
+      "dealertype": "DealerCom"
+    },
+
+    //Toyota
+    {
+      "make": "Toyota",
+      "name": "Ramey Auto Group",
+      "url": "https://www.rameycars.com",
+      "dealertype": "DealerCom"
+    },
+
+    //Dodge
+    {
+      "make": "Dodge",
+      "name": "Ramey Auto Group",
+      "url": "https://www.rameycars.com",
+      "dealertype": "DealerCom"
+    },
+
+    //Cadillac
+    {
+      "make": "Cadillac",
+      "name": "Ramey Auto Group",
+      "url": "https://www.rameycars.com",
+      "dealertype": "DealerCom"
     }
+
 
 
 

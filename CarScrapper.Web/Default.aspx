@@ -87,6 +87,7 @@
     <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
     <asp:CheckBox runat="server" ID="cbDealerOn" Checked="true" />include DealerOn sites
     <asp:CheckBox runat="server" ID="cbDealerInspire" Checked="false" />include DealerInspire sites
+    <asp:CheckBox runat="server" ID="cbDealerCom" Checked="false" />include DealerCom sites
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox runat="server" ID="tbMakesList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Makes available:" />
     &nbsp;

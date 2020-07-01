@@ -19,7 +19,7 @@ namespace CarScrapper.Core
         }
 
         public override string GetExtColorIdentifier() { return "Ext. Color:"; }
-        public override string[] GetInfoSeparator() { return new[] { "\r", "VIN" }; }
+        public override string[] GetInfoSeparators() { return new[] { "\r", "VIN" }; }
         public override string GetIntColorIdentifier() { return "Int. Color:"; }
         public override string GetMakeIdentifier() { return Make; }
         public override string GetModelIdentifier() { return Model; }
@@ -49,9 +49,9 @@ namespace CarScrapper.Core
             };
         }
 
-        public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node)
+        public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer)
         {
-            var entries = node.InnerText?.Split(GetInfoSeparator(), StringSplitOptions.RemoveEmptyEntries);
+            var entries = node.InnerText?.Split(GetInfoSeparators(), StringSplitOptions.RemoveEmptyEntries);
             return new CarInfo
             {
                 Make = GetMakeIdentifier(),

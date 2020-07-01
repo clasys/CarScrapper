@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BaseSelector.cs" />
     <Compile Include="CarInfo.cs" />
+    <Compile Include="DealerComSelector.cs" />
     <Compile Include="DealerInfo.cs" />
     <Compile Include="ProcessingPreferences.cs" />
     <Compile Include="Processor.cs" />

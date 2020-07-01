@@ -34,7 +34,7 @@ namespace CarScrapper.Core
 
         public abstract string GetExtColorIdentifier();
 
-        public abstract string[] GetInfoSeparator();
+        public abstract string[] GetInfoSeparators();
 
         public abstract string GetIntColorIdentifier();
 
@@ -58,7 +58,7 @@ namespace CarScrapper.Core
         
         public abstract string GetVinIdentifier();
 
-        public abstract CarInfo ParseHtmlIntoCarInfo(HtmlNode node);
+        public abstract CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer);
         public abstract List<DealerInfo> GetDealers();
     }
 }

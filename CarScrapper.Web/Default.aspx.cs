@@ -59,6 +59,13 @@ namespace CarScrapper.Web
                     processor.Scrap().ForEach(a => { results.Add(a); });
                 }
 
+                if (cbDealerCom.Checked)
+                {
+                    var prefs = new ProcessingPreferences(new DealerComSelector(tbMake.Text, tbModel.Text));
+                    processor = new Processor(prefs);
+                    processor.Scrap().ForEach(a => { results.Add(a); });
+                }
+
                 ViewState[RESULTS_KEY] = results;
                 BindGrid();
             }

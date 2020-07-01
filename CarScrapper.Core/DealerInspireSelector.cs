@@ -56,7 +56,7 @@ namespace CarScrapper.Core
 
         public override string GetExtColorIdentifier(){ return ".//span[@class='detail-label']"; }
 
-        public override string[] GetInfoSeparator()
+        public override string[] GetInfoSeparators()
         {
             //return new[] { "\n", "\t" };
             return new[] { "\n" };
@@ -115,9 +115,9 @@ namespace CarScrapper.Core
             };
         }
 
-        public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node)
+        public override CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer)
         {
-            var entries = node.InnerText?.Split(GetInfoSeparator(), StringSplitOptions.RemoveEmptyEntries);
+            var entries = node.InnerText?.Split(GetInfoSeparators(), StringSplitOptions.RemoveEmptyEntries);
             return new CarInfo
             {
                 Make = GetMakeIdentifier(),
