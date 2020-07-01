@@ -20,7 +20,12 @@ namespace CarScrapper.Web
             _startTime = DateTime.Now;
 
             if (!IsPostBack)
+            {
                 ViewState[SORT_KEY] = "ASC";
+                var dealers = Util.GetDealers();
+                dealers.OrderBy(a => a.Name).Select(a => a.Name).ForEach(a => { tbDealerList.Text += "\n" + a; });
+                dealers.OrderBy(a => a.Make).Select(a => a.Make).Distinct().ForEach(a => { tbMakesList.Text += "\n" + a; });
+            }
         }
 
         private void BindGrid()
@@ -55,9 +60,6 @@ namespace CarScrapper.Web
                 }
 
                 ViewState[RESULTS_KEY] = results;
-                var dealers = Util.GetDealers();
-                dealers.OrderBy(a=>a.Name).Select(a => a.Name).ForEach(a=> { tbDealerList.Text += "\n" + a; });
-                dealers.OrderBy(a => a.Make).Select(a => a.Make).Distinct().ForEach(a => { tbMakesList.Text += "\n" + a; });
                 BindGrid();
             }
         }
