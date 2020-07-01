@@ -103,7 +103,7 @@ namespace CarScrapper.Core
             carInfo.BodyStyle = GetBodyStyle(node);
             carInfo.URL = string.Format("{0}/{1}",
                 dealer.Url,
-                node.SelectNodes(".//a[contains(@href,'/new/')]")?.FirstOrDefault()?.Attributes["href"].Value);
+                node.SelectNodes(".//a[contains(@href,'/new/') or contains(@href, '-new')]")?.FirstOrDefault()?.Attributes["href"].Value);
 
             return carInfo;
         }
