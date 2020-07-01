@@ -21,30 +21,7 @@ namespace CarScrapper.Core
             Make = make;
             Model = model;
 
-            LoadConfig();
-        }
-
-        private void LoadConfig()
-        {
-            try
-            {
-                var configPath = new FileInfo(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).AbsolutePath).Directory.FullName + "\\Config\\dealers.json";
-                var config = JObject.Parse(File.ReadAllText(configPath));
-                foreach (var dealer in ((JArray)config["dealers"]).Where(a=>((string)a["make"]).ToLower() == Make.ToLower()))
-                {
-                    DealersBase.Add(new DealerInfo
-                    {
-                        Type = (string)dealer["dealertype"],
-                        Name = (string)dealer["name"],
-                        Url = (string)dealer["url"],
-                        Make = (string)dealer["make"]
-                    });
-                }
-            }
-            catch
-            {
-                throw new Exception("Unable to read dealer info from json config file.");
-            }
+            DealersBase = Util.GetDealers().Where(a => a.Make == Make).ToList();
         }
 
         public abstract string GetBodyStyleIdentifier();

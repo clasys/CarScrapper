@@ -66,6 +66,7 @@
     <Compile Include="ISelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DealerInspireSelector.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

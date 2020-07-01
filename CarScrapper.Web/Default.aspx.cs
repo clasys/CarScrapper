@@ -38,23 +38,26 @@ namespace CarScrapper.Web
                 !string.IsNullOrEmpty(tbModel.Text))
             {
                 var results = new List<CarInfo>();
+                Processor processor = null;
 
                 if (cbDealerOn.Checked)
                 {
                     var prefs = new ProcessingPreferences(new DealerOnSelector(tbMake.Text, tbModel.Text));
-                    var processor = new Processor(prefs);
+                    processor = new Processor(prefs);
                     processor.Scrap().ForEach(a=> { results.Add(a); });
                 }
 
                 if (cbDealerInspire.Checked)
                 {
                     var prefs = new ProcessingPreferences(new DealerInspireSelector(tbMake.Text, tbModel.Text));
-                    var processor = new Processor(prefs);
+                    processor = new Processor(prefs);
                     processor.Scrap().ForEach(a => { results.Add(a); });
                 }
-                
-                
+
                 ViewState[RESULTS_KEY] = results;
+                var dealers = Util.GetDealers();
+                dealers.OrderBy(a=>a.Name).Select(a => a.Name).ForEach(a=> { tbDealerList.Text += "\n" + a; });
+                dealers.OrderBy(a => a.Make).Select(a => a.Make).Distinct().ForEach(a => { tbMakesList.Text += "\n" + a; });
                 BindGrid();
             }
         }

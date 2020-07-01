@@ -106,9 +106,35 @@
     {
       "make": "Mercedes-Benz",
       "name": "Mercedes-Benz of Caldwell",
-      "url": "https://www.mbofcaldwell.com/",
+      "url": "https://www.mbofcaldwell.com",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Open Road of Bridgewater",
+      "url": "https://www.openroadmercedesbenz.com",
+      "dealertype": "DealerOn"
+    },
+
+    //Toyota
+    {
+      "make": "Toyota",
+      "name": "BayRidge Toyota",
+      "url": "https://www.bayridgetoyota.com",
+      "dealertype": "DealerOn"
+    },
+
+    //Nissan
+    {
+      "make": "Nissan",
+      "name": "Loughead Nissan",
+      "url": "https://www.lougheadnissan.com",
       "dealertype": "DealerOn"
     }
+
+
+
+
   ]
 }
 
