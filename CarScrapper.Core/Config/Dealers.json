@@ -116,6 +116,7 @@
       "dealertype": "DealerOn"
     },
 
+
     //Toyota
     {
       "make": "Toyota",
@@ -124,14 +125,55 @@
       "dealertype": "DealerOn"
     },
 
+
     //Nissan
     {
       "make": "Nissan",
       "name": "Loughead Nissan",
       "url": "https://www.lougheadnissan.com",
       "dealertype": "DealerOn"
-    }
+    },
 
+    {
+      "make": "Nissan",
+      "name": "Girard Nissan",
+      "url": "https://www.girardnissan.com",
+      "dealertype": "DealerOn"
+    },
+
+
+    //Honda
+    {
+      "make": "Honda",
+      "name": "Honda Village",
+      "url": "https://www.hondavillage.com",
+      "dealertype": "DealerOn"
+    },
+
+
+    //Kia
+    {
+      "make": "Kia",
+      "name": "Nutley Auto Kia",
+      "url": "https://www.nutleykia.net",
+      "dealertype": "DealerOn"
+    },
+
+
+    //Ford
+    {
+      "make": "Ford",
+      "name": "Carmody Ford",
+      "url": "https://www.carmodyford.com",
+      "dealertype": "DealerOn"
+    },
+
+    {
+      "make": "Ford",
+      "name": "Tunkhannock Ford",
+      "url": "https://www.tunkhannockfordpa.com",
+      "dealertype": "DealerOn"
+    }
 
 
 

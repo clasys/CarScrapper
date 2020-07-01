@@ -13,7 +13,7 @@
         background-color: #000;
         font-family: Arial;
         color: White;
-        height: 20px;
+        height: 16px;
         text-align: center;
         font-size: 16px;
         }
