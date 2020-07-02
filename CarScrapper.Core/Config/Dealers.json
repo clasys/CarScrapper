@@ -176,7 +176,7 @@
     },
 
     //******************************** DEALER COM *********************************************
-
+    //TODO: Sonic Automotive is huge, add all makes that they offer
     //GMC
     {
       "make": "GMC",
@@ -190,6 +190,12 @@
       "make": "Chevrolet",
       "name": "Ramey Auto Group",
       "url": "https://www.rameycars.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Chevrolet",
+      "name": "Sonic Automotive",
+      "url": "https://www.sonicautomotive.com",
       "dealertype": "DealerCom"
     },
 
@@ -216,6 +222,12 @@
       "url": "https://www.rameycars.com",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Cadillac",
+      "name": "Sonic Automotive",
+      "url": "https://www.sonicautomotive.com",
+      "dealertype": "DealerCom"
+    },
 
     //Volvo
     {
@@ -223,8 +235,30 @@
       "name": "Beyer Volvo Cars of Falls Church",
       "url": "https://www.fallschurchdonbeyervolvo.com",
       "dealertype": "DealerCom"
+    },
+
+    //Acura
+    {
+      "make": "Acura",
+      "name": "Sonic Automotive",
+      "url": "https://www.sonicautomotive.com",
+      "dealertype": "DealerCom"
+    },
+
+    //Genesis
+    {
+      "make": "Genesis",
+      "name": "Genesis of North Plainfield",
+      "url": "https://www.genesisofnorthplainfield.com",
+      "dealertype": "DealerCom"
+    },
+
+    {
+      "make": "Genesis",
+      "name": "Genesis of South Brunswick",
+      "url": "https://www.genesissouthbrunswick.com",
+      "dealertype": "DealerCom"
     }
-    
 
 
 

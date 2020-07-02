@@ -57,7 +57,7 @@ namespace CarScrapper.Core
         public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument)
         {
             var urls = new List<string>();
-            urls.Add(string.Format("{0}&start=1", GetUrlDetails()));
+            urls.Add(string.Format("{0}&start=0", GetUrlDetails()));
 
             var entry = htmlDocument.DocumentNode.SelectSingleNode(".//span[contains(text(), 'Page')]")?.InnerText;
             if (entry != null)
@@ -139,6 +139,16 @@ namespace CarScrapper.Core
             
             if (string.IsNullOrEmpty(result))
                 result = node.SelectNodes(".//div[@class='les_video']")?.FirstOrDefault().GetAttributeValue("les_vin", string.Empty);
+
+            if (string.IsNullOrEmpty(result))
+                result = node.SelectSingleNode(".//dl[@class='vin']")?.ChildNodes[1].InnerText;
+
+            //<a class="btn btn-primary price-btn btn-block" href="/external-catalog-services/rest/monroney/windowsticker?vin=KMTG44LA5KU025195&status=2&category=AUTO&vehicleId=cb5af8c20a0e0ae9037bd50ce5022fec" target="_self" data-location='vehicle-window-sticker-button'>
+            if (string.IsNullOrEmpty(result))
+                result = node.SelectSingleNode(".//a[contains(@href, 'vin=')]")?.Attributes["href"].Value?.Split(new[] { '&', '?' }).ToList().Where(a => a.Contains("vin=")).FirstOrDefault()?.Replace("vin=", "").Trim();
+
+            if (string.IsNullOrEmpty(result) && node.OuterHtml.Contains("data-vin"))
+                result = node.OuterHtml.Substring(node.OuterHtml.IndexOf("data-vin") + 10, 17);
 
             return result;
         }
