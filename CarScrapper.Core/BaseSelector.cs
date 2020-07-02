@@ -21,7 +21,7 @@ namespace CarScrapper.Core
             Make = make;
             Model = model;
 
-            DealersBase = Util.GetDealers().Where(a => a.Make == Make).ToList();
+            DealersBase = Util.GetDealers().Where(a => a.Make.ToLower() == make.ToLower()).ToList();
         }
 
         public abstract string GetBodyStyleIdentifier();

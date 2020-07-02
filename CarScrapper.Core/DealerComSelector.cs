@@ -43,7 +43,8 @@ namespace CarScrapper.Core
         {
             return new[]
             {
-                ".//div[contains(@class,'hproduct ')]"
+                ".//div[contains(@class,'hproduct ')]",
+                ".//li[contains(@class, 'vehicle-card ')]"
             };
         }
         public override string GetStockNumberIdentifier() { return "Stock #:"; }
@@ -92,13 +93,13 @@ namespace CarScrapper.Core
             var carInfo = new CarInfo();
             carInfo.Make = Make;
             carInfo.Model = GetModel(node);
-            carInfo.Engine = entries.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), string.Empty).Trim();
-            carInfo.Transmission = entries.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), string.Empty).Trim();
-            carInfo.DriveType = entries.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty).Trim();
-            carInfo.ExteriorColor = entries.Where(a => a.Contains(GetExtColorIdentifier())).FirstOrDefault()?.Replace(GetExtColorIdentifier(), string.Empty).Trim();
-            carInfo.InteriorColor = entries.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), string.Empty).Trim();
-            carInfo.StockNumber = entries.Where(a => a.Contains(GetStockNumberIdentifier())).FirstOrDefault()?.Replace(GetStockNumberIdentifier(), string.Empty).Trim();
-            carInfo.MSRP = node.SelectNodes(GetMsrpIdentifier())?.FirstOrDefault()?.ChildNodes[1].InnerText;
+            carInfo.Engine = entries?.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), string.Empty)?.Trim();
+            carInfo.Transmission = entries?.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), string.Empty)?.Trim();
+            carInfo.DriveType = entries?.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty)?.Trim();
+            carInfo.ExteriorColor = GetExtColor(entries, node);
+            carInfo.InteriorColor = GetIntColor(entries, node);
+            carInfo.StockNumber = entries?.Where(a => a.Contains(GetStockNumberIdentifier())).FirstOrDefault()?.Replace(GetStockNumberIdentifier(), string.Empty)?.Trim();
+            carInfo.MSRP = GetMSRP(node);
             carInfo.VIN = GetVIN(node);
             carInfo.BodyStyle = GetBodyStyle(node);
             carInfo.URL = string.Format("{0}/{1}",
@@ -108,10 +109,45 @@ namespace CarScrapper.Core
             return carInfo;
         }
 
+        private string GetMSRP(HtmlNode node)
+        {
+            var result = node.SelectNodes(GetMsrpIdentifier())?.FirstOrDefault()?.ChildNodes[1].InnerText;
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//dt[@class='final-price msrp']")?.FirstOrDefault()?.NextSibling?.InnerText;
+
+            return result;
+        }
+
+        private string GetIntColor(string[] entries, HtmlNode node)
+        {
+            var result = entries?.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), string.Empty)?.Trim();
+
+            if(string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//li[contains(@class, 'interiorColor')]")?.FirstOrDefault()?.InnerText;
+
+            return result;
+        }
+
+        private string GetExtColor(string[] entries, HtmlNode node)
+        {
+            var result = entries?.Where(a => a.Contains(GetExtColorIdentifier())).FirstOrDefault()?.Replace(GetExtColorIdentifier(), string.Empty)?.Trim();
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//li[contains(@class, 'exteriorColor')]")?.FirstOrDefault()?.InnerText;
+
+            return result;
+        }
+
         private string GetBodyStyle(HtmlNode node)
         {
             var div = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
-            return div?.Attributes.Where(a => a.Name.Equals(GetBodyStyleIdentifier())).FirstOrDefault()?.Value;
+            var result = div?.Attributes.Where(a => a.Name.Equals(GetBodyStyleIdentifier())).FirstOrDefault()?.Value;
+
+            if (string.IsNullOrEmpty(result?.Trim()) && node.OuterHtml.Contains("data-bodystyle"))
+                result = node.OuterHtml.Substring(node.OuterHtml.IndexOf("data-bodystyle") + 16, 5);
+
+            return result;
         }
 
         private string GetModel(HtmlNode node)
@@ -121,9 +157,8 @@ namespace CarScrapper.Core
                                 div?.Attributes.Where(a => a.Name.Equals("ff_model")).FirstOrDefault()?.Value,
                                 div?.Attributes.Where(a => a.Name.Equals("ff_trim")).FirstOrDefault()?.Value);
 
-            //<a class="url" href="/new/Volvo/2020-Volvo-XC60-falls-church-va-015da5050a0e0a6b1bace8b878690fce.htm"> 2020 Volvo XC60 T5 Momentum SUV</a>
             if (string.IsNullOrEmpty(result?.Trim()))
-                result = node.SelectNodes(".//a[@class='url']")?.FirstOrDefault()?.InnerText?.Trim();
+                result = node.SelectNodes(".//a[contains(@href, '/new/')]")?.Where(a => !string.IsNullOrEmpty(a.InnerText) && a.InnerText.Contains(GetModelIdentifier()))?.FirstOrDefault()?.InnerText;
 
             return result;
         }
@@ -137,17 +172,17 @@ namespace CarScrapper.Core
 	        //<div class="tps-roadster-btn" data-condition="new" data-vin="YV4102RK6L1601526"></div>
 	        //<div class="tps-roadster-buildmydeal-btn" data-condition="new" data-vin="YV4102RK6L1601526"></div>
             
-            if (string.IsNullOrEmpty(result))
+            if (string.IsNullOrEmpty(result?.Trim()))
                 result = node.SelectNodes(".//div[@class='les_video']")?.FirstOrDefault().GetAttributeValue("les_vin", string.Empty);
 
-            if (string.IsNullOrEmpty(result))
+            if (string.IsNullOrEmpty(result?.Trim()))
                 result = node.SelectSingleNode(".//dl[@class='vin']")?.ChildNodes[1].InnerText;
 
             //<a class="btn btn-primary price-btn btn-block" href="/external-catalog-services/rest/monroney/windowsticker?vin=KMTG44LA5KU025195&status=2&category=AUTO&vehicleId=cb5af8c20a0e0ae9037bd50ce5022fec" target="_self" data-location='vehicle-window-sticker-button'>
-            if (string.IsNullOrEmpty(result))
+            if (string.IsNullOrEmpty(result?.Trim()))
                 result = node.SelectSingleNode(".//a[contains(@href, 'vin=')]")?.Attributes["href"].Value?.Split(new[] { '&', '?' }).ToList().Where(a => a.Contains("vin=")).FirstOrDefault()?.Replace("vin=", "").Trim();
 
-            if (string.IsNullOrEmpty(result) && node.OuterHtml.Contains("data-vin"))
+            if (string.IsNullOrEmpty(result?.Trim()) && node.OuterHtml.Contains("data-vin"))
                 result = node.OuterHtml.Substring(node.OuterHtml.IndexOf("data-vin") + 10, 17);
 
             return result;

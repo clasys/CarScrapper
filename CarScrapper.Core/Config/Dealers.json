@@ -237,6 +237,14 @@
       "dealertype": "DealerCom"
     },
 
+    //TODO:to parse this dealer, need to implement wait until all elements are set by dynamic scripts before accessing HTML. Main group (Koons) site can then also be used to get the car data for many makes
+    //{
+    //  "make": "Volvo",
+    //  "name": "Volvo Cars Owings Mills",
+    //  "url": "https://www.volvocarsowingsmills.com",
+    //  "dealertype": "DealerCom"
+    //},
+
     //Acura
     {
       "make": "Acura",
@@ -257,6 +265,41 @@
       "make": "Genesis",
       "name": "Genesis of South Brunswick",
       "url": "https://www.genesissouthbrunswick.com",
+      "dealertype": "DealerCom"
+    },
+
+    {
+      "make": "Genesis",
+      "name": "Genesis of Woodbridge",
+      "url": "https://www.genesisofwoodbridgenj.com",
+      "dealertype": "DealerCom"
+    },
+
+    {
+      "make": "Genesis",
+      "name": "Genesis of Brooklyn",
+      "url": "https://www.brooklyn-genesis.com",
+      "dealertype": "DealerCom"
+    },
+
+    {
+      "make": "Genesis",
+      "name": "Genesis of the North Shore",
+      "url": "https://www.genesisofthenorthshore.com",
+      "dealertype": "DealerCom"
+    },
+
+    {
+      "make": "Genesis",
+      "name": "Genesis of Freehold",
+      "url": "https://www.genesisoffreehold.com",
+      "dealertype": "DealerCom"
+    },
+
+    {
+      "make": "Genesis",
+      "name": "Genesis of Wayne",
+      "url": "https://www.genesisofwayne.com",
       "dealertype": "DealerCom"
     }
 
