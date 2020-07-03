@@ -65,22 +65,26 @@ namespace CarScrapper.Core
             {
                 var matches = Regex.Matches(entry, "\\d+");
 
-                if (matches.Count != 2)
-                    return new PagingInfo { IsEnabled = false };
-
-                int iStart = int.Parse(matches[0].Value);
-                int iEnd = int.Parse(matches[1].Value);
-
-                for (int i = iStart; i <= iEnd; i++)
+                //Rather than disabling it outright, return collection with 1st paged URL so at least that can be scraped
+                //if (matches.Count != 2)
+                //    return new PagingInfo { IsEnabled = false };
+                
+                if (matches.Count == 2)
                 {
-                    urls.Add(string.Format("{0}&start={1}", GetUrlDetails(), int.Parse(i + "0")));
+                    int iStart = int.Parse(matches[0].Value);
+                    int iEnd = int.Parse(matches[1].Value);
+
+                    for (int i = iStart; i <= iEnd; i++)
+                    {
+                        urls.Add(string.Format("{0}&start={1}", GetUrlDetails(), int.Parse(i + "0")));
+                    }
                 }
             }
 
             return new PagingInfo
             {
                 IsEnabled = true,
-                PagedUrls = urls
+                PagedUrls = urls.GroupBy(a => a.Trim()).Select(a => a.First()).ToList() //remove duplicate entries
             };
         }
 

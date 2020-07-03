@@ -39,6 +39,9 @@ namespace CarScrapper.Core
 #endif
                 HtmlAgilityPack.HtmlDocument doc = LoadWebSiteOld(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails());
                 var pagingInfo = _preferences.ProcessingSelector.GetPagingInfo(doc);
+#if DEBUG
+                NLogger.Instance.Info(string.Format("Paging determined for URL {0}, {1} pages. ({2} ms)", dealer.Url, pagingInfo.PagedUrls.Count(), (DateTime.Now - s).TotalMilliseconds));
+#endif
 
                 if (pagingInfo.IsEnabled)
                 {
@@ -46,7 +49,7 @@ namespace CarScrapper.Core
                     result.AddRange(multiple);
 #if DEBUG
                     Debug.WriteLine(string.Format("***************** Dealer {0} done. {1} cars. {2} sec", dealer.Name, multiple.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - s).TotalSeconds));
-                    NLogger.Instance.Info(string.Format("Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
+                    NLogger.Instance.Info(string.Format("******** Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
 #endif
                 }
             }
@@ -66,6 +69,9 @@ namespace CarScrapper.Core
 
             foreach (var pagedUrl in pagingInfo.PagedUrls)
             {
+#if DEBUG
+                var s = DateTime.Now;
+#endif
                 //HtmlAgilityPack.HtmlDocument doc = LoadWebSiteAsync(dealer.Url + pagedUrl);
                 //var node = LoadWebSiteScrapySharp(dealer.Url + pagedUrl);
                 HtmlDocument doc = LoadWebSiteOld(dealer.Url + pagedUrl);
@@ -105,6 +111,10 @@ namespace CarScrapper.Core
                         result.Add(carInfo);
                     });
                 }
+
+#if DEBUG
+                NLogger.Instance.Info(string.Format("Finished scrape for URL {0}, {1} cars. ({2} ms)", pagedUrl, result.GroupBy(a=>a.VIN).Select(a=>a.First()).Count(), (DateTime.Now - s).TotalMilliseconds));
+#endif
             }
 
             return result;

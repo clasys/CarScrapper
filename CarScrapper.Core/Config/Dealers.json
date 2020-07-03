@@ -214,6 +214,36 @@
       "url": "https://www.rameycars.com",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Dodge",
+      "name": "Sansone Jeep",
+      "url": "https://www.sansonejeep.net",
+      "dealertype": "DealerCom"
+    },
+
+    //Jeep
+    {
+      "make": "Jeep",
+      "name": "Sansone Jeep",
+      "url": "https://www.sansonejeep.net",
+      "dealertype": "DealerCom"
+    },
+
+    //Chrysler
+    {
+      "make": "Chrysler",
+      "name": "Sansone Jeep",
+      "url": "https://www.sansonejeep.net",
+      "dealertype": "DealerCom"
+    },
+
+    //Ram
+    {
+      "make": "Ram",
+      "name": "Sansone Jeep",
+      "url": "https://www.sansonejeep.net",
+      "dealertype": "DealerCom"
+    },
 
     //Cadillac
     {
