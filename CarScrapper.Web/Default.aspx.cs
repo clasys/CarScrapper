@@ -44,24 +44,27 @@ namespace CarScrapper.Web
             {
                 var results = new List<CarInfo>();
                 Processor processor = null;
+                var make = tbMake.Text.Substring(0, 1).ToUpper() + tbMake.Text.Substring(1, tbMake.Text.Length - 1);
+                var model = tbModel.Text.Substring(0, 1).ToUpper() + tbModel.Text.Substring(1, tbModel.Text.Length - 1).Replace(" ", "+");
+
 
                 if (cbDealerOn.Checked)
                 {
-                    var prefs = new ProcessingPreferences(new DealerOnSelector(tbMake.Text, tbModel.Text));
+                    var prefs = new ProcessingPreferences(new DealerOnSelector(make, model));
                     processor = new Processor(prefs);
                     processor.Scrap().ForEach(a=> { results.Add(a); });
                 }
 
                 if (cbDealerInspire.Checked)
                 {
-                    var prefs = new ProcessingPreferences(new DealerInspireSelector(tbMake.Text, tbModel.Text));
+                    var prefs = new ProcessingPreferences(new DealerInspireSelector(make, model));
                     processor = new Processor(prefs);
                     processor.Scrap().ForEach(a => { results.Add(a); });
                 }
 
                 if (cbDealerCom.Checked)
                 {
-                    var prefs = new ProcessingPreferences(new DealerComSelector(tbMake.Text, tbModel.Text));
+                    var prefs = new ProcessingPreferences(new DealerComSelector(make, model));
                     processor = new Processor(prefs);
                     processor.Scrap().ForEach(a => { results.Add(a); });
                 }

@@ -65,7 +65,7 @@ namespace CarScrapper.Core
             return new CarInfo
             {
                 Make = GetMakeIdentifier(),
-                Model = entries.Where(a => a.Contains(GetMakeIdentifier())).FirstOrDefault()?.Trim(),
+                Model = entries.Where(a => a.ToLower().Contains(GetMakeIdentifier().ToLower())).FirstOrDefault()?.Trim(),
                 MSRP = entries.Where(a => a.Contains(GetMsrpIdentifier())).FirstOrDefault()?.Replace(GetMsrpIdentifier(), "").Trim(),
                 InteriorColor = entries.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), "").Trim(),
                 ExteriorColor = entries.Where(a => a.Contains(GetExtColorIdentifier())).FirstOrDefault()?.Replace(GetExtColorIdentifier(), "").Trim(),

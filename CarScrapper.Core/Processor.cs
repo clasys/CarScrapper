@@ -10,6 +10,7 @@ using ScrapySharp.Extensions;
 using HtmlAgilityPack;
 using System.Diagnostics;
 using System.Threading;
+using System.Net;
 
 namespace CarScrapper.Core
 {
@@ -33,6 +34,7 @@ namespace CarScrapper.Core
             foreach (var dealer in _preferences.ProcessingSelector.GetDealers())
             {
 #if DEBUG
+                //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
                 var s = DateTime.Now;
 #endif
                 HtmlAgilityPack.HtmlDocument doc = LoadWebSiteOld(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails());
@@ -44,11 +46,13 @@ namespace CarScrapper.Core
                     result.AddRange(multiple);
 #if DEBUG
                     Debug.WriteLine(string.Format("***************** Dealer {0} done. {1} cars. {2} sec", dealer.Name, multiple.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - s).TotalSeconds));
+                    NLogger.Instance.Info(string.Format("Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
 #endif
                 }
             }
 #if DEBUG
             Debug.WriteLine(string.Format("***************** ALL done. {0} cars. {1} sec", result.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - m).TotalSeconds));
+            //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
 #endif
             //remove dupes created by different page sizes on different websites
             return result.GroupBy(a=> a.VIN).Select(a=>a.First()).ToList();
@@ -69,7 +73,7 @@ namespace CarScrapper.Core
                 HtmlNodeCollection rows = null;
                 foreach (var rowSelector in _preferences.ProcessingSelector.GetRowSelectors())
                 {
-                    rows = doc.DocumentNode.SelectNodes(rowSelector);
+                    rows = doc?.DocumentNode.SelectNodes(rowSelector);
                     if (rows != null)
                         break;
                 }
@@ -108,7 +112,16 @@ namespace CarScrapper.Core
 
         private HtmlDocument LoadWebSiteOld(string url)
         {
-            return new HtmlWeb().Load(url);
+            try
+            {
+                return new HtmlWeb().Load(url);
+            }
+            catch (WebException e)
+            {
+                //TODO: log it here for which website it happened and continue
+                NLogger.Instance.Error(e, string.Format("Error connecting to {0}", url));
+                return null;
+            }
         }
 
         //public void Test()

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace CarScrapper.Core
 {
@@ -28,9 +27,10 @@ namespace CarScrapper.Core
 
                 return result;
             }
-            catch
+            catch(Exception e)
             {
-                throw new Exception("Unable to read dealer info from json config file.");
+                NLogger.Instance.Error(e, "Unable to read dealer info from json config file.");
+                throw e;
             }
         }
     }
