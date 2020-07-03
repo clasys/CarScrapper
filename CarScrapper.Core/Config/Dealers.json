@@ -220,12 +220,36 @@
       "url": "https://www.sansonejeep.net",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Dodge",
+      "name": "Route 18 Auto",
+      "url": "https://www.rt18cjdr.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Dodge",
+      "name": "Buhler Hazlet",
+      "url": "https://www.buhlerbitter.com",
+      "dealertype": "DealerCom"
+    },
 
     //Jeep
     {
       "make": "Jeep",
       "name": "Sansone Jeep",
       "url": "https://www.sansonejeep.net",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Jeep",
+      "name": "Route 18 Auto",
+      "url": "https://www.rt18cjdr.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Jeep",
+      "name": "Buhler Hazlet",
+      "url": "https://www.buhlerbitter.com",
       "dealertype": "DealerCom"
     },
 
@@ -236,12 +260,36 @@
       "url": "https://www.sansonejeep.net",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Chrysler",
+      "name": "Route 18 Auto",
+      "url": "https://www.rt18cjdr.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Chrysler",
+      "name": "Buhler Hazlet",
+      "url": "https://www.buhlerbitter.com",
+      "dealertype": "DealerCom"
+    },
 
     //Ram
     {
       "make": "Ram",
       "name": "Sansone Jeep",
       "url": "https://www.sansonejeep.net",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Ram",
+      "name": "Route 18 Auto",
+      "url": "https://www.rt18cjdr.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Ram",
+      "name": "Buhler Hazlet",
+      "url": "https://www.buhlerbitter.com",
       "dealertype": "DealerCom"
     },
 
