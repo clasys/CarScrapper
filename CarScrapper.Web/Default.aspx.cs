@@ -220,5 +220,11 @@ namespace CarScrapper.Web
                 }
             }
         }
+
+        protected void grid1_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            //remove last IsLoaner column, until we bind columns explicitly
+            e.Row.Cells[e.Row.Cells.Count - 1].Visible = false;
+        }
     }
 }

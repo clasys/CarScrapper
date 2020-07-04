@@ -136,6 +136,7 @@
                     AllowSorting="true"
                     OnSorting="grid1_Sorting"
                     OnPreRender="grid1_PreRender"
+                    OnRowCreated="grid1_RowCreated"
                     OnPageIndexChanging="grid1_PageIndexChanging"></asp:GridView>
             </td>
         </tr>

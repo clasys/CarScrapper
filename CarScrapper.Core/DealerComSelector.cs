@@ -51,9 +51,9 @@ namespace CarScrapper.Core
         public override string GetTransmissionIdentifier(){ return "Transmission:"; }
         public override string GetUrlDetails()
         {
-            //special volvo loaner handling
-            if(Make.ToLower() == "volvo" && InventoryType == InventoryType.Loaner)
-                return string.Format("/demo-loaner-inventory.htm?model={0}", GetModelIdentifier());
+            ////special volvo loaner handling
+            //if(Make.ToLower() == "volvo" && InventoryType == InventoryType.Loaner)
+                //return string.Format("/demo-loaner-inventory.htm?model={0}", GetModelIdentifier());
 
             return string.Format("/new-inventory/index.htm?model={0}", GetModelIdentifier());
         }
@@ -113,8 +113,16 @@ namespace CarScrapper.Core
             carInfo.URL = string.Format("{0}/{1}",
                 dealer.Url,
                 node.SelectNodes(".//a[contains(@href,'/new/') or contains(@href, '-new')]")?.FirstOrDefault()?.Attributes["href"].Value);
+            carInfo.IsLoaner = IsThisLoaner(node);
 
             return carInfo;
+        }
+
+        private bool IsThisLoaner(HtmlNode node)
+        {
+            var result = node.SelectNodes(".//img[contains(@title,'Loaner/Demo')]") != null;
+
+            return result;
         }
 
         private string GetMSRP(HtmlNode node)

@@ -58,7 +58,9 @@ namespace CarScrapper.Core
             //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
 #endif
             //remove dupes created by different page sizes on different websites
-            return result.GroupBy(a=> a.VIN).Select(a=>a.First()).ToList();
+            var distinctByVin = result.GroupBy(a=> a.VIN).Select(a=>a.First()).ToList();
+
+            return _preferences.ProcessingSelector.GetCurrentInventoryType() == InventoryType.Loaner ? distinctByVin.Where(a => a.IsLoaner).ToList() : distinctByVin;
         }
 
         

@@ -31,5 +31,6 @@ namespace CarScrapper.Core
         CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer);
         List<DealerInfo> GetDealers();
         PagingInfo GetPagingInfo(HtmlDocument htmlDocument);
+        InventoryType GetCurrentInventoryType();
     }
 }

@@ -326,6 +326,12 @@
       "url": "https://www.winchesterdonbeyervolvo.com",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Volvo",
+      "name": "Open Road Volvo Cars Edison",
+      "url": "https://www.openroadvolvocarsedison.com",
+      "dealertype": "DealerCom"
+    },
 
     //TODO:to parse this dealer, need to implement wait until all elements are set by dynamic scripts before accessing HTML. Main group (Koons) site can then also be used to get the car data for many makes
     //{

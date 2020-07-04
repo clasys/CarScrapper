@@ -20,5 +20,6 @@ namespace CarScrapper.Core
         public string ModelCode { get; set; }
         public string Transmission { get; set; }
         public string DealerName { get; set; }
+        public bool IsLoaner { get; set; } = false;
     }
 }
