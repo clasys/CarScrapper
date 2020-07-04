@@ -13,7 +13,7 @@ namespace CarScrapper.Core
     {
         private readonly List<DealerInfo> _dealers;
 
-        public DealerOnSelector(string make, string model) : base(make, model)
+        public DealerOnSelector(string make, string model, InventoryType inventoryType) : base(make, model, inventoryType)
         {
             _dealers = base.DealersBase.Where(a => a.Type == "DealerOn").ToList();
         }
@@ -31,7 +31,14 @@ namespace CarScrapper.Core
                 ".//div[contains(@id, 'srpRow')]" 
             }; 
         }
-        public override string GetUrlDetails() { return string.Format("/searchnew.aspx?Model={0}&pn=100&st=Price+desc", GetModelIdentifier()); }
+        public override string GetUrlDetails() 
+        {
+            //Loaners are not implemented yet, force no valid search for now
+            if (InventoryType == InventoryType.Loaner)
+                return string.Empty;
+            
+            return string.Format("/searchnew.aspx?Model={0}&pn=100&st=Price+desc", GetModelIdentifier()); 
+        }
         public override string GetEngineIdentifier() { return "Engine:"; }
         public override string GetDriveTypeIdentifier() { return "Drive Type:"; }
         public override string GetStockNumberIdentifier() { return "Stock #:"; }

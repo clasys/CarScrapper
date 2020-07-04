@@ -14,7 +14,7 @@ namespace CarScrapper.Core
     {
         private readonly List<DealerInfo> _dealers;
 
-        public DealerInspireSelector(string make, string model) : base(make, model)
+        public DealerInspireSelector(string make, string model, InventoryType inventoryType) : base(make, model, inventoryType)
         {
             _dealers = base.DealersBase.Where(a => a.Type == "DealerInspire").ToList();
         }
@@ -99,6 +99,10 @@ namespace CarScrapper.Core
 
         public override string GetUrlDetails()
         {
+            //Loaners are not implemented yet, force no valid search for now
+            if (InventoryType == InventoryType.Loaner)
+                return string.Empty;
+
             return string.Format("/new-vehicles/{0}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", GetModelIdentifier());
         }
 

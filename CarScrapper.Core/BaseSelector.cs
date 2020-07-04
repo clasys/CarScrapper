@@ -13,13 +13,15 @@ namespace CarScrapper.Core
         //private const string CONFIG_PATH = @"Config/Dealers.json";
         internal readonly string Make;
         internal readonly string Model;
+        public InventoryType InventoryType { get; }
         internal List<DealerInfo> DealersBase = new List<DealerInfo>();
 
 
-        public BaseSelector(string make, string model)
+        public BaseSelector(string make, string model, InventoryType inventoryType)
         {
             Make = make;
             Model = model;
+            InventoryType = inventoryType;
 
             DealersBase = Util.GetDealers().Where(a => a.Make.ToLower() == make.ToLower()).ToList();
         }

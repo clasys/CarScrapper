@@ -12,7 +12,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerOn()
         {
-            var preferences = new ProcessingPreferences(new DealerOnSelector("BMW", "X2"));
+            var preferences = new ProcessingPreferences(new DealerOnSelector("BMW", "X2", InventoryType.New));
             var processor = new Processor(preferences);
             var start = DateTime.Now;
             var result = processor.Scrap();
@@ -24,7 +24,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerInspire()
         {
-            var preferences = new ProcessingPreferences(new DealerInspireSelector("BMW", "X1"));
+            var preferences = new ProcessingPreferences(new DealerInspireSelector("BMW", "X1", InventoryType.New));
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 
@@ -35,7 +35,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerCom()
         {
-            var preferences = new ProcessingPreferences(new DealerComSelector("Volvo", "XC60"));
+            var preferences = new ProcessingPreferences(new DealerComSelector("Volvo", "XC60", InventoryType.Loaner));
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 

@@ -84,11 +84,31 @@
     <table border="0" cellpadding="8" cellspacing="0">
         <tr>
             <td style="text-align:left;width:50;text-wrap:none;">
-                Make:
-                <asp:TextBox runat="server" ID="tbMake" AutoPostBack="false"></asp:TextBox>
-                Model:
-                <asp:TextBox runat="server" ID="tbModel" AutoPostBack="false"></asp:TextBox>
-                <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
+                <table border="0" cellpadding="2">
+                    <tr>
+                        <td colspan="2"><span style="font-size:13px;color:red;">Type "Loaner" works only for DealerCom Volvo sites</span></td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;">Type:</td>
+                        <td>
+                            <asp:DropDownList runat="server" ID="ddlInventoryType">
+                                <asp:ListItem Value="1">New</asp:ListItem>
+                                <asp:ListItem Value="2">Loaner</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Make:</td>
+                        <td><asp:TextBox runat="server" ID="tbMake" AutoPostBack="false"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>Model:</td>
+                        <td>
+                            <asp:TextBox runat="server" ID="tbModel" AutoPostBack="false"></asp:TextBox>
+                            <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
+                        </td>
+                    </tr>
+                </table>
             </td>
             <td style="text-align:left;">
                 <asp:CheckBox runat="server" ID="cbDealerOn" Checked="true" />include DealerOn sites<br />

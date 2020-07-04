@@ -11,7 +11,7 @@ namespace CarScrapper.Core
     {
         private readonly List<DealerInfo> _dealers;
 
-        public DealerComSelector(string make, string model) : base(make, model)
+        public DealerComSelector(string make, string model, InventoryType inventoryType) : base(make, model, inventoryType)
         {
             _dealers = base.DealersBase.Where(a => a.Type == "DealerCom").ToList();
         }
@@ -51,6 +51,10 @@ namespace CarScrapper.Core
         public override string GetTransmissionIdentifier(){ return "Transmission:"; }
         public override string GetUrlDetails()
         {
+            //special volvo loaner handling
+            if(Make.ToLower() == "volvo" && InventoryType == InventoryType.Loaner)
+                return string.Format("/demo-loaner-inventory.htm?model={0}", GetModelIdentifier());
+
             return string.Format("/new-inventory/index.htm?model={0}", GetModelIdentifier());
         }
         public override string GetVinIdentifier() { return "ff_vin"; }

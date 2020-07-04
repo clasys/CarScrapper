@@ -50,21 +50,21 @@ namespace CarScrapper.Web
 
                 if (cbDealerOn.Checked)
                 {
-                    var prefs = new ProcessingPreferences(new DealerOnSelector(make, model));
+                    var prefs = new ProcessingPreferences(new DealerOnSelector(make, model, ddlInventoryType.SelectedValue == "1" ? InventoryType.New : InventoryType.Loaner));
                     processor = new Processor(prefs);
                     processor.Scrap().ForEach(a=> { results.Add(a); });
                 }
 
                 if (cbDealerInspire.Checked)
                 {
-                    var prefs = new ProcessingPreferences(new DealerInspireSelector(make, model));
+                    var prefs = new ProcessingPreferences(new DealerInspireSelector(make, model, ddlInventoryType.SelectedValue == "1" ? InventoryType.New : InventoryType.Loaner));
                     processor = new Processor(prefs);
                     processor.Scrap().ForEach(a => { results.Add(a); });
                 }
 
                 if (cbDealerCom.Checked)
                 {
-                    var prefs = new ProcessingPreferences(new DealerComSelector(make, model));
+                    var prefs = new ProcessingPreferences(new DealerComSelector(make, model, ddlInventoryType.SelectedValue == "1" ? InventoryType.New : InventoryType.Loaner));
                     processor = new Processor(prefs);
                     processor.Scrap().ForEach(a => { results.Add(a); });
                 }

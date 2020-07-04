@@ -314,6 +314,18 @@
       "url": "https://www.fallschurchdonbeyervolvo.com",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Volvo",
+      "name": "Beyer Volvo Cars of Dulles",
+      "url": "https://www.dullesdonbeyervolvo.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Volvo",
+      "name": "Beyer Volvo Cars of Winchester",
+      "url": "https://www.winchesterdonbeyervolvo.com",
+      "dealertype": "DealerCom"
+    },
 
     //TODO:to parse this dealer, need to implement wait until all elements are set by dynamic scripts before accessing HTML. Main group (Koons) site can then also be used to get the car data for many makes
     //{

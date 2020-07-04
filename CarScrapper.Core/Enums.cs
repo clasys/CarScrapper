@@ -6,4 +6,10 @@
         DealerOn,
         DealerInspire
     }
+
+    public enum InventoryType
+    { 
+        New,
+        Loaner
+    }
 }
