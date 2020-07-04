@@ -1,4 +1,4 @@
 # CarScrapper
-App to scrap car data from dealership sites by make/model
+App to scrap car data in real time from dealership sites by various make/model
 
-No UI yet, can be run via unit tests
+
