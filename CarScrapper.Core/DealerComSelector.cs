@@ -174,7 +174,7 @@ namespace CarScrapper.Core
                                 div?.Attributes.Where(a => a.Name.Equals("ff_trim")).FirstOrDefault()?.Value);
 
             if (string.IsNullOrEmpty(result?.Trim()))
-                result = node.SelectNodes(".//a[contains(@href, '/new/')]")?.Where(a => !string.IsNullOrEmpty(a.InnerText) && a.InnerText.Contains(GetModelIdentifier()))?.FirstOrDefault()?.InnerText;
+                result = node.SelectNodes(".//a[contains(@href, '/new/') or contains(@href, '/commercial-new/')]")?.Where(a => !string.IsNullOrEmpty(a.InnerText) && a.InnerText.Contains(GetModelIdentifier()))?.FirstOrDefault()?.InnerText;
 
             return result;
         }

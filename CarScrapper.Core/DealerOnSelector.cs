@@ -33,10 +33,6 @@ namespace CarScrapper.Core
         }
         public override string GetUrlDetails() 
         {
-            //Loaners are not implemented yet, force no valid search for now
-            if (InventoryType == InventoryType.Loaner)
-                return string.Empty;
-            
             return string.Format("/searchnew.aspx?Model={0}&pn=100&st=Price+desc", GetModelIdentifier()); 
         }
         public override string GetEngineIdentifier() { return "Engine:"; }

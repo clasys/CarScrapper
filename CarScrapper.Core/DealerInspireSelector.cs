@@ -99,10 +99,6 @@ namespace CarScrapper.Core
 
         public override string GetUrlDetails()
         {
-            //Loaners are not implemented yet, force no valid search for now
-            if (InventoryType == InventoryType.Loaner)
-                return string.Empty;
-
             return string.Format("/new-vehicles/{0}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", GetModelIdentifier());
         }
 

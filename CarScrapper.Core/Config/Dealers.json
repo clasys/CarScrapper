@@ -332,6 +332,42 @@
       "url": "https://www.openroadvolvocarsedison.com",
       "dealertype": "DealerCom"
     },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars Bridgewater",
+      "url": "https://www.volvocarsbridgewater.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Volvo",
+      "name": "Smythe Volvo Cars",
+      "url": "https://www.smythevolvocars.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars Manhattan",
+      "url": "https://www.volvocarsmanhattan.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars of Queens",
+      "url": "https://www.volvocarsofqueens.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Volvo",
+      "name": "Karp Volvo Cars",
+      "url": "https://www.karpvolvocars.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars of Huntington",
+      "url": "https://www.volvocarsofhuntington.com",
+      "dealertype": "DealerCom"
+    },
 
     //TODO:to parse this dealer, need to implement wait until all elements are set by dynamic scripts before accessing HTML. Main group (Koons) site can then also be used to get the car data for many makes
     //{
