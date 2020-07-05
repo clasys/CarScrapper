@@ -63,6 +63,73 @@
       "url": "https://www.ottosbmw.com",
       "dealertype": "DealerInspire"
     },
+    {
+      "make": "BMW",
+      "name": "Century West BMW",
+      "url": "https://www.centurywestbmw.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "Bob Smith BMW",
+      "url": "https://www.bobsmithbmw.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "Rusnak BMW",
+      "url": "https://www.rusnakbmw.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "Crevier BMW",
+      "url": "https://www.crevierbmw.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Ontario",
+      "url": "https://www.bmwofontario.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Murrieta",
+      "url": "https://www.bmwofmurrieta.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW Santa Barbara",
+      "url": "https://www.bmwsantabarbara.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Escondido",
+      "url": "https://www.bmwofescondido.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of San Diego",
+      "url": "https://www.bmwofsandiego.com",
+      "dealertype": "DealerInspire"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW Fresno",
+      "url": "https://www.bmwfresno.com",
+      "dealertype": "DealerInspire"
+    },
+    //TODO: check Pacific BMW further, not returning any results
+    {
+      "make": "BMW",
+      "name": "Pacific BMW",
+      "url": "https://www.pacificbmw.com",
+      "dealertype": "DealerInspire"
+    },
 
     //*********************** DEALERON **********************************************
     {
@@ -101,6 +168,18 @@
       "url": "https://www.bmwnewton.com",
       "dealertype": "DealerOn"
     },
+    {
+      "make": "BMW",
+      "name": "BMW of Bakersfield",
+      "url": "https://www.bmwofbakersfield.com",
+      "dealertype": "DealerOn"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW Palm Springs",
+      "url": "https://www.bmwpalmsprings.com",
+      "dealertype": "DealerOn"
+    },
 
     //Mercedes Benz
     {
@@ -115,7 +194,6 @@
       "url": "https://www.openroadmercedesbenz.com",
       "dealertype": "DealerOn"
     },
-
 
     //Toyota
     {
@@ -141,7 +219,6 @@
       "dealertype": "DealerOn"
     },
 
-
     //Honda
     {
       "make": "Honda",
@@ -149,7 +226,6 @@
       "url": "https://www.hondavillage.com",
       "dealertype": "DealerOn"
     },
-
 
     //Kia
     {
@@ -433,10 +509,123 @@
       "name": "Genesis of Wayne",
       "url": "https://www.genesisofwayne.com",
       "dealertype": "DealerCom"
+    },
+
+    //BMW
+    {
+      "make": "BMW",
+      "name": "Beverly Hills BMW",
+      "url": "https://www.bmwofbeverlyhills.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Santa Monica BMW",
+      "url": "https://www.smbmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Nick Alexander BMW",
+      "url": "https://www.alexanderbmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Center BMW",
+      "url": "https://www.centerbmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "South Bay BMW",
+      "url": "https://www.southbaybmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "McKenna BMW",
+      "url": "https://www.mckennabmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Long Beach BMW",
+      "url": "https://www.longbeachbmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Monrovia",
+      "url": "https://www.bmwofmonrovia.net",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Buena Park",
+      "url": "https://www.bmwbuenapark.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Valencia BMW",
+      "url": "https://www.valenciabmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Sterling BMW of Newport Beach",
+      "url": "https://www.sterlingbmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Steve Thomas BMW",
+      "url": "https://www.stevethomasbmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "Irvine BMW",
+      "url": "https://www.irvinebmw.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Riverside",
+      "url": "https://www.bmwofriverside.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Vista",
+      "url": "https://www.bmwofvista.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW Encinitas",
+      "url": "https://www.bmwencinitas.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Santa Maria",
+      "url": "https://www.bmwsm.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Visalia",
+      "url": "https://www.bmwofvisalia.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "BMW",
+      "name": "BMW of Monterey",
+      "url": "https://www.bmwmonterey.com",
+      "dealertype": "DealerCom"
     }
-
-
-
 
   ]
 }
