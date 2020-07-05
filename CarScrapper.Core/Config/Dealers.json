@@ -123,7 +123,14 @@
       "url": "https://www.bmwfresno.com",
       "dealertype": "DealerInspire"
     },
-    
+    //TODO: check Pacific BMW further, not returning any results
+    {
+      "make": "BMW",
+      "name": "Pacific BMW",
+      "url": "https://www.pacificbmw.com",
+      "dealertype": "DealerInspire"
+    },
+
     //*********************** DEALERON **********************************************
     {
       "make": "BMW",
@@ -188,7 +195,6 @@
       "dealertype": "DealerOn"
     },
 
-
     //Toyota
     {
       "make": "Toyota",
@@ -213,7 +219,6 @@
       "dealertype": "DealerOn"
     },
 
-
     //Honda
     {
       "make": "Honda",
@@ -221,7 +226,6 @@
       "url": "https://www.hondavillage.com",
       "dealertype": "DealerOn"
     },
-
 
     //Kia
     {
@@ -506,7 +510,7 @@
       "url": "https://www.genesisofwayne.com",
       "dealertype": "DealerCom"
     },
-    
+
     //BMW
     {
       "make": "BMW",
@@ -530,12 +534,6 @@
       "make": "BMW",
       "name": "Center BMW",
       "url": "https://www.centerbmw.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "BMW",
-      "name": "Pacific BMW",
-      "url": "https://www.pacificbmw.com",
       "dealertype": "DealerCom"
     },
     {
@@ -628,10 +626,6 @@
       "url": "https://www.bmwmonterey.com",
       "dealertype": "DealerCom"
     }
-
-
-
-
 
   ]
 }

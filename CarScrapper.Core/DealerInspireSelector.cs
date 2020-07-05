@@ -217,7 +217,7 @@ namespace CarScrapper.Core
 
         private string GetMSRP(HtmlNode node)
         {
-            var msrp = node.SelectNodes(GetMsrpIdentifier()).FirstOrDefault()?.InnerText?.Trim();
+            var msrp = node.SelectNodes(GetMsrpIdentifier())?.FirstOrDefault()?.InnerText?.Trim();
 
             //No MSRP info in attributes
             //if (string.IsNullOrEmpty(msrp))
