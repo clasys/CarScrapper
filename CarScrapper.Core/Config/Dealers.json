@@ -573,13 +573,6 @@
     },
     {
       "make": "BMW",
-      "name": "BMW of El Cajon",
-      "url": "https://www.bmwofelcajon.com",
-      "customurl": "https://www.bmwofelcajon.com/inventory?model={0}",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "BMW",
       "name": "BMW of Buena Park",
       "url": "https://www.bmwbuenapark.com",
       "dealertype": "DealerCom"
