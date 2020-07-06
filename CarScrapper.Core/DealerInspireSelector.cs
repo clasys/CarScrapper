@@ -101,8 +101,7 @@ namespace CarScrapper.Core
 
         public override string GetUrlDetails(DealerInfo dealer)
         {
-//            return string.Format("{0}/new-vehicles/{1}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", dealer.Url, GetModelIdentifier());
-            return string.Format("{0}/new-vehicles/#action=im_ajax_call&perform=get_results&search={1}&vrp_view=listview&page=1", dealer.Url, GetModelIdentifier());
+            return string.Format("{0}/new-vehicles/{1}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", dealer.Url, GetModelIdentifier());
         }
 
         public override string GetVinIdentifier() { return "VIN:"; }
