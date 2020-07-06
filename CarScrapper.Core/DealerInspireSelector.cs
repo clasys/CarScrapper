@@ -108,7 +108,7 @@ namespace CarScrapper.Core
             if (!string.IsNullOrEmpty(dealer.CustomUrl))
                 url = string.Format(dealer.CustomUrl, GetModelIdentifier());
 
-            if (GetCurrentInventoryType() == InventoryType.Loaner)
+            if (GetCurrentInventoryType() == InventoryType.Loaner && !string.IsNullOrEmpty(dealer.LoanerUrl))
                 url = string.Format(dealer.LoanerUrl, GetModelIdentifier());
 
             return url;
