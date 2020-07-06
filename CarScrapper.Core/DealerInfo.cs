@@ -7,6 +7,6 @@
         public string Url { get; set; }
         public string Type { get; set; }
         public string CustomUrl { get; set; }
-        public string LoanerURL { get; set; }
+        public string LoanerUrl { get; set; }
     }
 }
