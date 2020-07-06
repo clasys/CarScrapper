@@ -49,20 +49,23 @@ namespace CarScrapper.Core
         }
         public override string GetStockNumberIdentifier() { return "Stock #:"; }
         public override string GetTransmissionIdentifier(){ return "Transmission:"; }
-        public override string GetUrlDetails()
+        public override string GetUrlDetails(DealerInfo dealer)
         {
-            ////special volvo loaner handling
-            //if(Make.ToLower() == "volvo" && InventoryType == InventoryType.Loaner)
-                //return string.Format("/demo-loaner-inventory.htm?model={0}", GetModelIdentifier());
+            //return string.Format("/new-inventory/index.htm?model={0}", GetModelIdentifier());
 
-            return string.Format("/new-inventory/index.htm?model={0}", GetModelIdentifier());
+            var url = string.Format("{0}/new-inventory/index.htm?model={1}", dealer.Url, GetModelIdentifier());
+
+            if (!string.IsNullOrEmpty(dealer.CustomUrl))
+                url = string.Format(dealer.CustomUrl, GetModelIdentifier());
+            
+            return url;
         }
         public override string GetVinIdentifier() { return "ff_vin"; }
 
-        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument)
+        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument, DealerInfo dealer)
         {
             var urls = new List<string>();
-            urls.Add(string.Format("{0}&start=0", GetUrlDetails()));
+            urls.Add(string.Format("{0}&start=0", GetUrlDetails(dealer)));
 
             var entry = htmlDocument.DocumentNode.SelectSingleNode(".//span[contains(text(), 'Page')]")?.InnerText;
             if (entry != null)
@@ -80,7 +83,7 @@ namespace CarScrapper.Core
 
                     for (int i = iStart; i <= iEnd; i++)
                     {
-                        urls.Add(string.Format("{0}&start={1}", GetUrlDetails(), int.Parse(i + "0")));
+                        urls.Add(string.Format("{0}&start={1}", GetUrlDetails(dealer), int.Parse(i + "0")));
                     }
                 }
             }

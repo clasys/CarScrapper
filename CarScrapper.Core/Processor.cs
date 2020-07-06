@@ -37,10 +37,17 @@ namespace CarScrapper.Core
                 //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
                 var s = DateTime.Now;
 #endif
-                HtmlAgilityPack.HtmlDocument doc = LoadWebSiteOld(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails());
-                var pagingInfo = _preferences.ProcessingSelector.GetPagingInfo(doc);
+                //HtmlAgilityPack.HtmlDocument doc = LoadWebSiteOld(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails());
+                HtmlDocument doc = LoadWebSiteOld(_preferences.ProcessingSelector.GetUrlDetails(dealer));
+                var pagingInfo = _preferences.ProcessingSelector.GetPagingInfo(doc, dealer);
 #if DEBUG
-                NLogger.Instance.Info(string.Format("Paging determined for URL {0}, {1} pages. ({2} ms)", dealer.Url, pagingInfo.PagedUrls.Count(), (DateTime.Now - s).TotalMilliseconds));
+                NLogger.Instance.Info(
+                    string.Format("Paging determined for URL {0}, {1} pages{2}. ({3} ms)", 
+                        pagingInfo.PagedUrls.FirstOrDefault(), 
+                        pagingInfo.PagedUrls.Count(), 
+                        (string.IsNullOrEmpty(dealer.CustomUrl) ? "" : " (CUSTOM URL)"),
+                        (DateTime.Now - s).TotalMilliseconds));
+
 #endif
 
                 if (pagingInfo.IsEnabled)
@@ -76,7 +83,7 @@ namespace CarScrapper.Core
 #endif
                 //HtmlAgilityPack.HtmlDocument doc = LoadWebSiteAsync(dealer.Url + pagedUrl);
                 //var node = LoadWebSiteScrapySharp(dealer.Url + pagedUrl);
-                HtmlDocument doc = LoadWebSiteOld(dealer.Url + pagedUrl);
+                HtmlDocument doc = LoadWebSiteOld(pagedUrl);
 
                 HtmlNodeCollection rows = null;
                 foreach (var rowSelector in _preferences.ProcessingSelector.GetRowSelectors())

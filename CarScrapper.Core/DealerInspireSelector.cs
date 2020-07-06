@@ -97,9 +97,9 @@ namespace CarScrapper.Core
 
         public override string GetTransmissionIdentifier() { return ".//span[@class='detail-label']"; }
 
-        public override string GetUrlDetails()
+        public override string GetUrlDetails(DealerInfo dealer)
         {
-            return string.Format("/new-vehicles/{0}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", GetModelIdentifier());
+            return string.Format("{0}/new-vehicles/{1}/#action=im_ajax_call&perform=get_results&vrp_view=listview&page=1", dealer.Url, GetModelIdentifier());
         }
 
         public override string GetVinIdentifier() { return "VIN:"; }
@@ -115,13 +115,13 @@ namespace CarScrapper.Core
             };
         }
 
-        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument)
+        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument, DealerInfo dealer)
         {
             //no paging logic yet, return original URL for scrapping
             return new PagingInfo
             {
                 IsEnabled = true,
-                PagedUrls = new List<string>() { GetUrlDetails() }
+                PagedUrls = new List<string>() { GetUrlDetails(dealer) }
             };
         }
 

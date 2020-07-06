@@ -3,6 +3,7 @@ using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,7 +38,7 @@ namespace CarScrapper.Web
 
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected async void btnSearch_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbMake.Text) &&
                 !string.IsNullOrEmpty(tbModel.Text))
@@ -47,26 +48,29 @@ namespace CarScrapper.Web
                 var make = tbMake.Text.Substring(0, 1).ToUpper() + tbMake.Text.Substring(1, tbMake.Text.Length - 1);
                 var model = tbModel.Text.Substring(0, 1).ToUpper() + tbModel.Text.Substring(1, tbModel.Text.Length - 1).Replace(" ", "+");
 
-
                 if (cbDealerOn.Checked)
                 {
                     var prefs = new ProcessingPreferences(new DealerOnSelector(make, model, ddlInventoryType.SelectedValue == "1" ? InventoryType.New : InventoryType.Loaner));
                     processor = new Processor(prefs);
-                    processor.Scrap().ForEach(a=> { results.Add(a); });
+                    var sResults = await Task.Run(() => processor.Scrap());//.ForEach(a=> { results.Add(a); });
+                    sResults.ForEach(a => { results.Add(a); });
                 }
 
                 if (cbDealerInspire.Checked)
                 {
                     var prefs = new ProcessingPreferences(new DealerInspireSelector(make, model, ddlInventoryType.SelectedValue == "1" ? InventoryType.New : InventoryType.Loaner));
                     processor = new Processor(prefs);
-                    processor.Scrap().ForEach(a => { results.Add(a); });
+                    var sResults = await Task.Run(() => processor.Scrap());//.ForEach(a => { results.Add(a); });
+                    sResults.ForEach(a => { results.Add(a); });
                 }
 
                 if (cbDealerCom.Checked)
                 {
                     var prefs = new ProcessingPreferences(new DealerComSelector(make, model, ddlInventoryType.SelectedValue == "1" ? InventoryType.New : InventoryType.Loaner));
                     processor = new Processor(prefs);
-                    processor.Scrap().ForEach(a => { results.Add(a); });
+                    //processor.Scrap().ForEach(a => { results.Add(a); });
+                    var sResults = await Task.Run(() => processor.Scrap());
+                    sResults.ForEach(a => { results.Add(a); });
                 }
 
                 ViewState[RESULTS_KEY] = results;
