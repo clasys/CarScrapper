@@ -636,8 +636,15 @@
       "name": "BMW of Monterey",
       "url": "https://www.bmwmonterey.com",
       "dealertype": "DealerCom"
-    }
+    },
 
+    //Mercedes-Benz
+    {
+      "make": "Mercedes-Benz",
+      "name": "Euro Bethesda Mercedes-Benz",
+      "url": "https://www.eurobethesdamercedes.com",
+      "dealertype": "DealerCom"
+    }
   ]
 }
 
