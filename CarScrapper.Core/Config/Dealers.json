@@ -67,6 +67,7 @@
       "make": "BMW",
       "name": "Century West BMW",
       "url": "https://www.centurywestbmw.com",
+      "loanerurl": "https://www.centurywestbmw.com/used-vehicles/retired-service-loaners/#action=im_ajax_call&perform=get_results&model={0}&page=1",
       "dealertype": "DealerInspire"
     },
     {
