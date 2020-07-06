@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ namespace CarScrapper.Core
                 new Tuple<string, string>("Transmission","Trans:"),
                 new Tuple<string, string>("DriveType","Drivetrain:"),
                 new Tuple<string, string>("StockNumber", "Stock #:"),
+                new Tuple<string, string>("IPacket", "&nbsp;")
             };
         }
 
@@ -139,7 +141,8 @@ namespace CarScrapper.Core
                 Transmission = node.SelectNodes(GetTransmissionIdentifier())?.Where(a => a.InnerText.ToLower().Contains("trans")).SingleOrDefault()?.ParentNode.InnerText.Trim(),
                 StockNumber = GetStock(node),
                 VIN = GetVin(entries, node),
-                URL = node.Descendants().Where(a => a.Name == "a" && a.OuterHtml.Contains("http") && !a.OuterHtml.Contains("javascript")).FirstOrDefault()?.Attributes.Where(a => a.Name == "href").FirstOrDefault()?.Value
+                URL = node.Descendants().Where(a => a.Name == "a" && a.OuterHtml.Contains("http") && !a.OuterHtml.Contains("javascript")).FirstOrDefault()?.Attributes.Where(a => a.Name == "href").FirstOrDefault()?.Value,
+                IPacket = GetIPacket(node, GetVin(entries, node))
 
                 ////WebSite = URL, do it on a higher level
 
@@ -148,6 +151,13 @@ namespace CarScrapper.Core
                 //ModelCode = entries.Where(a => a.Contains(GetModelCodeIdentifier())).FirstOrDefault()?.Replace(GetModelCodeIdentifier(), "").Trim(),
 
             };
+        }
+
+        private string GetIPacket(HtmlNode node, string vin)
+        {
+            var xpath = string.Format(".//a[contains(@href, '{0}') and contains(@href, 'ipacket')]", vin);
+            var result = node.OwnerDocument?.DocumentNode?.SelectNodes(xpath)?.FirstOrDefault()?.Attributes["href"].Value;
+            return result;
         }
 
         public override List<DealerInfo> GetDealers()

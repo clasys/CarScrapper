@@ -220,6 +220,10 @@ namespace CarScrapper.Web
                     {
                         cells[0].Text = string.Format("<a class='gridLink' target='_blank' href='{0}'>{0}</a>", cells[0].Text);
                         cells[10].Text = string.Format("<a class='gridLink' target='_blank' href='{0}'>{0}</a>", cells[10].Text);
+
+                        var val = cells[16].Text.Replace("&nbsp;", "");
+                        if (!string.IsNullOrEmpty(val))
+                            cells[16].Text = string.Format("<a class='gridLink' target='_blank' href='{0}#MSRP'>{1}</a>", val, "IPacket");
                     }
                 }
             }
@@ -228,7 +232,7 @@ namespace CarScrapper.Web
         protected void grid1_RowCreated(object sender, GridViewRowEventArgs e)
         {
             //remove last IsLoaner column, until we bind columns explicitly
-            e.Row.Cells[e.Row.Cells.Count - 1].Visible = false;
+            e.Row.Cells[e.Row.Cells.Count - 2].Visible = false;
         }
     }
 }

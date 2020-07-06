@@ -131,6 +131,14 @@
       "dealertype": "DealerInspire"
     },
 
+    //Mercedes-Benz
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Edison",
+      "url": "https://www.raycatenaedison.com",
+      "dealertype": "DealerInspire"
+    },
+
     //*********************** DEALERON **********************************************
     {
       "make": "BMW",
@@ -628,8 +636,15 @@
       "name": "BMW of Monterey",
       "url": "https://www.bmwmonterey.com",
       "dealertype": "DealerCom"
-    }
+    },
 
+    //Mercedes-Benz
+    {
+      "make": "Mercedes-Benz",
+      "name": "Euro Bethesda Mercedes-Benz",
+      "url": "https://www.eurobethesdamercedes.com",
+      "dealertype": "DealerCom"
+    }
   ]
 }
 

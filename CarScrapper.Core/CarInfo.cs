@@ -21,5 +21,6 @@ namespace CarScrapper.Core
         public string Transmission { get; set; }
         public string DealerName { get; set; }
         public bool IsLoaner { get; set; } = false;
+        public string IPacket { get; set; }
     }
 }

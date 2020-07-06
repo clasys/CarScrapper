@@ -117,8 +117,16 @@ namespace CarScrapper.Core
                 dealer.Url,
                 node.SelectNodes(".//a[contains(@href,'/new/') or contains(@href, '-new')]")?.FirstOrDefault()?.Attributes["href"].Value);
             carInfo.IsLoaner = IsThisLoaner(node);
+            carInfo.IPacket = GetIPacket(node, GetVIN(node));
 
             return carInfo;
+        }
+
+        private string GetIPacket(HtmlNode node, string vin)
+        {
+            var xpath = string.Format(".//a[contains(@href, '{0}') and contains(@href, 'ipacket')]", vin);
+            var result = node.OwnerDocument?.DocumentNode?.SelectNodes(xpath)?.FirstOrDefault()?.Attributes["href"].Value;
+            return result;
         }
 
         private bool IsThisLoaner(HtmlNode node)
@@ -135,7 +143,10 @@ namespace CarScrapper.Core
             if (string.IsNullOrEmpty(result?.Trim()))
                 result = node.SelectNodes(".//dt[@class='final-price msrp']")?.FirstOrDefault()?.NextSibling?.InnerText;
 
-            return result;
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//span[contains(@class, 'internetPrice')]")?.FirstOrDefault()?.ChildNodes?.Where(a => a.Attributes["class"].Value == "value").FirstOrDefault()?.InnerText;
+
+                return result;
         }
 
         private string GetIntColor(string[] entries, HtmlNode node)
