@@ -22,7 +22,8 @@ namespace CarScrapper.Core
                         Name = (string)dealer["name"],
                         Url = (string)dealer["url"],
                         Make = (string)dealer["make"],
-                        CustomUrl = dealer["customurl"] == null ? null : (string)dealer["customurl"]
+                        CustomUrl = dealer["customurl"] == null ? null : (string)dealer["customurl"],
+                        LoanerUrl = dealer["loanerurl"] == null ? null : (string)dealer["loanerurl"]
                     });
                 }
 
