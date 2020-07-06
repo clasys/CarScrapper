@@ -516,6 +516,7 @@
       "make": "BMW",
       "name": "Beverly Hills BMW",
       "url": "https://www.bmwofbeverlyhills.com",
+      "customurl": "https://www.bmwofbeverlyhills.com/new-bmw/los-angeles.htm?model={0}",
       "dealertype": "DealerCom"
     },
     {
@@ -552,12 +553,14 @@
       "make": "BMW",
       "name": "Long Beach BMW",
       "url": "https://www.longbeachbmw.com",
+      "customurl": "https://www.longbeachbmw.com/new-bmw/long-beach.htm?superModel={0}",
       "dealertype": "DealerCom"
     },
     {
       "make": "BMW",
       "name": "BMW of Monrovia",
       "url": "https://www.bmwofmonrovia.net",
+      "customurl": "https://www.bmwofmonrovia.net/new-bmw/monrovia.htm?model={0}",
       "dealertype": "DealerCom"
     },
     {

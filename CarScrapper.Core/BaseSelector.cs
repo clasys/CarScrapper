@@ -56,13 +56,13 @@ namespace CarScrapper.Core
 
         public abstract string GetTransmissionIdentifier();
 
-        public abstract string GetUrlDetails();
+        public abstract string GetUrlDetails(DealerInfo dealer);
         
         public abstract string GetVinIdentifier();
 
         public abstract CarInfo ParseHtmlIntoCarInfo(HtmlNode node, DealerInfo dealer);
         public abstract List<DealerInfo> GetDealers();
-        public abstract PagingInfo GetPagingInfo(HtmlDocument htmlDocument);
+        public abstract PagingInfo GetPagingInfo(HtmlDocument htmlDocument, DealerInfo dealer);
 
         public InventoryType GetCurrentInventoryType()
         {

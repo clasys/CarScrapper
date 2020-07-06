@@ -31,9 +31,9 @@ namespace CarScrapper.Core
                 ".//div[contains(@id, 'srpRow')]" 
             }; 
         }
-        public override string GetUrlDetails() 
+        public override string GetUrlDetails(DealerInfo dealer) 
         {
-            return string.Format("/searchnew.aspx?Model={0}&pn=100&st=Price+desc", GetModelIdentifier()); 
+            return string.Format("{0}/searchnew.aspx?Model={1}&pn=100&st=Price+desc", dealer.Url, GetModelIdentifier()); 
         }
         public override string GetEngineIdentifier() { return "Engine:"; }
         public override string GetDriveTypeIdentifier() { return "Drive Type:"; }
@@ -52,13 +52,13 @@ namespace CarScrapper.Core
             };
         }
 
-        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument)
+        public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument, DealerInfo dealer)
         {
             //no paging logic yet, return original URL for scrapping
             return new PagingInfo
             {
                 IsEnabled = true,
-                PagedUrls = new List<string>() { GetUrlDetails() }
+                PagedUrls = new List<string>() { GetUrlDetails(dealer) }
             };
         }
 
