@@ -231,8 +231,14 @@ namespace CarScrapper.Web
 
         protected void grid1_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            //remove last IsLoaner column, until we bind columns explicitly
+            //remove IsLoaner column, until we bind columns explicitly
             e.Row.Cells[e.Row.Cells.Count - 2].Visible = false;
+            //remove general dealer web site as it only takes up space
+            e.Row.Cells[0].Visible = false;
+        }
+
+        protected void grid1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
         }
     }
 }

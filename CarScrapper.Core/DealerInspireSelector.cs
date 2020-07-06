@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using NLog.LayoutRenderers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -137,20 +138,40 @@ namespace CarScrapper.Core
                 MSRP = GetMSRP(node),
                 InteriorColor = GetIntColor(node),
                 ExteriorColor = GetExtColor(node),
-                DriveType = node.SelectNodes(GetDriveTypeIdentifier())?.Where(a => a.InnerText.ToLower().Contains("drivetrain")).SingleOrDefault()?.ParentNode.InnerText.Trim(),
+                DriveType = GetDriveType(node),
                 Transmission = node.SelectNodes(GetTransmissionIdentifier())?.Where(a => a.InnerText.ToLower().Contains("trans")).SingleOrDefault()?.ParentNode.InnerText.Trim(),
                 StockNumber = GetStock(node),
                 VIN = GetVin(entries, node),
                 URL = node.Descendants().Where(a => a.Name == "a" && a.OuterHtml.Contains("http") && !a.OuterHtml.Contains("javascript")).FirstOrDefault()?.Attributes.Where(a => a.Name == "href").FirstOrDefault()?.Value,
-                IPacket = GetIPacket(node, GetVin(entries, node))
-
-                ////WebSite = URL, do it on a higher level
-
-                //Engine = entries.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), "").Trim(),
-                //BodyStyle = entries.Where(a => a.Contains(GetBodyStyleIdentifier())).FirstOrDefault()?.Replace(GetBodyStyleIdentifier(), "").Trim(),
-                //ModelCode = entries.Where(a => a.Contains(GetModelCodeIdentifier())).FirstOrDefault()?.Replace(GetModelCodeIdentifier(), "").Trim(),
-
+                IPacket = GetIPacket(node, GetVin(entries, node)),
+                BodyStyle = GetBodyStyle(node)
             };
+        }
+
+        private string GetBodyStyle(HtmlNode node)
+        {
+            var result = node.SelectNodes(".//a[contains(@href, 'sedan')]")?.Count > 0 ? "Sedan" : null;
+
+            if(string.IsNullOrEmpty(result))
+                result = node.SelectNodes(".//a[contains(@href, 'suv')]")?.Count > 0 ? "SUV" : null;
+
+            if (string.IsNullOrEmpty(result))
+                result = node.SelectNodes(".//a[contains(@href, 'coupe')]")?.Count > 0 ? "Coupe" : null;
+
+            return result;
+        }
+
+        private string GetDriveType(HtmlNode node)
+        {
+            var result = node.SelectNodes(GetDriveTypeIdentifier())?.Where(a => a.InnerText.ToLower().Contains("drivetrain")).SingleOrDefault()?.ParentNode.InnerText.Trim();
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//a[contains(@href, '-all-wheel-drive-')]")?.Count > 0 ? "AWD" : null;
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//a[contains(@href, '-front-wheel-drive-')]")?.Count > 0 ? "FWD" : null;
+
+            return result;
         }
 
         private string GetIPacket(HtmlNode node, string vin)

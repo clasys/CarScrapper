@@ -21,7 +21,12 @@ namespace CarScrapper.Core
         {
             throw new NotImplementedException();
         }
-        public override List<Tuple<string, string>> GetCleanupMap() { return null; }
+        public override List<Tuple<string, string>> GetCleanupMap() {
+            return new List<Tuple<string, string>>
+            {
+                new Tuple<string, string>("BodyStyle","\"")
+            };
+        }
         public override List<DealerInfo> GetDealers(){ return _dealers; }
         public override string GetDriveTypeIdentifier(){ return "Drive Line:"; }
         public override string GetEngineIdentifier() { return "Engine:"; }
@@ -106,7 +111,7 @@ namespace CarScrapper.Core
             carInfo.Model = GetModel(node);
             carInfo.Engine = entries?.Where(a => a.Contains(GetEngineIdentifier())).FirstOrDefault()?.Replace(GetEngineIdentifier(), string.Empty)?.Trim();
             carInfo.Transmission = entries?.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), string.Empty)?.Trim();
-            carInfo.DriveType = entries?.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty)?.Trim();
+            carInfo.DriveType = GetDriveType(entries, node);
             carInfo.ExteriorColor = GetExtColor(entries, node);
             carInfo.InteriorColor = GetIntColor(entries, node);
             carInfo.StockNumber = entries?.Where(a => a.Contains(GetStockNumberIdentifier())).FirstOrDefault()?.Replace(GetStockNumberIdentifier(), string.Empty)?.Trim();
@@ -120,6 +125,25 @@ namespace CarScrapper.Core
             carInfo.IPacket = GetIPacket(node, GetVIN(node));
 
             return carInfo;
+        }
+
+        private string GetDriveType(string[] entries, HtmlNode node)
+        {
+            var result = entries?.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), string.Empty)?.Trim();
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = (node.SelectNodes(".//span[@class='content']")?.FirstOrDefault()?.InnerText?.ToLower()?.Contains("fwd")).HasValue ? "FWD" : null;
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = (node.SelectNodes(".//span[@class='content']")?.FirstOrDefault()?.InnerText?.ToLower()?.Contains("awd")).HasValue ? "AWD" : null;
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//a[contains(@title, 'sDrive')]")?.Count > 0 ? "FWD" : null;
+
+            if (string.IsNullOrEmpty(result?.Trim()))
+                result = node.SelectNodes(".//a[contains(@title, 'xDrive')]")?.Count > 0 ? "AWD" : null;
+
+            return result;
         }
 
         private string GetIPacket(HtmlNode node, string vin)
