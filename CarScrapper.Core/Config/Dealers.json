@@ -131,6 +131,14 @@
       "dealertype": "DealerInspire"
     },
 
+    //Mercedes-Benz
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Edison",
+      "url": "https://www.raycatenaedison.com",
+      "dealertype": "DealerInspire"
+    },
+
     //*********************** DEALERON **********************************************
     {
       "make": "BMW",
