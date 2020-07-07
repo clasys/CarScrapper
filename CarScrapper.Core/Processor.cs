@@ -16,10 +16,9 @@ namespace CarScrapper.Core
 {
     public class Processor
     {
-        private ProcessingPreferences _preferences;
-        //private ScrapingBrowser _browser = new ScrapingBrowser();
+        private ProcessingPreferences[] _preferences;
 
-        public Processor(ProcessingPreferences preferences)
+        public Processor(ProcessingPreferences[] preferences)
         {
             _preferences = preferences;
         }
@@ -29,50 +28,53 @@ namespace CarScrapper.Core
 #if DEBUG
             var m = DateTime.Now;
 #endif
-            List<CarInfo> result = new List<CarInfo>();
+            var finalResult = new List<CarInfo>();
 
-            foreach (var dealer in _preferences.ProcessingSelector.GetDealers())
+            foreach (var preference in _preferences)
             {
-#if DEBUG
-                //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
-                var s = DateTime.Now;
-#endif
-                //HtmlAgilityPack.HtmlDocument doc = LoadWebSiteOld(dealer.Url + _preferences.ProcessingSelector.GetUrlDetails());
-                HtmlDocument doc = LoadWebSiteOld(_preferences.ProcessingSelector.GetUrlDetails(dealer));
-                var pagingInfo = _preferences.ProcessingSelector.GetPagingInfo(doc, dealer);
-#if DEBUG
-                NLogger.Instance.Info(
-                    string.Format("Paging determined for URL {0}, {1} pages{2}. ({3} ms)", 
-                        pagingInfo.PagedUrls.FirstOrDefault(), 
-                        pagingInfo.PagedUrls.Count(), 
-                        (string.IsNullOrEmpty(dealer.CustomUrl) ? "" : " (CUSTOM URL)"),
-                        (DateTime.Now - s).TotalMilliseconds));
+                var indResult = new List<CarInfo>();
+                var selector = preference.ProcessingSelector;
 
-#endif
-
-                if (pagingInfo.IsEnabled)
+                foreach (var dealer in selector.GetDealers())
                 {
-                    var multiple = ScrapMultiple(pagingInfo, dealer);
-                    result.AddRange(multiple);
 #if DEBUG
-                    Debug.WriteLine(string.Format("***************** Dealer {0} done. {1} cars. {2} sec", dealer.Name, multiple.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - s).TotalSeconds));
-                    NLogger.Instance.Info(string.Format("******** Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
+                    var s = DateTime.Now;
 #endif
-                }
-            }
+                    HtmlDocument doc = LoadWebsite(selector.GetUrlDetails(dealer));
+                    var pagingInfo = selector.GetPagingInfo(doc, dealer);
 #if DEBUG
-            Debug.WriteLine(string.Format("***************** ALL done. {0} cars. {1} sec", result.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - m).TotalSeconds));
-            //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
-#endif
-            //remove dupes created by different page sizes on different websites
-            var distinctByVin = result.GroupBy(a=> a.VIN).Select(a=>a.First()).ToList();
+                    NLogger.Instance.Info(
+                        string.Format("Paging determined for URL {0}, {1} pages{2}. ({3} ms)",
+                            pagingInfo.PagedUrls.FirstOrDefault(),
+                            pagingInfo.PagedUrls.Count(),
+                            (string.IsNullOrEmpty(dealer.CustomUrl) ? "" : " (CUSTOM URL)"),
+                            (DateTime.Now - s).TotalMilliseconds));
 
-            return _preferences.ProcessingSelector.GetCurrentInventoryType() == InventoryType.Loaner ? distinctByVin.Where(a => a.IsLoaner).ToList() : distinctByVin;
+#endif
+                    if (pagingInfo.IsEnabled)
+                    {
+                        var multiple = ScrapMultiple(pagingInfo, dealer, selector);
+                        indResult.AddRange(multiple);
+#if DEBUG
+                        Debug.WriteLine(string.Format("***************** Dealer {0} done. {1} cars. {2} sec", dealer.Name, multiple.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - s).TotalSeconds));
+                        NLogger.Instance.Info(string.Format("******** Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
+#endif
+                    }
+                }
+
+#if DEBUG
+                Debug.WriteLine(string.Format("***************** ALL done. {0} cars. {1} sec", indResult.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - m).TotalSeconds));
+                //NLogger.Instance.Info(string.Format("Starting scrape for dealer {0}, URL {1}", dealer.Name, dealer.Url));
+#endif
+                //remove dupes created by different page sizes on different websites
+                var distinctByVin = indResult.GroupBy(a => a.VIN).Select(a => a.First()).ToList();
+                finalResult.AddRange(selector.GetCurrentInventoryType() == InventoryType.Loaner ? distinctByVin.Where(a => a.IsLoaner).ToList() : distinctByVin);
+            }
+
+            return finalResult;
         }
 
-        
-
-        private List<CarInfo> ScrapMultiple(PagingInfo pagingInfo, DealerInfo dealer)
+        private List<CarInfo> ScrapMultiple(PagingInfo pagingInfo, DealerInfo dealer, ISelector selector)
         {
             var result = new List<CarInfo>();
 
@@ -83,10 +85,10 @@ namespace CarScrapper.Core
 #endif
                 //HtmlAgilityPack.HtmlDocument doc = LoadWebSiteAsync(dealer.Url + pagedUrl);
                 //var node = LoadWebSiteScrapySharp(dealer.Url + pagedUrl);
-                HtmlDocument doc = LoadWebSiteOld(pagedUrl);
+                HtmlDocument doc = LoadWebsite(pagedUrl);
 
                 HtmlNodeCollection rows = null;
-                foreach (var rowSelector in _preferences.ProcessingSelector.GetRowSelectors())
+                foreach (var rowSelector in selector.GetRowSelectors())
                 {
                     rows = doc?.DocumentNode.SelectNodes(rowSelector);
                     if (rows != null)
@@ -95,8 +97,6 @@ namespace CarScrapper.Core
 
                 if (rows != null)
                 {
-                    var selector = _preferences.ProcessingSelector;
-
                     rows.ToList().ForEach(row =>
                     {
                         var carInfo = selector.ParseHtmlIntoCarInfo(row, dealer);
@@ -129,7 +129,7 @@ namespace CarScrapper.Core
             return result;
         }
 
-        private HtmlDocument LoadWebSiteOld(string url)
+        private HtmlDocument LoadWebsite(string url)
         {
             try
             {
@@ -142,6 +142,22 @@ namespace CarScrapper.Core
                 return null;
             }
         }
+
+        //public async void ScrapToFile(string searchID)
+        //{
+        //    await Task.Run(() =>
+        //    {
+        //        try
+        //        {
+        //            var searchResults = Scrap();
+        //            Util.SerializeSearchResults(searchResults, searchID);
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            NLogger.Instance.Error(e, "ScrapToFile has failed");
+        //        }
+        //    });
+        //}
 
         //public void Test()
         //{
