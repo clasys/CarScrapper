@@ -10,5 +10,6 @@ namespace CarScraper.Web.API.Models
         public string Model { get; set; }
         [Required]
         public DealerType DealerType { get; set; }
+        public bool IsLoaner { get; set; }
     }
 }

@@ -4,6 +4,7 @@
     { 
         DealerCom,
         DealerInspire,
-        DealerOn
+        DealerOn,
+        All
     }
 }

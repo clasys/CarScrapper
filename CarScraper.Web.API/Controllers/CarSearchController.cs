@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CarScraper.Web.API.Models;
 using CarScrapper.Core;
+using System;
 
 namespace CarScraper.Web.API.Controllers
 {
@@ -21,25 +22,36 @@ namespace CarScraper.Web.API.Controllers
         {
             var p = carSearch;
 
-            return await Task.Run(() => 
+            return await Task.Run(() =>
             {
-                ProcessingPreferences prefs = null;
+                var prefs = new List<ProcessingPreferences>();
+                var prefsDealerCom = new ProcessingPreferences(new DealerComSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+                var prefsDealerOn = new ProcessingPreferences(new DealerOnSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+                var prefsDealerInspire = new ProcessingPreferences(new DealerInspireSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
 
                 //TODO: implement IsLoaner option
                 switch (carSearch.DealerType)
                 {
                     case DealerType.DealerCom:
-                        prefs = new ProcessingPreferences(new DealerComSelector(carSearch.Make, carSearch.Model, InventoryType.New));
+                        prefs.Add(prefsDealerCom);
                         break;
                     case DealerType.DealerOn:
-                        prefs = new ProcessingPreferences(new DealerOnSelector(carSearch.Make, carSearch.Model, InventoryType.New));
+                        prefs.Add(prefsDealerOn);
                         break;
                     case DealerType.DealerInspire:
-                        prefs = new ProcessingPreferences(new DealerInspireSelector(carSearch.Make, carSearch.Model, InventoryType.New));
+                        prefs.Add(prefsDealerInspire);
+                        break;
+                    default:
+                        prefs.AddRange(new[]
+                        {
+                            prefsDealerCom,
+                            prefsDealerInspire,
+                            prefsDealerOn
+                        });
                         break;
                 }
 
-                var processor = new Processor(new[] { prefs });
+                var processor = new Processor(prefs.ToArray());
                 return Ok(processor.Scrap().AsEnumerable());
             });
         }
