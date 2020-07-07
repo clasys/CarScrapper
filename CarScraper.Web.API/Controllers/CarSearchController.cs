@@ -25,6 +25,7 @@ namespace CarScraper.Web.API.Controllers
             {
                 ProcessingPreferences prefs = null;
 
+                //TODO: implement IsLoaner option
                 switch (carSearch.DealerType)
                 {
                     case DealerType.DealerCom:
