@@ -23,40 +23,57 @@ namespace CarScraper.Web.API
         /// </summary>
         /// <param name="uniqueKey"></param>
         /// <param name="carSearch"></param>
-        public IList<CarInfo> StartCarSearch(Guid uniqueKey, CarSearch carSearch)
+        public ScrapeResult StartCarSearch(Guid uniqueKey, CarSearch carSearch)
         {
-            var prefs = new List<ProcessingPreferences>();
-            var prefsDealerCom = new ProcessingPreferences(new DealerComSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
-            var prefsDealerOn = new ProcessingPreferences(new DealerOnSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
-            var prefsDealerInspire = new ProcessingPreferences(new DealerInspireSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+            var start = DateTime.Now;
 
-            //TODO: implement IsLoaner option
-            switch (carSearch.DealerType)
+            try
             {
-                case DealerType.DealerCom:
-                    prefs.Add(prefsDealerCom);
-                    break;
-                case DealerType.DealerOn:
-                    prefs.Add(prefsDealerOn);
-                    break;
-                case DealerType.DealerInspire:
-                    prefs.Add(prefsDealerInspire);
-                    break;
-                default:
-                    prefs.AddRange(new[]
-                    {
+                var prefs = new List<ProcessingPreferences>();
+                var prefsDealerCom = new ProcessingPreferences(new DealerComSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+                var prefsDealerOn = new ProcessingPreferences(new DealerOnSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+                var prefsDealerInspire = new ProcessingPreferences(new DealerInspireSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+
+                switch (carSearch.DealerType)
+                {
+                    case DealerType.DealerCom:
+                        prefs.Add(prefsDealerCom);
+                        break;
+                    case DealerType.DealerOn:
+                        prefs.Add(prefsDealerOn);
+                        break;
+                    case DealerType.DealerInspire:
+                        prefs.Add(prefsDealerInspire);
+                        break;
+                    default:
+                        prefs.AddRange(new[]
+                        {
                                 prefsDealerCom,
                                 prefsDealerInspire,
                                 prefsDealerOn
                             });
-                    break;
+                        break;
+                }
+
+                var processor = new Processor(prefs.ToArray());
+                var scrapeResults = processor.Scrap();
+
+                return new ScrapeResult
+                {
+                    ScrapeResults = scrapeResults,
+                    RuntimeException = null,
+                    DurationInSeconds = (decimal)(DateTime.Now - start).TotalSeconds
+                };
             }
-
-            var processor = new Processor(prefs.ToArray());
-
-            //store results here
-            //SaveToDb(processor.Scrap(), uniqueKey);
-            return processor.Scrap();
+            catch (Exception e)
+            {
+                return new ScrapeResult
+                {
+                    ScrapeResults = new List<CarInfo> { new CarInfo { Make = "Search Error" } },
+                    RuntimeException = e,
+                    DurationInSeconds = (decimal)(DateTime.Now - start).TotalSeconds
+                };
+            }
         }
 
         private void SaveToDb(IList<CarInfo> searchResults, Guid uniqueKey)

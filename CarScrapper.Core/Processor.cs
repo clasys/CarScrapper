@@ -11,6 +11,7 @@ using HtmlAgilityPack;
 using System.Diagnostics;
 using System.Threading;
 using System.Net;
+using System.Linq.Expressions;
 
 namespace CarScrapper.Core
 {
@@ -40,25 +41,33 @@ namespace CarScrapper.Core
 #if DEBUG
                     var s = DateTime.Now;
 #endif
-                    HtmlDocument doc = LoadWebsite(selector.GetUrlDetails(dealer));
-                    var pagingInfo = selector.GetPagingInfo(doc, dealer);
+                    try
+                    {
+                        HtmlDocument doc = LoadWebsite(selector.GetUrlDetails(dealer));
+                        var pagingInfo = selector.GetPagingInfo(doc, dealer);
 #if DEBUG
-                    NLogger.Instance.Info(
-                        string.Format("Paging determined for URL {0}, {1} pages{2}. ({3} ms)",
-                            pagingInfo.PagedUrls.FirstOrDefault(),
-                            pagingInfo.PagedUrls.Count(),
-                            (string.IsNullOrEmpty(dealer.CustomUrl) ? "" : " (CUSTOM URL)"),
-                            (DateTime.Now - s).TotalMilliseconds));
+                        NLogger.Instance.Info(
+                            string.Format("Paging determined for URL {0}, {1} pages{2}. ({3} ms)",
+                                pagingInfo.PagedUrls.FirstOrDefault(),
+                                pagingInfo.PagedUrls.Count(),
+                                (string.IsNullOrEmpty(dealer.CustomUrl) ? "" : " (CUSTOM URL)"),
+                                (DateTime.Now - s).TotalMilliseconds));
 
 #endif
-                    if (pagingInfo.IsEnabled)
-                    {
-                        var multiple = ScrapMultiple(pagingInfo, dealer, selector);
-                        indResult.AddRange(multiple);
+                        if (pagingInfo.IsEnabled)
+                        {
+                            var multiple = ScrapMultiple(pagingInfo, dealer, selector);
+                            indResult.AddRange(multiple);
 #if DEBUG
-                        Debug.WriteLine(string.Format("***************** Dealer {0} done. {1} cars. {2} sec", dealer.Name, multiple.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - s).TotalSeconds));
-                        NLogger.Instance.Info(string.Format("******** Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
+                            Debug.WriteLine(string.Format("***************** Dealer {0} done. {1} cars. {2} sec", dealer.Name, multiple.GroupBy(a => a.VIN).Select(a => a.First()).Count(), (DateTime.Now - s).TotalSeconds));
+                            NLogger.Instance.Info(string.Format("******** Finish scrape for dealer {0}, URL {1} ({2} ms)", dealer.Name, dealer.Url, (DateTime.Now - s).TotalMilliseconds));
 #endif
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        NLogger.Instance.Error(e, string.Format("Error processing dealer {0}", dealer.Name));
+                        continue;
                     }
                 }
 

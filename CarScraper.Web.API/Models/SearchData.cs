@@ -10,5 +10,7 @@ namespace CarScraper.Web.API.Models
         public int Id { get; set; }
         public Guid Key { get; set; }
         public string Data { get; set; }
+        public string Exception { get; set; }
+        public decimal SearchDurationInSec { get; set; }
     }
 }

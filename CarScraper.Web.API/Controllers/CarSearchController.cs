@@ -25,7 +25,7 @@ namespace CarScraper.Web.API.Controllers
 
         [Route("StartSearch")]
         [HttpGet]
-        public ActionResult Get([FromBody] CarSearch carSearch, [FromServices] IConfiguration config)
+        public ActionResult<SearchTicket> Get([FromBody] CarSearch carSearch, [FromServices] IConfiguration config)
         {
             //assign searchresult 
             var uniqueKey = Guid.NewGuid();
@@ -33,13 +33,15 @@ namespace CarScraper.Web.API.Controllers
             //start async search here
             Task.Run(() => 
             { 
-                var searchResults = new SearchHandler(_context).StartCarSearch(uniqueKey, carSearch);
-
-                string data = JsonConvert.SerializeObject(searchResults, Formatting.None);
+                var results = new SearchHandler(_context).StartCarSearch(uniqueKey, carSearch);
+                string data = JsonConvert.SerializeObject(results.ScrapeResults, Formatting.None);
+                
                 var searchData = new SearchData
                 {
                     Key = uniqueKey,
-                    Data = data
+                    Data = data,
+                    Exception = results.RuntimeException?.Message,
+                    SearchDurationInSec = results.DurationInSeconds
                 };
 
                 var util = new Util(config);
@@ -50,15 +52,53 @@ namespace CarScraper.Web.API.Controllers
                 }
             });
 
-            return new AcceptedResult();
+            var returnTicket = new SearchTicket
+            {
+                SearchKey = uniqueKey.ToString(),
+                RetryAfter = Duration.ThirtySeconds,
+                KeyRetrievalEndpoint = string.Format("{0}://{1}{2}{3}", Request.Scheme, Request.Host, Request.Path, Request.QueryString)?.ToLower().Replace("startsearch", "getresults")
+            };
+
+            return new AcceptedResult("", returnTicket);
         }
 
         // GET: api/Search
         [Route("GetResults")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarInfo>>> Get(string key)
+        public ActionResult<SearchResult> Get(string searchKey, [FromServices] IConfiguration config)
         {
-            return await Task.Run(() => { return new AcceptedResult(); });
+            if (!string.IsNullOrEmpty(searchKey))
+            {
+                var util = new Util(config);
+                using (var db = util.GetDbContext())
+                {
+                    var result = db.SearchData.Where(a => a.Key.ToString() == searchKey).SingleOrDefault();
+
+                    if (result != null)
+                    {
+                        if (!string.IsNullOrEmpty(result.Exception))
+                            return new OkObjectResult(
+                                new SearchResult 
+                                { 
+                                    Error = result.Exception?.Length > 64 ? result.Exception?.Substring(0,64) : result.Exception,
+                                    Status = SearchResultStatus.Failure,
+                                    DurationInSeconds = result.SearchDurationInSec
+                                });
+
+                        return new OkObjectResult(
+                            new SearchResult
+                            {
+                                Results = (IList<CarInfo>)JsonConvert.DeserializeObject(result.Data, typeof(IList<CarInfo>)),
+                                Status = SearchResultStatus.Success,
+                                DurationInSeconds = result.SearchDurationInSec
+                            });
+                    }
+
+                    return new AcceptedResult("", new SearchResult { Status = SearchResultStatus.SearchInProgress });
+                }
+            }
+
+            return new NotFoundResult();
         }
     }
 }
