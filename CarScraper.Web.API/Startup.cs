@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Converters;
+using Microsoft.EntityFrameworkCore;
+using CarScraper.Web.API.Data;
 
 namespace CarScraper.Web.API
 {
@@ -25,6 +27,9 @@ namespace CarScraper.Web.API
             services.AddSwaggerGen();
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddControllers().AddNewtonsoftJson(o => o.SerializerSettings.Converters.Add(new StringEnumConverter()));
+
+            services.AddDbContext<CarScraperWebAPIContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CarScraperWebAPIContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
