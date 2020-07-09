@@ -24,8 +24,8 @@ namespace CarScraper.Web.API.Controllers
         }
 
         [Route("StartSearch")]
-        [HttpGet]
-        public ActionResult<SearchTicket> Get([FromBody] CarSearch carSearch, [FromServices] IConfiguration config)
+        [HttpPost]
+        public ActionResult<SearchTicket> Post([FromBody] CarSearch carSearch, [FromServices] IConfiguration config)
         {
             //assign searchresult 
             var uniqueKey = Guid.NewGuid();
