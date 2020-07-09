@@ -82,15 +82,19 @@ namespace CarScraper.Web.API.Controllers
                                 { 
                                     Error = result.Exception?.Length > 64 ? result.Exception?.Substring(0,64) : result.Exception,
                                     Status = SearchResultStatus.Failure,
-                                    DurationInSeconds = result.SearchDurationInSec
+                                    DurationInSeconds = result.SearchDurationInSec,
+                                    Count = 0
                                 });
+
+                        var carInfos = (IList<CarInfo>)JsonConvert.DeserializeObject(result.Data, typeof(IList<CarInfo>));
 
                         return new OkObjectResult(
                             new SearchResult
                             {
-                                Results = (IList<CarInfo>)JsonConvert.DeserializeObject(result.Data, typeof(IList<CarInfo>)),
+                                Results = carInfos,
                                 Status = SearchResultStatus.Success,
-                                DurationInSeconds = result.SearchDurationInSec
+                                DurationInSeconds = result.SearchDurationInSec,
+                                Count = carInfos.Count()
                             });
                     }
 
