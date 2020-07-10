@@ -645,7 +645,64 @@
       "name": "Euro Bethesda Mercedes-Benz",
       "url": "https://www.eurobethesdamercedes.com",
       "dealertype": "DealerCom"
+    },
+
+    //hyundai
+    {
+      "make": "Hyundai",
+      "name": "Sansone Hyundai",
+      "url": "https://www.sansoneshyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Island Hyundai",
+      "url": "https://www.myislandhyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Circle Hyundai",
+      "url": "https://www.circlehyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Global Hyundai",
+      "url": "https://www.globalhyundainj.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Freehold Hyundai",
+      "url": "https://www.freeholdhyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Bay Ridge Hyundai",
+      "url": "https://www.bayridgehyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Hudson Hyundai",
+      "url": "https://www.hudsonhyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "Lynnes Hyundai",
+      "url": "https://www.lynneshyundai.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Hyundai",
+      "name": "South Shore Hyundai",
+      "url": "https://www.southshorehyundai.com",
+      "dealertype": "DealerCom"
     }
+
   ]
 }
 

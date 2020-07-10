@@ -47,6 +47,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            GetAvailableDealerInfo();
+
             $("#btnSearch").click(function () {
                 //$("#taStatus").val('');
                 StartSearch();
@@ -54,6 +56,21 @@
                 $("#dvLeft").LoadingOverlay("show");
             });
         });
+
+        function GetAvailableDealerInfo() {
+            var dealersEndpoint = "https://api-carscraper.azurewebsites.net/api/GetAvailableDealers";
+            var makesEndpoint = "https://api-carscraper.azurewebsites.net/api/GetAvailableMakes";
+
+            $.getJSON(dealersEndpoint,{ format: "json" })
+                .done(function (dealers) {
+                    $("#taDealers").val("Available dealers:\n" + dealers.join("\n"));
+                });
+
+            $.getJSON(makesEndpoint, { format: "json" })
+                .done(function (makes) {
+                    $("#taMakes").val("Available makes:\n" + makes.join("\n"));
+                });
+        };
 
         function AddToTextArea(lineOfText, clearFirst) {
             var tArea = $('#taStatus');
@@ -247,6 +264,9 @@
                 <tbody>
                 </tbody>
             </table>
+            <br /><br />
+            <textarea id="taMakes" rows="20" style="width:200px;font-size:10px;"></textarea>
+            <textarea id="taDealers" rows="20" style="width:200px;font-size:10px;"></textarea>
         </div>
     </form>
 </body>

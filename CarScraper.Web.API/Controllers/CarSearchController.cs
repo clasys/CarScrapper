@@ -104,5 +104,34 @@ namespace CarScraper.Web.API.Controllers
 
             return new NotFoundResult();
         }
+
+        [Route("GetAvailableDealers")]
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> GetAvailableDealers()
+        {
+            try
+            {
+                var dealerNames = CarScrapper.Core.Util.GetDealers().OrderBy(a => a.Name).Select(a => a.Name).Distinct();
+                return Ok(dealerNames);
+            }
+            catch
+            {
+                return new NotFoundResult();
+            }
+        }
+
+        [Route("GetAvailableMakes")]
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> GetAvailableMakes()
+        {
+            try
+            {
+                return Ok(CarScrapper.Core.Util.GetDealers().OrderBy(a => a.Make).Select(a => a.Make).Distinct());
+            }
+            catch
+            {
+                return new NotFoundResult();
+            }
+        }
     }
 }
