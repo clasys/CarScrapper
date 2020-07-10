@@ -1,148 +1,253 @@
-﻿<%@ Page Title="Car Scraper" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CarScrapper.Web._Default" Async="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CarScrapper.Web.DataTableTest" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+
+    
+
     <style type="text/css">
-        .mydatagrid
-        {
-        width: 80%;
-        border: solid 2px black;
-        min-width: 80%;
+        #tbGrid_length, #tbGrid_filter, #tbGrid_info, #tbGrid_paginate {
+            font-size: 13px; font-family:Arial; 
         }
-        .header
-        {
-        background-color: #000;
-        font-family: Arial;
-        color: White;
-        height: 16px;
-        text-align: center;
-        font-size: 16px;
+        
+        th
+        { 
+            font-size: 12px; font-family:Arial; 
+        }
+        
+        td { 
+            font-size: 11px; font-family:Arial; 
+        }
+        
+        
+
+        table#gvResults{
+            table-layout:fixed !important;
         }
 
-        .rows
-        {
-        background-color: #fff;
-        font-family: Arial;
-        font-size: 11px;
-        color: #000;
-        min-height: 25px;
-        text-align: left;
-        }
-        .rows:hover
-        {
-        background-color: #5badff;
-        color: #fff;
+        .container {
+            width: 100%;
         }
 
-        .mydatagrid a /** FOR THE PAGING ICONS **/
-        {
-        background-color: Transparent;
-        padding: 5px 5px 5px 5px;
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        }
-
-        .mydatagrid a.gridLink 
-        {
-            background-color: white;
-            color: black;
-            font-weight: normal;
-            padding: 0px 0px 0px 0px;
-        }
-
-        .mydatagrid a:hover /** FOR THE PAGING ICONS HOVER STYLES**/
-        {
-        background-color: #000;
-        color: #fff;
-        }
-        .mydatagrid span /** FOR THE PAGING ICONS CURRENT PAGE INDICATOR **/
-        {
-        background-color: #fff;
-        color: #000;
-        padding: 5px 5px 5px 5px;
-        }
-        .pager
-        {
-        background-color: #5badff;
-        font-family: Arial;
-        color: White;
-        height: 30px;
-        text-align: left;
-        }
-
-        .mydatagrid td
-        {
-        padding: 5px;
-        }
-        .mydatagrid th
-        {
-        padding: 5px;
+        .left,
+        .right {
+          float: left;
+          width: 50%;
+  
+          border: 0px solid red;
+          box-sizing: border-box;
         }
     </style>
-    <br /><br />
 
-    <table border="0" cellpadding="8" cellspacing="0">
-        <tr>
-            <td style="text-align:left;width:50;text-wrap:none;">
-                <table border="0" cellpadding="2">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnSearch").click(function () {
+                //$("#taStatus").val('');
+                StartSearch();
+                $(this).prop('disabled', true);
+                $("#dvLeft").LoadingOverlay("show");
+            });
+        });
+
+        function AddToTextArea(lineOfText, clearFirst) {
+            var tArea = $('#taStatus');
+
+            if (clearFirst == true) {
+                tArea.val(lineOfText);
+            }
+            else {
+                tArea.val(tArea.val() + "\n" + lineOfText);
+            }
+
+            //autoscroll to bottom
+            if (tArea.length)
+                tArea.scrollTop(tArea[0].scrollHeight - tArea.height());
+        };
+
+        function StartSearch() {
+            var attempt = 0;
+            var tMake = $("#tbMake").val();
+            var tModel = $("#tbModel").val();
+            var tIsLoaner = $("#cbLoanerOnly").is(":checked");
+            var tDealerType = "";
+
+            $("input[type=radio]").each(function () {
+                if (this.checked == true) {
+                    tDealerType = this.value;
+                }
+            });
+
+            var tData = { make: tMake, model: tModel, dealerType: tDealerType, isLoaner: tIsLoaner };
+            var tUrl = "https://api-carscraper.azurewebsites.net/api/startsearch";
+            AddToTextArea("POST " + tUrl + ", parameters: " + JSON.stringify(tData), true);
+
+            $.ajax({
+                url: tUrl,
+                type: 'post',
+                data: JSON.stringify(tData),
+                dataType: 'json',
+                contentType: "application/json"
+            }).done(function (data) {
+                AddToTextArea("Response: searchKey=" + data.searchKey + "; retryAfter=" + data.retryAfter + ", result endpoint=" + data.keyRetrievalEndpoint);
+                PollResultEndpoint(data.searchKey, data.retryAfter, data.keyRetrievalEndpoint, attempt+1);
+            }).fail(function () {
+                alert("error");
+            });
+        };
+
+        function PollResultEndpoint(searchKey, retryAfter, endpoint, attempt) {
+            AddToTextArea("Polling results endpoint with 10 sec interval. Try " + attempt);
+
+            $.getJSON(endpoint + "?searchKey=" + searchKey,
+                {
+                    format: "json"
+                })
+                .done(function (json) {
+                    var i = false;
+                    //continue polling, results arent ready yet
+                    if (json.status == "SearchInProgress") {
+                        AddToTextArea("Response: SearchInProgress. Continue polling " + endpoint + "?searchKey=" + searchKey);
+                        setTimeout(PollResultEndpoint, 10000, searchKey, retryAfter, endpoint, attempt+1); //10 sec, implement retryAfter logic 
+                    }
+                    else {
+                        if (json.results) {
+                            AddToTextArea("Response: Success. Stop polling. Results: " + json.count + ", duration: " + json.durationInSeconds + " sec" );
+                            $("#tbGrid").DataTable(
+                                {
+                                    destroy: true,
+                                    bLengthChange: true,
+                                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                                    theme: 'energyblue',
+                                    bFilter: true,
+                                    bSort: true,
+                                    bPaginate: true,
+                                    data: json.results,
+                                    fixedColums: true,
+                                    initComplete: function () {
+                                        $("#btnSearch").prop('disabled', false);
+                                        $("#dvLeft").LoadingOverlay("hide", true);
+                                    },
+                                    columns: [
+                                        { 'data': 'make', 'width' : '5%' },
+                                        { 'data': 'model', 'width': '15%' },
+                                        { 'data': 'exteriorColor', 'width': '5%' },
+                                        { 'data': 'interiorColor', 'width': '5%' },
+                                        { 'data': 'msrp', 'width': '5%' },
+                                        { 'data': 'engine', 'width': '5%' },
+                                        { 'data': 'driveType', 'width': '5%' },
+                                        { 'data': 'stockNumber', 'width': '5%' },
+                                        { 'data': 'vin', 'width': '5%' },
+                                        {
+                                            "data": "url",
+                                            "width": "5%",
+                                            "render": function (data, type, row, meta) {
+                                                if (type === 'display') {
+                                                    data = '<a target="_new" href="' + data + '">listing</a>';
+                                                }
+
+                                                return data;
+                                            }
+                                        },
+                                        { 'data': 'bodyStyle', 'width': '5%' },
+                                        { 'data': 'modelCode', 'width': '5%' },
+                                        { 'data': 'transmission', 'width': '5%' },
+                                        { 'data': 'dealerName', 'width': '5%' },
+                                        {
+                                            "data": "iPacket",
+                                            "width": "5%",
+                                            "render": function (data, type, row, meta) {
+                                                if (type === 'display' && data) {
+                                                    data = '<a target="_new" href="' + data + '">IPacket</a>';
+                                                }
+
+                                                return data;
+                                            }
+                                        }
+                                    ]
+                                });
+
+                            return;
+                        }
+
+                        alert("Something went wrong");
+                    }
+                })
+                .fail(function (jqxhr, textStatus, error) {
+                    AddToTextArea("Error in getJSON callback for Url " + endpoint + "?searchKey=" + searchKey + ". Error: " + error);
+                    alert("fail");
+                });
+        };
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="divMain" style="width: 100%;">
+            
+            <div id="dvLeft" class="left">
+                <table id="tbHeaderTable" border="0" cellpadding="8" cellspacing="0">
                     <tr>
-                        <td colspan="2"><span style="font-size:13px;color:red;">Type "Loaner" works only for DealerCom Volvo sites</span></td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align:bottom;">Type:</td>
-                        <td>
-                            <asp:DropDownList runat="server" ID="ddlInventoryType">
-                                <asp:ListItem Value="1">New</asp:ListItem>
-                                <asp:ListItem Value="2">Loaner</asp:ListItem>
-                            </asp:DropDownList>
+                        <td style="text-align:left;width:50;text-wrap:none;">
+                            <table border="0" cellpadding="2">
+                                <tr>
+                                    <td>Make:</td>
+                                    <td><input type="text" id="tbMake" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Model:</td>
+                                    <td>
+                                        <input type="text" id="tbModel" />
+                                        <input type="button" id="btnSearch" name="btnSearch" value="Search" />
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Make:</td>
-                        <td><asp:TextBox runat="server" ID="tbMake" AutoPostBack="false"></asp:TextBox></td>
-                    </tr>
-                    <tr>
-                        <td>Model:</td>
                         <td>
-                            <asp:TextBox runat="server" ID="tbModel" AutoPostBack="false"></asp:TextBox>
-                            <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" />
+                            <input type="radio" id="rDealerOn" name="dealerType" value="DealerOn"/>search DealerOn sites<br />
+                            <input type="radio" id="rDealerInspire" name="dealerType" value="DealerInspire" />search DealerInspire sites<br />
+                            <input type="radio" id="rDealerCom" name="dealerType" value="DealerCom"  />search DealerCom sites<br/>
+                            <input type="radio" id="rAll" name="dealerType" value="All" checked="checked"  />search all (slow)<br/><br />
+                            <input type="checkbox" id="cbLoanerOnly"/>loaners only (works only with Volvo DealerCom sites)<br />
                         </td>
                     </tr>
                 </table>
-            </td>
-            <td style="text-align:left;">
-                <asp:CheckBox runat="server" ID="cbDealerOn" Checked="true" />include DealerOn sites<br />
-                <asp:CheckBox runat="server" ID="cbDealerInspire" Checked="false" />include DealerInspire sites<br />
-                <asp:CheckBox runat="server" ID="cbDealerCom" Checked="false" />include DealerCom sites
-            </td>
-            <td style="text-align:left;">
-                <asp:TextBox runat="server" ID="tbMakesList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Makes available:" />
-                &nbsp;
-                <asp:TextBox runat="server" ID="tbDealerList" TextMode="MultiLine" Rows="5" EnableViewState="true" Width="300px" Text="Dealers available:" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:Label runat="server" EnableViewState="true" ID="lblCount" Text="0" />
-                <asp:Label runat="server" ID="lblMessage"/>
-                <asp:GridView 
-                    ID="grid1" 
-                    runat="server" 
-                    AutoGenerateColumns="true"
-                    CssClass="mydatagrid" 
-                    PagerStyle-CssClass="pager"
-                    HeaderStyle-CssClass="header" 
-                    RowStyle-CssClass="rows" 
-                    AllowPaging="False" 
-                    AllowSorting="true"
-                    OnSorting="grid1_Sorting"
-                    OnPreRender="grid1_PreRender"
-                    OnRowCreated="grid1_RowCreated"
-                    OnRowDataBound="grid1_RowDataBound"
-                    OnPageIndexChanging="grid1_PageIndexChanging"></asp:GridView>
-            </td>
-        </tr>
-    </table>
+            </div>
 
+            <div id="dvRight" class="right">
+                <textarea id="taStatus" rows="10" style="width:99%;font-size:9px;"></textarea>
+            </div>
 
-</asp:Content>
+            <br /><br />
+
+            <table id="tbGrid" class="display compact" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Make</th>
+                        <th class="col-200">Model</th>
+                        <th>Exterior Color</th>
+                        <th>Interior Color</th>
+                        <th>MSRP</th>
+                        <th>Engine</th>
+                        <th>DriveType</th>
+                        <th>Stock #</th>
+                        <th>VIN</th>
+                        <th>URL</th>
+                        <th>Body Style</th>
+                        <th>Model Code</th>
+                        <th>Transmission</th>
+                        <th>Dealer Name</th>
+                        <th>IPacket</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
