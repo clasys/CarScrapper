@@ -183,13 +183,13 @@ namespace CarScrapper.Core
                 result = (node.SelectNodes(".//span[@class='content']")?.FirstOrDefault()?.InnerText?.ToLower()?.Contains("awd")).HasValue ? "AWD" : null;
 
             if (IsEmpty(result))
-                result = node.SelectNodes(".//a[contains(@title, 'sDrive')]")?.Count > 0 ? "FWD" : null;
+                result = node.SelectNodes(".//a[contains(@title, 'sDrive')]")?.Count > 0 ? "RWD" : null;
 
             if (IsEmpty(result))
                 result = node.SelectNodes(".//a[contains(@title, 'xDrive')]")?.Count > 0 ? "AWD" : null;
 
             if (IsEmpty(result))
-                result = node.SelectNodes(".//*[contains(.,'sDrive')]")?.Count() > 0 ? "FWD" : null;
+                result = node.SelectNodes(".//*[contains(.,'sDrive')]")?.Count() > 0 ? "RWD" : null;
 
             if (IsEmpty(result))
                 result = node.SelectNodes(".//*[contains(.,'xDrive')]")?.Count() > 0 ? "AWD" : null;
