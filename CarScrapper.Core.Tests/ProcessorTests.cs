@@ -36,7 +36,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerCom()
         {
-            var preferences = new[] { new ProcessingPreferences(new DealerComSelector("Volvo", "XC60", InventoryType.Loaner)) };
+            var preferences = new[] { new ProcessingPreferences(new DealerComSelector("BMW", "X3", InventoryType.New)) };
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 

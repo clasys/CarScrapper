@@ -561,7 +561,7 @@
       "make": "BMW",
       "name": "Long Beach BMW",
       "url": "https://www.longbeachbmw.com",
-      "customurl": "https://www.longbeachbmw.com/new-bmw/long-beach.htm?superModel={0}",
+      "customurl": "https://www.longbeachbmw.com/new-bmw/long-beach.htm?model={0}", //website change their parameter from superModel to model
       "dealertype": "DealerCom"
     },
     {
@@ -587,6 +587,7 @@
       "make": "BMW",
       "name": "Sterling BMW of Newport Beach",
       "url": "https://www.sterlingbmw.com",
+      "customurl": "https://www.sterlingbmw.com/new-inventory/pageSizeChange/1/10/~/VehicleType_~Model_{0}~Trim_~Year_~Price1_~TransmissionGeneric_~ExteriorColorGeneric_~InteriorColor_~EPAHighway_/~/100", //this changed too, last 100 is results per page
       "dealertype": "DealerCom"
     },
     {

@@ -70,25 +70,35 @@ namespace CarScrapper.Core
         public override PagingInfo GetPagingInfo(HtmlDocument htmlDocument, DealerInfo dealer)
         {
             var urls = new List<string>();
-            urls.Add(string.Format("{0}&start=0", GetUrlDetails(dealer)));
+            var url = string.Format("{0}", GetUrlDetails(dealer));
+            var isStandardUrl = string.IsNullOrEmpty(dealer.CustomUrl);
 
-            var entry = htmlDocument.DocumentNode.SelectSingleNode(".//span[contains(text(), 'Page')]")?.InnerText;
-            if (entry != null)
+            //add pagination only to standard URLs
+            if (isStandardUrl)
+                url += "&start = 0";
+
+            urls.Add(url);
+
+            if (isStandardUrl)
             {
-                var matches = Regex.Matches(entry, "\\d+");
-
-                //Rather than disabling it outright, return collection with 1st paged URL so at least that can be scraped
-                //if (matches.Count != 2)
-                //    return new PagingInfo { IsEnabled = false };
-                
-                if (matches.Count == 2)
+                var entry = htmlDocument.DocumentNode.SelectSingleNode(".//span[contains(text(), 'Page')]")?.InnerText;
+                if (entry != null)
                 {
-                    int iStart = int.Parse(matches[0].Value);
-                    int iEnd = int.Parse(matches[1].Value);
+                    var matches = Regex.Matches(entry, "\\d+");
 
-                    for (int i = iStart; i <= iEnd; i++)
+                    //Rather than disabling it outright, return collection with 1st paged URL so at least that can be scraped
+                    //if (matches.Count != 2)
+                    //    return new PagingInfo { IsEnabled = false };
+
+                    if (matches.Count == 2)
                     {
-                        urls.Add(string.Format("{0}&start={1}", GetUrlDetails(dealer), int.Parse(i + "0")));
+                        int iStart = int.Parse(matches[0].Value);
+                        int iEnd = int.Parse(matches[1].Value);
+
+                        for (int i = iStart; i <= iEnd; i++)
+                        {
+                            urls.Add(string.Format("{0}&start={1}", GetUrlDetails(dealer), int.Parse(i + "0")));
+                        }
                     }
                 }
             }
