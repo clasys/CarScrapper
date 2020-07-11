@@ -76,7 +76,7 @@ namespace CarScrapper.Core
 
             //add pagination only to standard URLs
             if (isStandardUrl)
-                url += "&start = 0";
+                url += "&start=0";
 
             urls.Add(url);
 
@@ -132,8 +132,15 @@ namespace CarScrapper.Core
             carInfo.URL = GetStockUrl(node, dealer);
             carInfo.IsLoaner = IsThisLoaner(node);
             carInfo.IPacket = GetIPacket(node, GetVIN(node));
+            carInfo.Packages = GetPackages(node);
 
             return carInfo;
+        }
+
+        private string GetPackages(HtmlNode node)
+        {
+            var spans = node.SelectNodes(".//div[contains(@class,'packages')]")?.Elements("span");
+            return spans == null ? null : string.Join(", ", spans.Where(a => !string.IsNullOrEmpty(a.InnerText?.Replace(",", "").Trim())).Select(a => a.InnerText).ToArray());
         }
 
         private static string GetStockUrl(HtmlNode node, DealerInfo dealer)
@@ -289,10 +296,6 @@ namespace CarScrapper.Core
         {
             var div = node.Descendants("div").Where(a => a.Attributes.Any(b => b.Value.Equals("ff_link"))).FirstOrDefault();
             var result = div?.Attributes.Where(a => a.Name.Equals(GetVinIdentifier())).FirstOrDefault()?.Value;
-            
-            //< div class="les_video" les_vin="YV4102RK6L1601526"></div>
-	        //<div class="tps-roadster-btn" data-condition="new" data-vin="YV4102RK6L1601526"></div>
-	        //<div class="tps-roadster-buildmydeal-btn" data-condition="new" data-vin="YV4102RK6L1601526"></div>
             
             if (IsEmpty(result))
                 result = node.SelectNodes(".//div[@class='les_video']")?.FirstOrDefault().GetAttributeValue("les_vin", string.Empty);

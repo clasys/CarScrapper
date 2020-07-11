@@ -150,12 +150,25 @@
                                         $("#btnSearch").prop('disabled', false);
                                         $("#dvLeft").LoadingOverlay("hide", true);
                                     },
+                                    //hide empty columns
+                                    fnDrawCallback: function () {
+                                        var api = this.api();
+                                        setTimeout(function () {
+                                            api.columns().flatten().each(function (colIdx) {
+                                                var columnData = api.columns(colIdx).data().join('');
+                                                if (columnData.length == (api.rows().count() - 1) ) {
+                                                    api.column(colIdx).visible(false);
+                                                }
+                                            });
+                                        }, 0)
+                                    },
                                     columns: [
                                         { 'data': 'make', 'width' : '5%' },
                                         { 'data': 'model', 'width': '15%' },
                                         { 'data': 'exteriorColor', 'width': '5%' },
                                         { 'data': 'interiorColor', 'width': '5%' },
                                         { 'data': 'msrp', 'width': '5%' },
+                                        { 'data': 'packages', 'width': '20%' },
                                         { 'data': 'engine', 'width': '5%' },
                                         { 'data': 'driveType', 'width': '5%' },
                                         { 'data': 'stockNumber', 'width': '5%' },
@@ -172,7 +185,7 @@
                                             }
                                         },
                                         { 'data': 'bodyStyle', 'width': '5%' },
-                                        { 'data': 'modelCode', 'width': '5%' },
+                                        //{ 'data': 'modelCode', 'width': '5%' },
                                         { 'data': 'transmission', 'width': '5%' },
                                         { 'data': 'dealerName', 'width': '5%' },
                                         {
@@ -249,13 +262,14 @@
                         <th>Exterior Color</th>
                         <th>Interior Color</th>
                         <th>MSRP</th>
+                        <th>Packages</th>
                         <th>Engine</th>
                         <th>DriveType</th>
                         <th>Stock #</th>
                         <th>VIN</th>
                         <th>URL</th>
                         <th>Body Style</th>
-                        <th>Model Code</th>
+                        <%--<th>Model Code</th>--%>
                         <th>Transmission</th>
                         <th>Dealer Name</th>
                         <th>IPacket</th>
