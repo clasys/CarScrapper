@@ -258,6 +258,14 @@
       "url": "https://www.tunkhannockfordpa.com",
       "dealertype": "DealerOn"
     },
+    //Acura
+    {
+      "make": "Acura",
+      "name": "Acura of East Brunswick",
+      "url": "https://www.openroadacuraofeastbrunswick.com",
+      "dealertype": "DealerOn"
+    },
+
 
     //******************************** DEALER COM *********************************************
     //TODO: Sonic Automotive is huge, add all makes that they offer
@@ -701,7 +709,196 @@
       "name": "South Shore Hyundai",
       "url": "https://www.southshorehyundai.com",
       "dealertype": "DealerCom"
+    },
+    //Audi
+    {
+      "make": "Audi",
+      "name": "Bell Audi",
+      "url": "https://www.bellaudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Eatontown",
+      "url": "https://www.audieatontown.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Freehold",
+      "url": "https://www.audifreehold.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Princeton",
+      "url": "https://www.audiprinceton.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Bridgewater",
+      "url": "https://www.audibridgewater.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "DCH Millburn Audi",
+      "url": "https://www.dchmillburnaudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Mendham",
+      "url": "https://www.mendhamaudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Jack Daniels Audi of Paramus",
+      "url": "https://www.jackdanielsparamusaudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Town Audi",
+      "url": "https://www.townaudiofenglewood.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Brooklyn",
+      "url": "https://www.audibrooklyn.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Biener Audi",
+      "url": "https://www.bieneraudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi of Huntington",
+      "url": "https://www.audiofhuntington.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Reading",
+      "url": "https://www.audireading.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Allentown",
+      "url": "https://www.audiallentown.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Warrington",
+      "url": "https://www.audiwarrington.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Flemington Audi",
+      "url": "https://www.flemingtonaudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Newton",
+      "url": "https://www.audinewton.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Fort Washington",
+      "url": "https://www.audifortwashington.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Wynnewood",
+      "url": "https://www.audiwynnewood.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Devon",
+      "url": "https://www.audidevon.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi West Chester",
+      "url": "https://www.audiwestchester.com",
+      "dealertype": "DealerCom"
+    },
+    //doesn't work with standard RowSelectors
+    //{
+    //  "make": "Audi",
+    //  "name": "Audi Lancaster",
+    //  "url": "https://www.lancasteraudipa.com",
+    //  "dealertype": "DealerCom",
+    //},
+    {
+      "make": "Audi",
+      "name": "Fiore Audi",
+      "url": "https://www.fioreaudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi State College",
+      "url": "https://www.audistatecollege.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Mechanicsburg",
+      "url": "https://www.mechanicsburgaudipa.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Hunt Valley",
+      "url": "https://www.audihuntvalley.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Wyoming Valley",
+      "url": "https://www.audiwyomingvalley.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Jack Daniels Audi of Upper Saddle River",
+      "url": "https://www.jackdanielsusraudi.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Greenwich",
+      "url": "https://www.audigreenwich.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Audi Hawthorne",
+      "url": "https://www.audihawthorne.com",
+      "dealertype": "DealerCom"
+    },
+    {
+      "make": "Audi",
+      "name": "Mohegan Lake Audi",
+      "url": "https://www.moheganlakeaudi.com",
+      "dealertype": "DealerCom"
     }
+
 
   ]
 }
