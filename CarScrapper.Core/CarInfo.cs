@@ -22,6 +22,5 @@ namespace CarScrapper.Core
         public string DealerName { get; set; }
         public bool IsLoaner { get; set; } = false;
         public string IPacket { get; set; }
-        public string Packages { get; set; }
     }
 }

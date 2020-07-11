@@ -562,7 +562,7 @@
       "make": "BMW",
       "name": "Long Beach BMW",
       "url": "https://www.longbeachbmw.com",
-      "customurl": "https://www.longbeachbmw.com/new-bmw/long-beach.htm?model={0}", //website change their parameter from superModel to model
+      "customurl": "https://www.longbeachbmw.com/new-bmw/long-beach.htm?superModel={0}",
       "dealertype": "DealerCom"
     },
     {
@@ -588,7 +588,6 @@
       "make": "BMW",
       "name": "Sterling BMW of Newport Beach",
       "url": "https://www.sterlingbmw.com",
-      "customurl": "https://www.sterlingbmw.com/new-inventory/pageSizeChange/1/10/~/VehicleType_~Model_{0}~Trim_~Year_~Price1_~TransmissionGeneric_~ExteriorColorGeneric_~InteriorColor_~EPAHighway_/~/100", //this changed too, last 100 is results per page
       "dealertype": "DealerCom"
     },
     {
@@ -646,64 +645,7 @@
       "name": "Euro Bethesda Mercedes-Benz",
       "url": "https://www.eurobethesdamercedes.com",
       "dealertype": "DealerCom"
-    },
-
-    //hyundai
-    {
-      "make": "Hyundai",
-      "name": "Sansone Hyundai",
-      "url": "https://www.sansoneshyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Island Hyundai",
-      "url": "https://www.myislandhyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Circle Hyundai",
-      "url": "https://www.circlehyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Global Hyundai",
-      "url": "https://www.globalhyundainj.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Freehold Hyundai",
-      "url": "https://www.freeholdhyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Bay Ridge Hyundai",
-      "url": "https://www.bayridgehyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Hudson Hyundai",
-      "url": "https://www.hudsonhyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "Lynnes Hyundai",
-      "url": "https://www.lynneshyundai.com",
-      "dealertype": "DealerCom"
-    },
-    {
-      "make": "Hyundai",
-      "name": "South Shore Hyundai",
-      "url": "https://www.southshorehyundai.com",
-      "dealertype": "DealerCom"
     }
-
   ]
 }
 
