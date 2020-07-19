@@ -13,7 +13,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerOn()
         {
-            var preferences = new[] { new ProcessingPreferences(new DealerOnSelector("BMW", "X2", InventoryType.New)) };
+            var preferences = new[] { new ProcessingPreferences(new DealerOnSelector("BMW", "X2", InventoryType.New, Regions.Northeast)) };
             var processor = new Processor(preferences);
             var start = DateTime.Now;
             var result = processor.Scrap();
@@ -25,7 +25,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerInspire()
         {
-            var preferences = new[] { new ProcessingPreferences(new DealerInspireSelector("BMW", "X1", InventoryType.New)) };
+            var preferences = new[] { new ProcessingPreferences(new DealerInspireSelector("BMW", "X1", InventoryType.New, Regions.Northeast)) };
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 
@@ -36,7 +36,7 @@ namespace CarScrapper.Core.Tests
         [TestMethod]
         public void TestScrapDealerCom()
         {
-            var preferences = new[] { new ProcessingPreferences(new DealerComSelector("BMW", "X3", InventoryType.New)) };
+            var preferences = new[] { new ProcessingPreferences(new DealerComSelector("BMW", "X3", InventoryType.New, Regions.Northeast)) };
             var processor = new Processor(preferences);
             var result = processor.Scrap();
 

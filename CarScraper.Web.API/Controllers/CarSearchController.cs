@@ -33,7 +33,7 @@ namespace CarScraper.Web.API.Controllers
             //start async search here
             Task.Run(() => 
             { 
-                var results = new SearchHandler(_context).StartCarSearch(uniqueKey, carSearch);
+                var results = new SearchHandler(_context).StartCarSearch(carSearch);
                 string data = JsonConvert.SerializeObject(results.ScrapeResults, Formatting.None);
                 
                 var searchData = new SearchData

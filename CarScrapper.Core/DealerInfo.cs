@@ -7,5 +7,6 @@
         public string Url { get; set; }
         public string Type { get; set; }
         public string CustomUrl { get; set; }
+        public Regions Region { get; set; }
     }
 }

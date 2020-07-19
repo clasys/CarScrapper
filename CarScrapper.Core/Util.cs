@@ -25,7 +25,8 @@ namespace CarScrapper.Core
                         Name = (string)dealer["name"],
                         Url = (string)dealer["url"],
                         Make = (string)dealer["make"],
-                        CustomUrl = dealer["customurl"] == null ? null : (string)dealer["customurl"]
+                        CustomUrl = dealer["customurl"] == null ? null : (string)dealer["customurl"],
+                        Region = Enum.TryParse((string)dealer["region"], out Regions region) ? region : Regions.All
                     });
                 }
 

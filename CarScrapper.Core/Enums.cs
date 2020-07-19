@@ -12,4 +12,14 @@
         New,
         Loaner
     }
+
+    public enum Regions
+    {
+        Northeast,
+        Southwest,
+        West,
+        Southeast,
+        Midwest,
+        All
+    }
 }

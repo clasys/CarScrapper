@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CarScrapper.Core;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarScraper.Web.API.Models
 {
@@ -11,5 +12,6 @@ namespace CarScraper.Web.API.Models
         [Required]
         public DealerType DealerType { get; set; }
         public bool IsLoaner { get; set; }
+        public Regions Region { get; set; }
     }
 }

@@ -21,18 +21,17 @@ namespace CarScraper.Web.API
         /// <summary>
         /// Starts search and stores results using unique key for future retrieval
         /// </summary>
-        /// <param name="uniqueKey"></param>
         /// <param name="carSearch"></param>
-        public ScrapeResult StartCarSearch(Guid uniqueKey, CarSearch carSearch)
+        public ScrapeResult StartCarSearch(CarSearch carSearch)
         {
             var start = DateTime.Now;
 
             try
             {
                 var prefs = new List<ProcessingPreferences>();
-                var prefsDealerCom = new ProcessingPreferences(new DealerComSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
-                var prefsDealerOn = new ProcessingPreferences(new DealerOnSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
-                var prefsDealerInspire = new ProcessingPreferences(new DealerInspireSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New));
+                var prefsDealerCom = new ProcessingPreferences(new DealerComSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New, carSearch.Region));
+                var prefsDealerOn = new ProcessingPreferences(new DealerOnSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New, carSearch.Region));
+                var prefsDealerInspire = new ProcessingPreferences(new DealerInspireSelector(carSearch.Make, carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New, carSearch.Region));
 
                 switch (carSearch.DealerType)
                 {

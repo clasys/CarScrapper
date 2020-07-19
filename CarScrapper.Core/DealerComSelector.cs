@@ -11,7 +11,7 @@ namespace CarScrapper.Core
     {
         private readonly List<DealerInfo> _dealers;
 
-        public DealerComSelector(string make, string model, InventoryType inventoryType) : base(make, model, inventoryType)
+        public DealerComSelector(string make, string model, InventoryType inventoryType, Regions region) : base(make, model, inventoryType, region)
         {
             _dealers = base.DealersBase.Where(a => a.Type == "DealerCom").ToList();
         }

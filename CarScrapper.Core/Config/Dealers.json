@@ -1,3 +1,10 @@
+//********* Available regions: **************************************
+//Northeast
+//Southwest
+//West
+//Southeast
+//Midwest
+
 {
   "dealers": [
     //*********************** DEALERINSPIRE **********************************************
@@ -6,129 +13,150 @@
       "make": "BMW",
       "name": "BMW of Springfield",
       "url": "https://www.bmwofspringfieldnj.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Tenafly",
       "url": "https://www.bmwoftenafly.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
 
     {
       "make": "BMW",
       "name": "BMW of Turnersville",
       "url": "https://www.bmwofturnersville.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Atlantic City",
       "url": "https://www.bmwatlanticcity.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Greenwich",
       "url": "https://www.bmwofgreenwich.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "Continental BMW of Darien",
       "url": "https://www.bmwdarien.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Ridgefield",
       "url": "https://www.bmwofridgefield.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Bridgeport",
       "url": "https://www.bmwofbridgeport.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of North Haven",
       "url": "https://www.bmwofnorthhaven.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
-      "name": "Otto \\'s BMW",
+      "name": "Otto's BMW",
       "url": "https://www.ottosbmw.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "Century West BMW",
       "url": "https://www.centurywestbmw.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "Bob Smith BMW",
       "url": "https://www.bobsmithbmw.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Rusnak BMW",
       "url": "https://www.rusnakbmw.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Crevier BMW",
       "url": "https://www.crevierbmw.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Ontario",
       "url": "https://www.bmwofontario.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Murrieta",
       "url": "https://www.bmwofmurrieta.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW Santa Barbara",
       "url": "https://www.bmwsantabarbara.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Escondido",
       "url": "https://www.bmwofescondido.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of San Diego",
       "url": "https://www.bmwofsandiego.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW Fresno",
       "url": "https://www.bmwfresno.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
     //TODO: check Pacific BMW further, not returning any results
     {
       "make": "BMW",
       "name": "Pacific BMW",
       "url": "https://www.pacificbmw.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "West"
     },
 
     //Mercedes-Benz
@@ -136,7 +164,8 @@
       "make": "Mercedes-Benz",
       "name": "Mercedes-Benz of Edison",
       "url": "https://www.raycatenaedison.com",
-      "dealertype": "DealerInspire"
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
     },
 
     //*********************** DEALERON **********************************************
@@ -144,49 +173,57 @@
       "make": "BMW",
       "name": "Flemington BMW",
       "url": "https://www.flemingtonbmw.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Edison",
       "url": "https://www.bmwedison.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Hudson Valley",
       "url": "https://www.bmwhudsonvalley.com/",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "Morristown BMW",
       "url": "https://www.morristownbmw.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Roxbury",
       "url": "https://www.bmwrox.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Newton",
       "url": "https://www.bmwnewton.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "BMW",
       "name": "BMW of Bakersfield",
       "url": "https://www.bmwofbakersfield.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW Palm Springs",
       "url": "https://www.bmwpalmsprings.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "West"
     },
 
     //Mercedes Benz
@@ -194,13 +231,15 @@
       "make": "Mercedes-Benz",
       "name": "Mercedes-Benz of Caldwell",
       "url": "https://www.mbofcaldwell.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     {
       "make": "Mercedes-Benz",
       "name": "Open Road of Bridgewater",
       "url": "https://www.openroadmercedesbenz.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
     //Toyota
@@ -208,7 +247,8 @@
       "make": "Toyota",
       "name": "BayRidge Toyota",
       "url": "https://www.bayridgetoyota.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
 
@@ -217,14 +257,16 @@
       "make": "Nissan",
       "name": "Loughead Nissan",
       "url": "https://www.lougheadnissan.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
     {
       "make": "Nissan",
       "name": "Girard Nissan",
       "url": "https://www.girardnissan.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
     //Honda
@@ -232,7 +274,8 @@
       "make": "Honda",
       "name": "Honda Village",
       "url": "https://www.hondavillage.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
     //Kia
@@ -240,7 +283,8 @@
       "make": "Kia",
       "name": "Nutley Auto Kia",
       "url": "https://www.nutleykia.net",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
 
@@ -249,21 +293,24 @@
       "make": "Ford",
       "name": "Carmody Ford",
       "url": "https://www.carmodyford.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
     {
       "make": "Ford",
       "name": "Tunkhannock Ford",
       "url": "https://www.tunkhannockfordpa.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
     //Acura
     {
       "make": "Acura",
       "name": "Acura of East Brunswick",
       "url": "https://www.openroadacuraofeastbrunswick.com",
-      "dealertype": "DealerOn"
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
 
@@ -274,7 +321,8 @@
       "make": "GMC",
       "name": "Ramey Auto Group",
       "url": "https://www.rameycars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
 
     //Chevy
@@ -282,13 +330,15 @@
       "make": "Chevrolet",
       "name": "Ramey Auto Group",
       "url": "https://www.rameycars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
     {
       "make": "Chevrolet",
       "name": "Sonic Automotive",
       "url": "https://www.sonicautomotive.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "All"
     },
 
     //Toyota
@@ -296,7 +346,8 @@
       "make": "Toyota",
       "name": "Ramey Auto Group",
       "url": "https://www.rameycars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
 
     //Dodge
@@ -304,25 +355,29 @@
       "make": "Dodge",
       "name": "Ramey Auto Group",
       "url": "https://www.rameycars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
     {
       "make": "Dodge",
       "name": "Sansone Jeep",
       "url": "https://www.sansonejeep.net",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Dodge",
       "name": "Route 18 Auto",
       "url": "https://www.rt18cjdr.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Dodge",
       "name": "Buhler Hazlet",
       "url": "https://www.buhlerbitter.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //Jeep
@@ -330,19 +385,22 @@
       "make": "Jeep",
       "name": "Sansone Jeep",
       "url": "https://www.sansonejeep.net",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Jeep",
       "name": "Route 18 Auto",
       "url": "https://www.rt18cjdr.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Jeep",
       "name": "Buhler Hazlet",
       "url": "https://www.buhlerbitter.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //Chrysler
@@ -350,19 +408,22 @@
       "make": "Chrysler",
       "name": "Sansone Jeep",
       "url": "https://www.sansonejeep.net",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Chrysler",
       "name": "Route 18 Auto",
       "url": "https://www.rt18cjdr.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Chrysler",
       "name": "Buhler Hazlet",
       "url": "https://www.buhlerbitter.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //Ram
@@ -370,19 +431,22 @@
       "make": "Ram",
       "name": "Sansone Jeep",
       "url": "https://www.sansonejeep.net",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Ram",
       "name": "Route 18 Auto",
       "url": "https://www.rt18cjdr.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Ram",
       "name": "Buhler Hazlet",
       "url": "https://www.buhlerbitter.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //Cadillac
@@ -390,13 +454,15 @@
       "make": "Cadillac",
       "name": "Ramey Auto Group",
       "url": "https://www.rameycars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
     {
       "make": "Cadillac",
       "name": "Sonic Automotive",
       "url": "https://www.sonicautomotive.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "All"
     },
 
     //Volvo
@@ -404,61 +470,71 @@
       "make": "Volvo",
       "name": "Beyer Volvo Cars of Falls Church",
       "url": "https://www.fallschurchdonbeyervolvo.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
     {
       "make": "Volvo",
       "name": "Beyer Volvo Cars of Dulles",
       "url": "https://www.dullesdonbeyervolvo.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
     {
       "make": "Volvo",
       "name": "Beyer Volvo Cars of Winchester",
       "url": "https://www.winchesterdonbeyervolvo.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     },
     {
       "make": "Volvo",
       "name": "Open Road Volvo Cars Edison",
       "url": "https://www.openroadvolvocarsedison.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Volvo",
       "name": "Volvo Cars Bridgewater",
       "url": "https://www.volvocarsbridgewater.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Volvo",
       "name": "Smythe Volvo Cars",
       "url": "https://www.smythevolvocars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Volvo",
       "name": "Volvo Cars Manhattan",
       "url": "https://www.volvocarsmanhattan.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Volvo",
       "name": "Volvo Cars of Queens",
       "url": "https://www.volvocarsofqueens.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Volvo",
       "name": "Karp Volvo Cars",
       "url": "https://www.karpvolvocars.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Volvo",
       "name": "Volvo Cars of Huntington",
       "url": "https://www.volvocarsofhuntington.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //TODO:to parse this dealer, need to implement wait until all elements are set by dynamic scripts before accessing HTML. Main group (Koons) site can then also be used to get the car data for many makes
@@ -474,7 +550,8 @@
       "make": "Acura",
       "name": "Sonic Automotive",
       "url": "https://www.sonicautomotive.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "All"
     },
 
     //Genesis
@@ -482,49 +559,56 @@
       "make": "Genesis",
       "name": "Genesis of North Plainfield",
       "url": "https://www.genesisofnorthplainfield.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     {
       "make": "Genesis",
       "name": "Genesis of South Brunswick",
       "url": "https://www.genesissouthbrunswick.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     {
       "make": "Genesis",
       "name": "Genesis of Woodbridge",
       "url": "https://www.genesisofwoodbridgenj.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     {
       "make": "Genesis",
       "name": "Genesis of Brooklyn",
       "url": "https://www.brooklyn-genesis.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     {
       "make": "Genesis",
       "name": "Genesis of the North Shore",
       "url": "https://www.genesisofthenorthshore.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     {
       "make": "Genesis",
       "name": "Genesis of Freehold",
       "url": "https://www.genesisoffreehold.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     {
       "make": "Genesis",
       "name": "Genesis of Wayne",
       "url": "https://www.genesisofwayne.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //BMW
@@ -533,118 +617,137 @@
       "name": "Beverly Hills BMW",
       "url": "https://www.bmwofbeverlyhills.com",
       "customurl": "https://www.bmwofbeverlyhills.com/new-bmw/los-angeles.htm?model={0}",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Santa Monica BMW",
       "url": "https://www.smbmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Nick Alexander BMW",
       "url": "https://www.alexanderbmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Center BMW",
       "url": "https://www.centerbmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "South Bay BMW",
       "url": "https://www.southbaybmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "McKenna BMW",
       "url": "https://www.mckennabmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Long Beach BMW",
       "url": "https://www.longbeachbmw.com",
       "customurl": "https://www.longbeachbmw.com/new-bmw/long-beach.htm?model={0}", //website change their parameter from superModel to model
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Monrovia",
       "url": "https://www.bmwofmonrovia.net",
       "customurl": "https://www.bmwofmonrovia.net/new-bmw/monrovia.htm?model={0}",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Buena Park",
       "url": "https://www.bmwbuenapark.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Valencia BMW",
       "url": "https://www.valenciabmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Sterling BMW of Newport Beach",
       "url": "https://www.sterlingbmw.com",
       "customurl": "https://www.sterlingbmw.com/new-inventory/pageSizeChange/1/10/~/VehicleType_~Model_{0}~Trim_~Year_~Price1_~TransmissionGeneric_~ExteriorColorGeneric_~InteriorColor_~EPAHighway_/~/100", //this changed too, last 100 is results per page
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Steve Thomas BMW",
       "url": "https://www.stevethomasbmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "Irvine BMW",
       "url": "https://www.irvinebmw.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Riverside",
       "url": "https://www.bmwofriverside.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Vista",
       "url": "https://www.bmwofvista.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW Encinitas",
       "url": "https://www.bmwencinitas.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Santa Maria",
       "url": "https://www.bmwsm.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Visalia",
       "url": "https://www.bmwofvisalia.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
     {
       "make": "BMW",
       "name": "BMW of Monterey",
       "url": "https://www.bmwmonterey.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "West"
     },
 
     //Mercedes-Benz
@@ -652,7 +755,8 @@
       "make": "Mercedes-Benz",
       "name": "Euro Bethesda Mercedes-Benz",
       "url": "https://www.eurobethesdamercedes.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //hyundai
@@ -660,182 +764,212 @@
       "make": "Hyundai",
       "name": "Sansone Hyundai",
       "url": "https://www.sansoneshyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Island Hyundai",
       "url": "https://www.myislandhyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Circle Hyundai",
       "url": "https://www.circlehyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Global Hyundai",
       "url": "https://www.globalhyundainj.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Freehold Hyundai",
       "url": "https://www.freeholdhyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Bay Ridge Hyundai",
       "url": "https://www.bayridgehyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Hudson Hyundai",
       "url": "https://www.hudsonhyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "Lynnes Hyundai",
       "url": "https://www.lynneshyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Hyundai",
       "name": "South Shore Hyundai",
       "url": "https://www.southshorehyundai.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     //Audi
     {
       "make": "Audi",
       "name": "Bell Audi",
       "url": "https://www.bellaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Eatontown",
       "url": "https://www.audieatontown.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Freehold",
       "url": "https://www.audifreehold.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Princeton",
       "url": "https://www.audiprinceton.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Bridgewater",
       "url": "https://www.audibridgewater.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "DCH Millburn Audi",
       "url": "https://www.dchmillburnaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Mendham",
       "url": "https://www.mendhamaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Jack Daniels Audi of Paramus",
       "url": "https://www.jackdanielsparamusaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Town Audi",
       "url": "https://www.townaudiofenglewood.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Brooklyn",
       "url": "https://www.audibrooklyn.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Biener Audi",
       "url": "https://www.bieneraudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi of Huntington",
       "url": "https://www.audiofhuntington.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Reading",
       "url": "https://www.audireading.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Allentown",
       "url": "https://www.audiallentown.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Warrington",
       "url": "https://www.audiwarrington.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Flemington Audi",
       "url": "https://www.flemingtonaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Newton",
       "url": "https://www.audinewton.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Fort Washington",
       "url": "https://www.audifortwashington.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Wynnewood",
       "url": "https://www.audiwynnewood.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Devon",
       "url": "https://www.audidevon.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi West Chester",
       "url": "https://www.audiwestchester.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     //doesn't work with standard RowSelectors
     //{
@@ -848,55 +982,64 @@
       "make": "Audi",
       "name": "Fiore Audi",
       "url": "https://www.fioreaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi State College",
       "url": "https://www.audistatecollege.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Mechanicsburg",
       "url": "https://www.mechanicsburgaudipa.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Hunt Valley",
       "url": "https://www.audihuntvalley.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Wyoming Valley",
       "url": "https://www.audiwyomingvalley.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Jack Daniels Audi of Upper Saddle River",
       "url": "https://www.jackdanielsusraudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Greenwich",
       "url": "https://www.audigreenwich.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Audi Hawthorne",
       "url": "https://www.audihawthorne.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
     {
       "make": "Audi",
       "name": "Mohegan Lake Audi",
       "url": "https://www.moheganlakeaudi.com",
-      "dealertype": "DealerCom"
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     }
 
 

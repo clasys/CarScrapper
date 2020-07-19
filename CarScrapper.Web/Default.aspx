@@ -93,14 +93,21 @@
             var tModel = $("#tbModel").val();
             var tIsLoaner = $("#cbLoanerOnly").is(":checked");
             var tDealerType = "";
+            var tRegion = "";
 
-            $("input[type=radio]").each(function () {
+            $("input[type=radio][name='dealerType']").each(function () {
                 if (this.checked == true) {
                     tDealerType = this.value;
                 }
             });
 
-            var tData = { make: tMake, model: tModel, dealerType: tDealerType, isLoaner: tIsLoaner };
+            $("input[type=radio][name='region']").each(function () {
+                if (this.checked == true) {
+                    tRegion = this.value;
+                }
+            });
+
+            var tData = { make: tMake, model: tModel, dealerType: tDealerType, isLoaner: tIsLoaner, region: tRegion };
             var tUrl = "https://api-carscraper.azurewebsites.net/api/startsearch";
             AddToTextArea("POST " + tUrl + ", parameters: " + JSON.stringify(tData), true);
 
@@ -242,7 +249,15 @@
                             <input type="radio" id="rDealerInspire" name="dealerType" value="DealerInspire" />search DealerInspire sites<br />
                             <input type="radio" id="rDealerCom" name="dealerType" value="DealerCom"  />search DealerCom sites<br/>
                             <input type="radio" id="rAll" name="dealerType" value="All" checked="checked"  />search all (slow)<br/><br />
-                            <input type="checkbox" id="cbLoanerOnly"/>loaners only (works only with Volvo DealerCom sites)<br />
+                            <input type="checkbox" id="cbLoanerOnly"/>loaners only<br />(works only with Volvo DealerCom sites)<br />
+                        </td>
+                        <td>
+                            <input type="radio" id="regionsNe" name="region" value="Northeast" checked="checked" />Northeast<br/>
+                            <input type="radio" id="regionsW" name="region" value="West" />West<br/>
+                            <input type="radio" id="regionsSw" name="region" value="Southwest" />Southwest<br/>
+                            <input type="radio" id="regionsMw" name="region" value="Midwest" />Midwest<br/>
+                            <input type="radio" id="regionsSe" name="region" value="Southeast" />Southeast<br/>
+                            <input type="radio" id="regionsAll" name="region" value="All" />All
                         </td>
                     </tr>
                 </table>
