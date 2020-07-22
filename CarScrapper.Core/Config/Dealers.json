@@ -245,10 +245,38 @@
     //Toyota
     {
       "make": "Toyota",
-      "name": "BayRidge Toyota",
+      "name": "Bay Ridge Toyota",
       "url": "https://www.bayridgetoyota.com",
       "dealertype": "DealerOn",
       "region": "Northeast"
+    },
+    {
+      "make": "Toyota",
+      "name": "Town Toyota",
+      "url": "https://www.towntoyota.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Vancouver Toyota",
+      "url": "https://www.vancouvertoyota.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Toyota Of Olympia",
+      "url": "https://www.toyotaofolympia.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Burien Toyota",
+      "url": "https://www.burientoyota.com",
+      "dealertype": "DealerOn",
+      "region": "West"
     },
 
 
@@ -348,6 +376,14 @@
       "url": "https://www.rameycars.com",
       "dealertype": "DealerCom",
       "region": "Southeast"
+    },
+
+    {
+      "make": "Toyota",
+      "name": "AutoNation Toyota Spokane Valley",
+      "url": "https://www.autonationtoyotaspokanevalley.com",
+      "dealertype": "DealerCom",
+      "region": "West"
     },
 
     //Dodge

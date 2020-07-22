@@ -92,7 +92,8 @@ namespace CarScrapper.Core
             return new[]
             {
                 ".//div[@class='vehicle-overview']",
-                ".//div[@class='vehicle-wrap']"
+                ".//div[@class='vehicle-wrap']",
+                ".//div[contains(@class, 'result-wrap')]"
             };
         }
 
