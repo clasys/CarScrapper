@@ -278,6 +278,34 @@
       "dealertype": "DealerOn",
       "region": "West"
     },
+    {
+      "make": "Toyota",
+      "name": "Beaverton Toyota",
+      "url": "https://www.beavertontoyota.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Chuck Patterson Toyota",
+      "url": "https://www.chuckpattersontoyota.net",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Thompsons Toyota",
+      "url": "https://www.thompsonstoyota.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Roseville Toyota",
+      "url": "https://www.rosevilletoyota.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
 
 
     //Nissan
@@ -377,7 +405,6 @@
       "dealertype": "DealerCom",
       "region": "Southeast"
     },
-
     {
       "make": "Toyota",
       "name": "AutoNation Toyota Spokane Valley",
@@ -385,6 +412,63 @@
       "dealertype": "DealerCom",
       "region": "West"
     },
+    {
+      "make": "Toyota",
+      "name": "Lithia Toyota Of Medford",
+      "url": "https://www.lithiatoyotamedford.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "klamath Falls Toyota",
+      "url": "https://www.klamathfallstoyota.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Steve's Hometown Toyota",
+      "url": "https://www.hometowntoyota.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Lithia Toyota of Redding",
+      "url": "https://www.lithiatoyotaredding.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Toyota",
+      "name": "Toyota of Turnersville",
+      "url": "https://www.toyotaofturnersville.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Toyota",
+      "name": "Sloane Toyota of Malvern",
+      "url": "https://www.sloanetoyotamalvern.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Toyota",
+      "name": "Conicelli Toyota of Conshohocken",
+      "url": "https://www.conicellitoyotaofconshohocken.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Toyota",
+      "name": "Sloane Toyota of Glenside",
+      "url": "https://www.sloanetoyotaglenside.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+
 
     //Dodge
     {
