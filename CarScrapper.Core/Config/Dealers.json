@@ -469,7 +469,6 @@
       "region": "Northeast"
     },
 
-
     //Dodge
     {
       "make": "Dodge",
@@ -1160,9 +1159,93 @@
       "url": "https://www.moheganlakeaudi.com",
       "dealertype": "DealerCom",
       "region": "Northeast"
+    },
+
+    //Honda
+    {
+      "make": "Honda",
+      "name": "Miller Auto Team Honda",
+      "url": "https://www.millerhondany.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Honda",
+      "name": "DHC Gardena Honda",
+      "url": "https://www.gardenahonda.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Honda",
+      "name": "Honda of Concord",
+      "url": "https://www.hondaofconcord.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Flow Honda In Winston-Salem",
+      "url": "https://www.flowhondawinstonsalem.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Lithia Motors",
+      "url": "https://www.lithia.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Honda of Burlington",
+      "url": "https://www.herbchambershondaofburlington.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Honda of Annapolis",
+      "url": "https://www.hondaofannapolis.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Honda",
+      "name": "AutoNation Honda Dulles",
+      "url": "https://www.autonationhondadulles.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Burleson Honda",
+      "url": "https://www.burlesonhonda.com",
+      "dealertype": "DealerCom",
+      "region": "Southwest"
+    },
+    {
+      "make": "Honda",
+      "name": "Heritage Honda Bel Air",
+      "url": "https://www.heritagehondabelair.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Economy Honda Superstore",
+      "url": "https://www.economyhonda.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Honda",
+      "name": "Honda of Irving",
+      "url": "https://www.mcdavidhondairving.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     }
-
-
   ]
 }
 
