@@ -368,6 +368,227 @@
       "dealertype": "DealerOn",
       "region": "Northeast"
     },
+    {
+      "make": "Acura",
+      "name": "Antonino Acura",
+      "url": "https://www.antoninoacura.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Acura",
+      "name": "McDaniels Acura",
+      "url": "https://www.mcdanielsacura.net",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Jerry Damson Acura",
+      "url": "https://www.jerrydamsonacura.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Acura at Oxmoor",
+      "url": "https://www.acuraatoxmoor.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Acura",
+      "name": "LeithCars.com",
+      "url": "https://www.leithcars.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Shearer Acura",
+      "url": "https://www.sheareracura.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Zimbrick Acura",
+      "url": "https://www.zimbrickacura.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Acura",
+      "name": "Chevy Chase Acura",
+      "url": "https://www.chevychaseacura.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Cerritos Acura",
+      "url": "https://www.cerritosacura.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Acura",
+      "name": "Montgomeryville Acura",
+      "url": "https://www.montgomeryvilleacura.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Acura of Augusta",
+      "url": "https://www.acuraofaugusta.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Esserman Acura",
+      "url": "https://www.essermanacura.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+
+    //Lexus
+    {
+      "make": "Lexus",
+      "name": "Lexus of Thousand Oaks",
+      "url": "https://www.lexusofthousandoaks.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Lexus",
+      "name": "Metro Lexus",
+      "url": "https://www.metrolexus.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Longo Lexus",
+      "url": "https://www.longolexus.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus Stevens Creek",
+      "url": "https://www.longolexus.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Lexus",
+      "name": "Scanlon Lexus of Fort Myers",
+      "url": "https://www.lexusoffortmyers.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Lehigh Valley",
+      "url": "https://www.lexusoflehighvalley.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Edison",
+      "url": "https://www.lexusofedison.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Bridgewater",
+      "url": "https://www.lexusofbridgewater.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Sheehy Lexus of Annapolis",
+      "url": "https://www.sheehylexusofannapolis.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Mt. Kisco",
+      "url": "https://www.lexusofmtkisco.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Greenwich",
+      "url": "https://www.lexusofgreenwich.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "JM Lexus",
+      "url": "https://www.jmlexus.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lindsay Lexus of Alexandria",
+      "url": "https://www.lindsaycars.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Huntsville",
+      "url": "https://www.lexusofhuntsville.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Louisville",
+      "url": "https://www.lexusoflouisville.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Berlin City Lexus of Portland",
+      "url": "https://www.berlincitylexus.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Knoxville",
+      "url": "https://www.lexusofknoxville.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Melbourne",
+      "url": "https://www.lexusofmelbourne.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus Virginia Beach",
+      "url": "https://www.charlesbarkerlexusvirginiabeach.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+
+
 
 
     //******************************** DEALER COM *********************************************

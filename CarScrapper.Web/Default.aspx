@@ -63,12 +63,12 @@
 
             $.getJSON(dealersEndpoint,{ format: "json" })
                 .done(function (dealers) {
-                    $("#taDealers").val("Available dealers:\n" + dealers.join("\n"));
+                    $("#taDealers").val("Available dealers (" + dealers.length + "):\n" + dealers.join("\n"));
                 });
 
             $.getJSON(makesEndpoint, { format: "json" })
                 .done(function (makes) {
-                    $("#taMakes").val("Available makes:\n" + makes.join("\n"));
+                    $("#taMakes").val("Available makes (" + makes.length + "):\n" + makes.join("\n"));
                 });
         };
 
