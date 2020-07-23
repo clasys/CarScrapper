@@ -12,7 +12,7 @@
     
 
     <style type="text/css">
-        #tbGrid_length, #tbGrid_filter, #tbGrid_info, #tbGrid_paginate {
+        #tbGrid_length, #tbGrid_filter, #tbGrid_info, #tbGrid_paginate, p {
             font-size: 13px; font-family:Arial; 
         }
         
@@ -296,6 +296,14 @@
             <br /><br />
             <textarea id="taMakes" rows="20" style="width:200px;font-size:10px;"></textarea>
             <textarea id="taDealers" rows="20" style="width:200px;font-size:10px;"></textarea>
+            <p><b>Search tips:</b><br />Search heavily depends on how you enter model. Model is always case sensitive. Some examples for hard-to-figure out models to get proper results:
+                <br />
+                For Mazda, enter model as "Mazda CX-5", "Mazda6"<br />
+                For Mercedes-Benz, enter model as "GLC" instead of "GLC300"<br />
+                For Lexus, enter model as "RX" instead of "RX350"<br />
+                For Chevrolet, enter model as "Silverado 1500" instead of "Silverado"<br />
+                For BMW, enter model as "3 Series" to get any 3-series results, "X3" and so on for SAVs<br />
+            </p> 
         </div>
     </form>
 </body>

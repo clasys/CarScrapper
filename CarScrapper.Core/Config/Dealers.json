@@ -588,6 +588,100 @@
       "region": "Southeast"
     },
 
+    //Mazda
+    {
+      "make": "Mazda",
+      "name": "Grappone Mazda",
+      "url": "https://www.grapponemazda.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Wallace Mazda of Stuart",
+      "url": "https://www.wallacemazdaofstuart.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Bountiful Mazda",
+      "url": "https://www.bountifulmazda.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Mazda",
+      "name": "Parkway Family Mazda",
+      "url": "https://www.parkwayfamilymazda.com",
+      "dealertype": "DealerOn",
+      "region": "South"
+    },
+    {
+      "make": "Mazda",
+      "name": "Orem Mazda",
+      "url": "https://www.oremmazda.com",
+      "dealertype": "DealerOn",
+      "region": "West"
+    },
+    {
+      "make": "Mazda",
+      "name": "Velocity Mazda",
+      "url": "https://www.velocitymazda.com",
+      "dealertype": "DealerOn",
+      "region": "South"
+    },
+    {
+      "make": "Mazda",
+      "name": "Acadiana Mazda",
+      "url": "https://www.acadianamazda.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Panama City Mazda",
+      "url": "https://www.panamacitymazda.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Joe Maus Mazda",
+      "url": "https://www.joemausmazda.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Passport Mazda",
+      "url": "https://www.passportauto.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Oak Lawn Mazda",
+      "url": "https://www.oaklawnmazda.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Mazda",
+      "name": "Wyatt Johnson Mazda",
+      "url": "https://www.wyattjohnsonmazda.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mazda",
+      "name": "Ingram Park Mazda",
+      "url": "https://www.ingramparkmazda.com",
+      "dealertype": "DealerOn",
+      "region": "South"
+    },
+
+
 
 
 
