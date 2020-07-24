@@ -168,6 +168,142 @@
       "region": "Northeast"
     },
 
+    //Land Rover
+    {
+      "make": "Land Rover",
+      "name": "Land Rover West Chester",
+      "url": "https://www.landroverwestchester.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover North Scottsdale",
+      "url": "https://www.landrovernorthscottsdale.com",
+      "dealertype": "DealerInspire",
+      "region": "Southwest"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Monmouth",
+      "url": "https://www.landrovermonmouth.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Edison",
+      "url": "https://www.landroveredison.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Paramus",
+      "url": "https://www.landroverparamus.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Princeton",
+      "url": "https://www.princetonlandrover.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Ray Catena Land Rover Marlboro",
+      "url": "https://www.landrovermarlboro.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Englewood",
+      "url": "https://www.landroverenglewood.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Wilmington",
+      "url": "https://www.landroverwilmington.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Las Vegas",
+      "url": "https://www.lrlv.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Manhattan",
+      "url": "https://www.landrovermanhattan.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Freeport",
+      "url": "https://www.landroverfreeport.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Hornburg Land Rover Los Angeles",
+      "url": "https://www.hornburglandroverla.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Mission Viejo",
+      "url": "https://www.landrovermissionviejo.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Newport Beach",
+      "url": "https://www.landrovernewportbeach.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Anaheim Hills",
+      "url": "https://www.landroveranaheimhills.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Cole European Land Rover",
+      "url": "https://www.colelandrover.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover San Diego",
+      "url": "https://www.landroversandiego.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Santa Monica",
+      "url": "https://www.landroversantamonica.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+
+
     //*********************** DEALERON **********************************************
     {
       "make": "BMW",
@@ -387,8 +523,6 @@
       "region": "Southeast"
     },
 
-
-
     //Honda
     {
       "make": "Honda",
@@ -424,6 +558,7 @@
       "dealertype": "DealerOn",
       "region": "Northeast"
     },
+
     //Acura
     {
       "make": "Acura",
@@ -752,6 +887,84 @@
       "region": "Northeast"
     },
 
+    //Infiniti
+    {
+      "make": "INFINITI",
+      "name": "INFINITI of Coconut Creek",
+      "url": "https://www.infinitiofcoconutcreek.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Kelly INFINITI",
+      "url": "https://www.kellyinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Harper INFINITI",
+      "url": "https://www.harperinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Greenwich INFINITI",
+      "url": "https://www.greenwichinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "INFINITI of Winston-Salem",
+      "url": "https://www.moderninfinitiofwinstonsalem.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Nationwide INFINITI of Timonium",
+      "url": "https://www.nationwideinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Priority INFINITI of Greenbrier",
+      "url": "https://www.priorityinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Fort Myers INFINITI",
+      "url": "https://www.fortmyersinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "INFINITI of Silver Spring",
+      "url": "https://www.infinitiofsilverspring.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Passport Auto Group",
+      "url": "https://www.passportauto.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "INFINITI",
+      "name": "Sheehy INFINITI of Annapolis",
+      "url": "https://www.sheehyinfiniti.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
 
 
 
@@ -1631,6 +1844,57 @@
       "url": "https://www.mcdavidhondairving.com",
       "dealertype": "DealerCom",
       "region": "Southeast"
+    },
+
+    //Land Rover
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Chantilly",
+      "url": "https://www.landroverchantilly.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Sacramento",
+      "url": "https://saclandrover.niello.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Peabody",
+      "url": "https://www.roverpeabody.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Northfield",
+      "url": "https://www.landrovernorthfield.com",
+      "dealertype": "DealerCom",
+      "region": "Midwest"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Cerritos",
+      "url": "https://www.landrovercerritos.com",
+      "dealertype": "DealerCom",
+      "region": "West"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover El Paso",
+      "url": "https://www.landroverelpasotx.com",
+      "dealertype": "DealerCom",
+      "region": "Southwest"
+    },
+    {
+      "make": "Land Rover",
+      "name": "Land Rover Roaring Fork",
+      "url": "https://www.landroverroaringfork.com",
+      "dealertype": "DealerCom",
+      "region": "West"
     }
   ]
 }
