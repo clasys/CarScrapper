@@ -316,7 +316,6 @@
       "dealertype": "DealerOn",
       "region": "Northeast"
     },
-
     {
       "make": "Nissan",
       "name": "Girard Nissan",
@@ -324,6 +323,71 @@
       "dealertype": "DealerOn",
       "region": "Northeast"
     },
+    {
+      "make": "Nissan",
+      "name": "I-90 Nissan",
+      "url": "https://www.bignissani90.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Nissan",
+      "name": "Gainesville Nissan",
+      "url": "https://www.gainesvillenissan.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Nissan",
+      "name": "Wallace Nissan",
+      "url": "https://www.wallacenissanofstuart.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Nissan",
+      "name": "Rothrock Nissan",
+      "url": "https://www.rothrocknissan.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Nissan",
+      "name": "Moses Auto Group",
+      "url": "https://www.mosescars.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Nissan",
+      "name": "Antwerpen Nissan Owings Mills",
+      "url": "https://www.antwerpennissanowingsmills.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Nissan",
+      "name": "Montrose Nissan of Hermitage",
+      "url": "https://www.montrose-nissan.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Nissan",
+      "name": "Clay Cooley Nissan Dallas",
+      "url": "https://www.claycooleynissan.com",
+      "dealertype": "DealerOn",
+      "region": "Southwest"
+    },
+    {
+      "make": "Nissan",
+      "name": "Nissan of Greer",
+      "url": "https://www.greernissan.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+
+
 
     //Honda
     {
@@ -679,6 +743,13 @@
       "url": "https://www.ingramparkmazda.com",
       "dealertype": "DealerOn",
       "region": "South"
+    },
+    {
+      "make": "Mazda",
+      "name": "Open Road Mazda of Morristown",
+      "url": "https://www.openroadmazdaofmorristown.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
     },
 
 

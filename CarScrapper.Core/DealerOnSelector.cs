@@ -69,7 +69,7 @@ namespace CarScrapper.Core
             {
                 Make = GetMakeIdentifier(),
                 Model = entries.Where(a => a.ToLower().Contains(GetMakeIdentifier().ToLower())).FirstOrDefault()?.Trim(),
-                MSRP = entries.Where(a => a.Contains(GetMsrpIdentifier())).FirstOrDefault()?.Replace(GetMsrpIdentifier(), "").Trim(),
+                MSRP = GetMSRP(entries, node),
                 InteriorColor = entries.Where(a => a.Contains(GetIntColorIdentifier())).FirstOrDefault()?.Replace(GetIntColorIdentifier(), "").Trim(),
                 ExteriorColor = entries.Where(a => a.Contains(GetExtColorIdentifier())).FirstOrDefault()?.Replace(GetExtColorIdentifier(), "").Trim(),
                 DriveType = entries.Where(a => a.Contains(GetDriveTypeIdentifier())).FirstOrDefault()?.Replace(GetDriveTypeIdentifier(), "").Trim(),
@@ -82,6 +82,16 @@ namespace CarScrapper.Core
                 ModelCode = entries.Where(a => a.Contains(GetModelCodeIdentifier())).FirstOrDefault()?.Replace(GetModelCodeIdentifier(), "").Trim(),
                 Transmission = entries.Where(a => a.Contains(GetTransmissionIdentifier())).FirstOrDefault()?.Replace(GetTransmissionIdentifier(), "").Trim()
             };
+        }
+
+        private string GetMSRP(string[] entries, HtmlNode node)
+        {
+            var result = node.SelectNodes(".//span")?.Where(a => a.InnerText.Contains("MSRP:")).FirstOrDefault()?.NextSibling?.InnerText;
+
+            if(string.IsNullOrEmpty(result?.Trim()))
+                result = entries.Where(a => a.Contains(GetMsrpIdentifier())).FirstOrDefault()?.Replace(GetMsrpIdentifier(), "").Trim();
+
+            return result;
         }
 
         public override List<Tuple<string, Regex>> GetRegexMap()
