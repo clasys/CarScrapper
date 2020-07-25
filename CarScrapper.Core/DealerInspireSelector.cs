@@ -46,7 +46,11 @@ namespace CarScrapper.Core
                 new Tuple<string, string>("Transmission","Trans:"),
                 new Tuple<string, string>("DriveType","Drivetrain:"),
                 new Tuple<string, string>("StockNumber", "Stock #:"),
-                new Tuple<string, string>("IPacket", "&nbsp;")
+                new Tuple<string, string>("IPacket", "&nbsp;"),
+                new Tuple<string, string>("InteriorColor", "&quot;int_color&quot;:"),
+                new Tuple<string, string>("ExteriorColor", "&quot;ext_color&quot;:"),
+                new Tuple<string, string>("StockNumber", "&quot;stock&quot;:"),
+                new Tuple<string, string>("VIN", "&quot;vin&quot;:")
             };
         }
 
@@ -93,7 +97,7 @@ namespace CarScrapper.Core
             {
                 ".//div[@class='vehicle-overview']",
                 ".//div[@class='vehicle-wrap']",
-                ".//div[contains(@class, 'result-wrap')]"
+                ".//a[contains(@class, 'result-wrap')]"
             };
         }
 

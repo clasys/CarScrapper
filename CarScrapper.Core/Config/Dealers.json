@@ -167,6 +167,34 @@
       "dealertype": "DealerInspire",
       "region": "Northeast"
     },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Keenan Motors",
+      "url": "https://www.keenanmercedes.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes Benz of Ontario",
+      "url": "https://www.mbontario.com",
+      "dealertype": "DealerInspire",
+      "region": "West"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Massapequa",
+      "url": "https://www.mbofmassapequa.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Manhattan",
+      "url": "https://www.mbmanhattan.com",
+      "dealertype": "DealerInspire",
+      "region": "Northeast"
+    },
 
     //Land Rover
     {
@@ -1895,6 +1923,78 @@
       "url": "https://www.landroverroaringfork.com",
       "dealertype": "DealerCom",
       "region": "West"
+    },
+
+    //Mercedes-Benz
+    {
+      "make": "Mercedes-Benz",
+      "name": "Euro Motorcars Germantown",
+      "url": "https://www.eurogermantownmercedes.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Euro Motorcars Devon",
+      "url": "https://www.mbofdevon.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Huntsville",
+      "url": "https://www.mbhsv.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Memphis",
+      "url": "https://www.mbofmemphis.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Tom Masano Mercedes-Benz",
+      "url": "https://www.masano.mercedesdealer.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Bobby Rahal Motorcar Company",
+      "url": "https://www.bobbyrahalmotorcar.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Mercedes-Benz of Marietta",
+      "url": "https://www.mbmarietta.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Flagship Motorcars of Lynnfield",
+      "url": "https://www.flagshipmotorcars.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Knauz Autopark",
+      "url": "https://www.knauz.com",
+      "dealertype": "DealerCom",
+      "region": "Midwest"
+    },
+    {
+      "make": "Mercedes-Benz",
+      "name": "Critz Mercedes-Benz",
+      "url": "https://www.critz.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
     }
   ]
 }
