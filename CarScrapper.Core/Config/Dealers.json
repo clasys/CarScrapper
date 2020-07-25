@@ -994,6 +994,85 @@
       "region": "Northeast"
     },
 
+    //Volkswagen
+    {
+      "make": "Volkswagen",
+      "name": "Andy Mohr Volkswagen",
+      "url": "https://www.andymohrvw.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Volkswagen of Hartford",
+      "url": "https://www.vwofhartford.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Flemington Volkswagen",
+      "url": "https://www.flemingtonvw.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Lewisville Volkswagen",
+      "url": "https://www.lewisvillevw.com",
+      "dealertype": "DealerOn",
+      "region": "Southwest"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Hamilton Volkswagen",
+      "url": "https://www.hamiltonvw.net",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Shearer Volkswagen of South Burlington",
+      "url": "https://www.shearervw.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Volkswagen of Naples",
+      "url": "https://www.vwofnaples.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Reydel Volkswagen",
+      "url": "https://www.reydelvw.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Volkswagen of Ocala",
+      "url": "https://www.vwofocala.com",
+      "dealertype": "DealerOn",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Shrewsbury Volkswagen",
+      "url": "https://www.shrewsburyvw.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+    {
+      "make": "Volkswagen",
+      "name": "Open Road Auto Group",
+      "url": "https://www.openroad.com",
+      "dealertype": "DealerOn",
+      "region": "Northeast"
+    },
+
 
 
 
@@ -1298,6 +1377,27 @@
       "url": "https://www.sonicautomotive.com",
       "dealertype": "DealerCom",
       "region": "All"
+    },
+    {
+      "make": "Acura",
+      "name": "Crest Acura",
+      "url": "https://www.crestacura.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Acura",
+      "name": "Acura Hunt Valley",
+      "url": "https://www.acurahuntvalley.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
+    },
+    {
+      "make": "Acura",
+      "name": "MotorWorld Acura",
+      "url": "https://www.motorworldacura.com",
+      "dealertype": "DealerCom",
+      "region": "Northeast"
     },
 
     //Genesis
