@@ -2105,71 +2105,170 @@
       "name": "Fred Beans Cadillac",
       "url": "https://www.fredbeanscadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Star Cadillac",
       "url": "https://www.starcadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Kutztown Cadillac",
       "url": "https://www.kutztowncadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Faulkner Cadillac Bethlehem",
       "url": "https://www.cadillacoflehighvalley.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Open Road Cadillac",
       "url": "https://www.morristowncadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Gold Coast Cadillac",
       "url": "https://www.goldcoastcadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Coleman Cadillac",
       "url": "https://www.colemancadillacnj.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Malouf Cadillac",
       "url": "https://www.maloufcadillaccars.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Brogan Cadillac of Totowa",
       "url": "https://www.brogancadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
     },
     {
       "make": "Cadillac",
       "name": "Pine Belt Cadillac",
       "url": "https://www.pinebeltcadillac.com",
       "dealertype": "CustomCaddy",
-      "region": "NorthEast"
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Faulkner Cadillac Trevose",
+      "url": "https://www.faulknercadillactrevose.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Grand Prize Cadillac",
+      "url": "https://www.grandprizecadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Matthews Cadillac",
+      "url": "https://www.matthewscadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "King O'Rourke Cadillac",
+      "url": "https://www.kingorourkecadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Faulkner Cadillac Mechanicsburg",
+      "url": "https://www.faulknercadillacmechanicsburg.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Edwards Cadillac",
+      "url": "https://www.edwardscadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Fremont Cadillac",
+      "url": "https://www.fremontcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "West"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Diamond Cadillac",
+      "url": "https://www.choosediamondcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Lockhart Cadillac",
+      "url": "https://www.greenwoodcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Midwest"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Burke Cadillac",
+      "url": "https://www.burkecadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Trent Cadillac",
+      "url": "https://www.trentcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Southeast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Reliable Cadillac",
+      "url": "https://www.reliable-cadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "West"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Brotherton Cadillac",
+      "url": "https://www.brothertoncadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "West"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Miller Brothers Cadillac",
+      "url": "http://www.millerbrotherscadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "Northeast"
     }
+
 
 
 
