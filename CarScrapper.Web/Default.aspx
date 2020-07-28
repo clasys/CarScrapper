@@ -249,7 +249,7 @@
                             <input type="radio" id="rDealerInspire" name="dealerType" value="DealerInspire" />search DealerInspire sites<br />
                             <input type="radio" id="rDealerCom" name="dealerType" value="DealerCom"  />search DealerCom sites<br/>
                             <input type="radio" id="rAll" name="dealerType" value="All" checked="checked"  />search all (slow)<br/><br />
-                            <input type="checkbox" id="cbLoanerOnly"/>loaners only<br />(works only with Volvo DealerCom sites)<br />
+                            <input type="checkbox" id="cbLoanerOnly"/>loaners only<br />(works only with Volvo DealerCom sites<br />and certain Cadillac dealers)<br />
                         </td>
                         <td>
                             <input type="radio" id="regionsNe" name="region" value="Northeast" checked="checked" />Northeast<br/>

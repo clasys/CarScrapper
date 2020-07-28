@@ -54,6 +54,10 @@ namespace CarScraper.Web.API
                         break;
                 }
 
+                //custom selectors conditionally added here
+                if (carSearch.Make.ToLower() == "cadillac")
+                    prefs.Add(new ProcessingPreferences(new CustomCaddySelector(carSearch.Model, carSearch.IsLoaner ? InventoryType.Loaner : InventoryType.New, carSearch.Region)));
+
                 var processor = new Processor(prefs.ToArray());
                 var scrapeResults = processor.Scrap();
 

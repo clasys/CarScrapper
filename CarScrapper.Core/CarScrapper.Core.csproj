@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="BaseSelector.cs" />
     <Compile Include="CarInfo.cs" />
+    <Compile Include="CustomCaddySelector.cs" />
     <Compile Include="DealerComSelector.cs" />
     <Compile Include="DealerInfo.cs" />
     <Compile Include="Enums.cs" />

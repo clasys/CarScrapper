@@ -2095,7 +2095,84 @@
       "url": "https://www.critz.com",
       "dealertype": "DealerCom",
       "region": "Southeast"
+    },
+
+
+
+    //***************************** CustomCaddy ************************************************
+    {
+      "make": "Cadillac",
+      "name": "Fred Beans Cadillac",
+      "url": "https://www.fredbeanscadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Star Cadillac",
+      "url": "https://www.starcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Kutztown Cadillac",
+      "url": "https://www.kutztowncadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Faulkner Cadillac Bethlehem",
+      "url": "https://www.cadillacoflehighvalley.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Open Road Cadillac",
+      "url": "https://www.morristowncadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Gold Coast Cadillac",
+      "url": "https://www.goldcoastcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Coleman Cadillac",
+      "url": "https://www.colemancadillacnj.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Malouf Cadillac",
+      "url": "https://www.maloufcadillaccars.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Brogan Cadillac of Totowa",
+      "url": "https://www.brogancadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
+    },
+    {
+      "make": "Cadillac",
+      "name": "Pine Belt Cadillac",
+      "url": "https://www.pinebeltcadillac.com",
+      "dealertype": "CustomCaddy",
+      "region": "NorthEast"
     }
+
+
+
   ]
 }
 

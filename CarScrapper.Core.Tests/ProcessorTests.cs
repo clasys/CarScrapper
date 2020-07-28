@@ -45,6 +45,17 @@ namespace CarScrapper.Core.Tests
         }
 
         [TestMethod]
+        public void TestScrapCustomCaddy()
+        {
+            var preferences = new[] { new ProcessingPreferences(new CustomCaddySelector("XT5", InventoryType.New, Regions.All)) };
+            var processor = new Processor(preferences);
+            var result = processor.Scrap();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Count > 0);
+        }
+
+        [TestMethod]
         public void TestScrapToFile()
         {
             //var preferences = new ProcessingPreferences(new DealerOnSelector("BMW", "X2", InventoryType.New));

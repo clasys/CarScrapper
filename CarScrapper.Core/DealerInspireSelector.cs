@@ -50,7 +50,11 @@ namespace CarScrapper.Core
                 new Tuple<string, string>("InteriorColor", "&quot;int_color&quot;:"),
                 new Tuple<string, string>("ExteriorColor", "&quot;ext_color&quot;:"),
                 new Tuple<string, string>("StockNumber", "&quot;stock&quot;:"),
-                new Tuple<string, string>("VIN", "&quot;vin&quot;:")
+                new Tuple<string, string>("VIN", "&quot;vin&quot;:"),
+                new Tuple<string, string>("ExteriorColor", "&quot;"),
+                new Tuple<string, string>("InteriorColor", "&quot;"),
+                new Tuple<string, string>("VIN", "&quot;"),
+                new Tuple<string, string>("StockNumber", "&quot;")
             };
         }
 
