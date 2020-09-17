@@ -1361,6 +1361,146 @@
       "dealertype": "DealerCom",
       "region": "Northeast"
     },
+    {
+      "make": "Volvo",
+      "name": "Deel Volvo",
+      "url": "https://www.deelvolvocars.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Gunther Volvo Coconut Creek",
+      "url": "https://www.gunthervolvocars.net",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Gunther Volvo Delray Beach",
+      "url": "https://www.gunthervolvo.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "McGrath Volvo of Fort Myers",
+      "url": "https://www.mcgrathvolvocarsoffortmyers.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Schumacher Volvo Cars of the Palm Beaches",
+      "url": "https://www.volvoofthepalmbeaches.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Weston Volvo",
+      "url": "https://www.westonvolvocars.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars of Naples",
+      "url": "https://www.volvocarsofnaples.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars North Miami",
+      "url": "https://www.volvocarsnorthmiami.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars Pensacola",
+      "url": "https://www.volvocarspensacola.com/",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Capital Volvo",
+      "url": "https://www.capital-volvo.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "O’Steen Volvo Cars of Jacksonville",
+      "url": "https://www.osteenvolvo.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo of Ocala",
+      "url": "https://www.volvoofocala.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Gunther Volvo Cars Daytona Beach ",
+      "url": "https://www.gunthervolvocarsdaytona.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "The Volvo Store",
+      "url": "https://www.volvowinterpark.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars Melbourne",
+      "url": "https://www.volvocarsmelbourne.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Ferman Volvo Cars of Tarpon Springs",
+      "url": "https://www.fermanvolvotarponsprings.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars Tampa",
+      "url": "https://www.volvocarstampa.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Crown Volvo Cars",
+      "url": "https://www.crownvolvocarsfl.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Volvo Cars Sarasota",
+      "url": "https://www.volvoofsarasota.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
+    {
+      "make": "Volvo",
+      "name": "Wallace Volvo Cars",
+      "url": "https://www.wallacevolvocars.com",
+      "dealertype": "DealerCom",
+      "region": "Southeast"
+    },
 
     //TODO:to parse this dealer, need to implement wait until all elements are set by dynamic scripts before accessing HTML. Main group (Koons) site can then also be used to get the car data for many makes
     //{
