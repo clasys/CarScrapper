@@ -8,6 +8,79 @@
 {
   "dealers": [
     //*********************** DEALERINSPIRE **********************************************
+
+    //Lexus
+    {
+      "make": "Lexus",
+      "name": "Performance Lexus of Cincinnati",
+      "url": "https://www.performancelexus.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Lexington",
+      "url": "https://www.lexusoflexington.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of North Hills, PA",
+      "url": "https://www.lexusofnorthhills.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Rohrich Lexus of Pittsburgh",
+      "url": "https://www.rohrichlexus.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Classic Lexus of Cleveland",
+      "url": "https://www.classiclexus.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Meade Lexus of Lakeside in Utica MI",
+      "url": "https://www.lexusoflakeside.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Meade Lexus of Southfield, MI",
+      "url": "https://www.lexusofsouthfield.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Performance Lexus of River Center",
+      "url": "https://www.performancelexusrivercenter.com",
+      "dealertype": "DealerInspire",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Nashville",
+      "url": "https://www.lexusofnashville.com",
+      "dealertype": "DealerInspire",
+      "region": "Southeast"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Cool Springs",
+      "url": "https://www.lexusofcoolsprings.com",
+      "dealertype": "DealerInspire",
+      "region": "Southeast"
+    },
+
     //BMW
     {
       "make": "BMW",
@@ -814,6 +887,27 @@
       "dealertype": "DealerOn",
       "region": "Southeast"
     },
+    {
+      "make": "Lexus",
+      "name": "Moses Lexus",
+      "url": "https://www.mosescars.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Louisville, KY",
+      "url": "https://www.lexusoflouisville.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Akron-Canton",
+      "url": "https://www.lexusofakron-canton.com",
+      "dealertype": "DealerOn",
+      "region": "Midwest"
+    },
 
     //Mazda
     {
@@ -1078,6 +1172,37 @@
 
     //******************************** DEALER COM *********************************************
     //TODO: Sonic Automotive is huge, add all makes that they offer
+
+    //Lexus
+    {
+      "make": "Lexus",
+      "name": "Lexus of Columbus Easton",
+      "url": "https://www.lexusofeaston.com",
+      "dealertype": "DealerCom",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Dayton, OH",
+      "url": "https://www.lexusofdayton.com",
+      "dealertype": "DealerCom",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Tom Wood Lexus of Indianapolis",
+      "url": "https://www.tomwoodlexus.com",
+      "dealertype": "DealerCom",
+      "region": "Midwest"
+    },
+    {
+      "make": "Lexus",
+      "name": "Lexus of Ft. Wayne",
+      "url": "https://www.lexusofftwayne.com",
+      "dealertype": "DealerCom",
+      "region": "Midwest"
+    },
+
     //GMC
     {
       "make": "GMC",
